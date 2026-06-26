@@ -1067,7 +1067,7 @@
         function navTo(sec){
             if(!sec) return;
             if(!EMB){ try{ sec.scrollIntoView({behavior:'smooth',block:'start'}); }catch(e){ sec.scrollIntoView(); } }
-            else { try{ var y=sec.getBoundingClientRect().top+(window.pageYOffset||document.documentElement.scrollTop||0); parent.postMessage({src:'momuuko-artmug', scrollToY:y}, '*'); }catch(e){} }
+            else { try{ var y=sec.getBoundingClientRect().top+(window.pageYOffset||document.documentElement.scrollTop||0); parent.postMessage({src:'ode-artmug', scrollToY:y}, '*'); }catch(e){} }
         }
         function buildSideNav(){
             var nav=document.getElementById('smNav'); if(!nav) return;
