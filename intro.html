@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ODE — 커미션</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Sans+KR:wght@200;300;400;500&display=swap" rel="stylesheet">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;}
+        :root{
+            --bg:      #faf9f7;
+            --bg2:     #f4f2ef;
+            --bg3:     #edeae5;
+            --ink:     #0f0f0d;
+            --ink60:   rgba(15,15,13,0.6);
+            --ink35:   rgba(15,15,13,0.35);
+            --ink15:   rgba(15,15,13,0.15);
+            --line:    rgba(15,15,13,0.1);
+            --line2:   rgba(15,15,13,0.18);
+            --accent:    #ff6b6b;
+            --accent-d:  #e74c4c;
+            --accent-l:  #ffc9c9;
+            --accent-bg: #fff5f5;
+            --r: 0;
+            --r-sm: 0;
+            --r-xs: 0;
+            --sh-md: 0 22px 70px rgba(15,15,13,0.08);
+            --ink2: rgba(15,15,13,0.72);
+            --ink3: rgba(15,15,13,0.45);
+            --sky: var(--ink);
+            --sky-d: var(--ink);
+            --sky-l: var(--line2);
+            --sky-pl: var(--bg2);
+            --sky-bg: var(--bg);
+            --serif:   'Cormorant Garamond',serif;
+            --sans:    'Noto Sans KR',sans-serif;
+        }
+        body{
+            background:
+                radial-gradient(circle at 50% -20%, rgba(15,15,13,0.07), transparent 34rem),
+                var(--bg);
+            color:var(--ink);
+            font-family:var(--sans);
+            font-weight:300;
+            line-height:1.7;
+            font-size:14px;
+            padding:20px;
+        }
+        body::before{
+            content:'';
+            position:fixed;
+            inset:0;
+            pointer-events:none;
+            border:18px solid var(--ink);
+            z-index:9000;
+        }
+        body > nav,
+        body > .hero,
+        body > .section,
+        body > .total-bar,
+        body > footer{
+            width:min(1180px, calc(100% - 72px));
+            margin-left:auto;
+            margin-right:auto;
+        }
+
+        /* ── NAV ── */
+        nav{
+            /*position:sticky;*/
+            top:0;z-index:100;
+            background:var(--bg);
+            /*border-bottom:1px solid var(--line);*/
+            display:flex;align-items:center;justify-content:space-between;
+            padding:26px 0 18px;
+        }
+        .nav-logo{font-family:var(--serif);font-size:26px;font-weight:400;letter-spacing:0.32em;color:var(--ink);}
+        .nav-sub{font-size:12px;letter-spacing:0.25em;color:var(--ink35);text-transform:uppercase;margin-top:2px;}
+        .nav-lang{display:flex;gap:8px;}
+        .lang-btn{
+            font-size:13px;letter-spacing:0.15em;color:var(--ink35);
+            border:1px solid var(--line2);padding:5px 14px;
+            background:transparent;cursor:pointer;transition:all .2s;
+            font-family:var(--sans);
+        }
+        .lang-btn.active{color:var(--ink);border-color:var(--ink);background:var(--ink);color:var(--bg);}
+        .lang-btn.active:hover{opacity:.65;color:var(--bg);}
+        .lang-btn:hover{border-color:var(--ink);color:var(--ink);}
+
+        /* ── HERO ── */
+        .hero{
+            padding:54px 0 50px;
+            border-top:1px solid var(--line);
+            border-bottom:1px solid var(--line);
+            display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;
+            background:var(--bg);
+        }
+        .hero-box{display: flex;flex-direction: column;gap: 30px;}
+        .hero-desc{font-size:18px;color:var(--ink60);margin-bottom:60px;line-height:1.9;max-width:420px;word-break:keep-all;}
+        .hero-tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom: 20px;}
+        .tag{font-size:12px;letter-spacing:0.12em;color:var(--ink60);border:1px solid var(--line2);padding:5px 14px;}
+        .dotlive{display:inline-flex;width:7px;height:7px;margin-right:10px;border-radius:50%;background:var(--accent-d);box-shadow:0 0 0 0 rgba(236,90,158,.5);animation:pulse 1.8s infinite}
+        @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(236,90,158,.5)}70%{box-shadow:0 0 0 7px rgba(236,90,158,0)}100%{box-shadow:0 0 0 0 rgba(236,90,158,0)}}
+        .hero-ctas{display:flex;gap:12px;}
+        .btn-primary{
+            padding:14px 36px;background:var(--ink);color:var(--bg);
+            font-family:var(--sans);font-size:12px;font-weight:400;letter-spacing:0.25em;text-transform:uppercase;
+            border:none;cursor:pointer;transition:opacity .2s;
+        }
+        .btn-primary:hover{opacity:.65;}
+        .btn-outline{
+            padding:14px 36px;background:transparent;color:var(--ink60);
+            font-family:var(--sans);font-size:12px;letter-spacing:0.25em;text-transform:uppercase;
+            border:1px solid var(--line2);cursor:pointer;transition:all .2s;
+        }
+        .btn-outline:hover{border-color:var(--ink);color:var(--ink);}
+
+        /* Hero right — big ODE mark */
+        .hero-mark{
+            display:flex;flex-direction:column;align-items:flex-end;justify-content:center;
+            gap:16px;
+        }
+        .hero-mark img{
+            display:block;
+            width:min(83%, 520px);
+            height:auto;
+            border:1px solid var(--line);
+            background:#000;
+        }
+        .hero-mark-text{
+            font-family:var(--serif);font-size:120px;font-weight:300;line-height:1;
+            color:rgba(15,15,13,0.05);letter-spacing:-0.04em;user-select:none;
+        }
+        .hero-mark-sub{font-size:9px;letter-spacing:0.4em;color:var(--ink15);text-transform:uppercase;text-align:right;}
+
+        /* ── SECTION ── */
+        .section{padding:34px 36px;
+            border-bottom:1px solid var(--line);
+        }
+        .section-head{margin-bottom:20px;}
+        .section-eyebrow{font-size:12px;letter-spacing:0.4em;color:var(--ink35);text-transform:uppercase;margin-bottom:10px;}
+        .section-title{font-family:var(--sans);font-size:24px;font-weight:300;color:var(--ink);}
+
+        /* ── SLOTS ── */
+        .slot-row{
+            display:grid;grid-template-columns:72px 1fr auto;
+            align-items:center;gap:24px;
+            padding:22px 0;
+            border-bottom:1px solid var(--line);
+        }
+        /*.slot-row:first-child{border-top:1px solid var(--line);}*/
+        .slot-row:last-child{border-bottom: none}
+        .slot-month{
+            /*font-family:var(--serif);*/
+            font-size:18px;font-weight:300;color:var(--ink35);}
+        .slot-dots{display:flex;gap:8px;}
+        .dot{
+            width:20px;height:20px;border-radius:50%;
+            border:1px solid var(--line2);
+            display:flex;align-items:center;justify-content:center;
+        }
+        .dot.filled{background:var(--ink);border-color:var(--ink);}
+        .dot.open{border-color:var(--ink);border-style:dashed;}
+        .slot-status{font-size:12px;letter-spacing:0.2em;text-transform:uppercase;padding:5px 16px;border:1px solid;}
+        .slot-status.closed{color:var(--ink35);border-color:var(--line2);}
+        .slot-status.open{color:var(--ink);border-color:var(--ink);}
+
+        /* ── PORTFOLIO ── */
+        .port-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;}
+        .port-item{
+            aspect-ratio:3.27/4;background:var(--bg2);
+            border:1px solid var(--line);
+            overflow:hidden;position:relative;cursor:pointer;
+            transition:border-color .2s, transform .2s;
+        }
+        .port-item:hover{border-color:var(--ink);transform:translateY(-2px);}
+        .port-item img{width:100%;height:100%;display:block;filter:saturate(.82) contrast(1.02);}
+        .port-placeholder{
+            width:100%;height:100%;
+            display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
+        }
+        .p-icon{font-family:var(--serif);font-size:28px;font-weight:300;color:var(--ink15);}
+        .p-tag{font-size:9px;letter-spacing:0.2em;color:var(--ink15);text-transform:uppercase;}
+        .port-overlay{
+            position:absolute;inset:0;background:rgba(15,15,13,0.6);
+            display:flex;align-items:flex-end;padding:14px;
+            opacity:0;transition:opacity .2s;
+        }
+        .port-item:hover .port-overlay{opacity:1;}
+        .port-label{font-size:10px;letter-spacing:0.15em;color:rgba(250,249,247,0.8);text-transform:uppercase;}
+
+
+
+        .cap{position:absolute;left:12px;right:12px;bottom:10px;color:var(--bg);font-size:10px;letter-spacing:.14em;text-transform:uppercase;text-shadow:0 1px 12px rgba(0,0,0,.6);}
+        .port-loading,.port-empty{text-align:center;padding:34px;color:var(--ink3);font-size:13px;font-weight:600}
+        .port-viewer{display:none;position:relative;background:var(--bg2);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--sh-md);padding:16px;margin-bottom:16px;text-align:center}
+        .port-viewer.open{display:block;animation:fade .2s}
+        .port-viewer img{max-width:100%;max-height:74vh;border-radius:var(--r-sm);display:block;margin:0 auto}
+        .port-viewer .pv-x{position:absolute;top:10px;right:10px;width:38px;height:38px;border:1px solid var(--line);background:var(--bg);border-radius:var(--r-sm);font-size:16px;font-weight:800;color:var(--ink2);cursor:pointer;z-index:2}
+        .port-viewer .pv-x:hover{border-color:var(--ink);color:var(--ink)}
+        .port-viewer .pv-bar{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:12px}
+        .port-viewer .pv-nav{width:44px;height:44px;border:1px solid var(--line);background:var(--bg);border-radius:var(--r-sm);font-size:22px;font-weight:800;color:var(--ink);cursor:pointer;line-height:1}
+        .port-viewer .pv-nav:hover{background:var(--sky-pl);border-color:var(--sky-l)}
+        .port-viewer .pv-cap{font-size:13px;font-weight:700;color:var(--ink2);min-width:90px}
+        .lb{display:none;position:fixed;inset:0;z-index:6000;background:rgba(15,40,65,.88);backdrop-filter:blur(8px);align-items:center;justify-content:center;padding:24px;flex-direction:column;gap:14px}
+        .lb.open{display:flex;animation:fade .2s}
+        @keyframes fade{from{opacity:0}to{opacity:1}}
+        .lb img{max-width:92vw;max-height:78vh;border-radius:10px;box-shadow:0 24px 80px rgba(0,0,0,.5)}
+        .lb-cap{color:#fff;font-weight:700;font-size:14px}
+        .lb-nav{display:flex;gap:12px}
+        .lb-nav button,.lb-x{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:var(--r-sm);padding:9px 20px;font-family:inherit;font-weight:800;font-size:14px;cursor:pointer;transition:background .15s}
+        .lb-nav button:hover,.lb-x:hover{background:rgba(255,255,255,.3)}
+        .lb-x{position:absolute;top:20px;right:20px;width:44px;height:44px;border-radius:var(--r-sm);padding:0;font-size:18px}
+
+
+
+        /* ── STEPS ── */
+        .steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;}
+        .step-item{background:var(--bg2);border:1px solid var(--line);padding:24px 22px;}
+        .step-item.highlight{background:var(--ink);color:var(--bg);}
+        .step-num{font-size:12px;letter-spacing:0.2em;color:var(--ink60);margin-bottom:10px;text-transform:uppercase;}
+        /*.step-item.highlight .step-num{color:rgba(250,249,247,0.4);}*/
+        .step-item.highlight .step-num{color:var(--bg);}
+        .step-name{font-family:var(--sans);font-size:20px;font-weight:300;}
+        .step-sub{font-size:12px;color:var(--ink60);margin-top:4px;}
+        /*.step-item.highlight .step-sub{color:rgba(250,249,247,0.45);}*/
+        .step-item.highlight .step-sub{color:var(--bg);}
+
+        /* ── PRICING ── */
+        .pricing-block{margin-bottom:48px;}
+        .pricing-block-title{
+            font-size:15px;letter-spacing:0.3em;color:var(--ink35);text-transform:uppercase;
+            /*border-bottom:1px solid var(--line);*/
+            padding-bottom:10px;margin-bottom:10px;
+            display:flex;align-items:center;gap:10px;
+        }
+        .new-badge{
+            font-size:12px;letter-spacing:0.12em;
+            background:var(--ink);color:var(--bg);
+            padding:2px 8px;
+        }
+        .accent-rule{width:28px;height:1px;background:var(--ink15);display:inline-block;vertical-align:middle;}
+        .note{font-size:12px;color:var(--ink60);margin-bottom:10px;line-height:1.6;font-weight:600;}
+        .hint{font-size:12px;color:var(--ink60);margin-top:9px;font-weight:600}
+        .price-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;}
+        .price-card{background:var(--bg2);border:1px solid var(--line);padding:24px 20px;}
+        .price-card.featured{background:var(--ink);color:var(--bg);}
+        .price-card-name{font-size:13px;letter-spacing:0.12em;color:var(--ink60);text-transform:uppercase;margin-bottom:12px;}
+        .price-card.featured .price-card-name{color:rgba(250,249,247,0.9);}
+        .price-card-amount{font-family:var(--sans);font-size:18px;font-weight:300;}
+        .price-card-note{font-size:13px;color:var(--ink60);margin-top:10px;line-height:1.6;}
+        .price-card.featured .price-card-note{color:rgba(250,249,247,0.8);}
+
+        /* EXPRESSION TAGS */
+        .expr-grid{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
+        .expr-tag{
+            font-size:12px;letter-spacing:0.1em;
+            border:1px solid var(--line2);padding:6px 16px;
+            color:var(--ink60);cursor:pointer;transition:all .2s;background:transparent;
+            font-family:var(--sans);
+        }
+        .expr-tag:hover,.expr-tag.active{border-color:var(--ink);color:var(--ink);background:var(--bg2);}
+
+        /* OPTIONS */
+        .options-list{display:flex;flex-direction:column;gap:2px;}
+        .option-item{
+            display:grid;grid-template-columns:1fr auto;align-items:center;
+            background:var(--bg);border:1px solid var(--line);
+            padding:16px 20px;gap:16px;
+            transition:background .15s;
+        }
+        .option-item:hover{background:var(--bg2);}
+        .opt-name{font-size:13px;color:var(--ink);}
+        .opt-price{font-size:11px;color:var(--ink35);margin-top:3px;}
+        .qty-ctrl{display:flex;align-items:center;}
+        .qty-btn{
+            width:30px;height:30px;background:transparent;
+            border:1px solid var(--line2);color:var(--ink60);
+            font-size:16px;cursor:pointer;transition:all .15s;
+            display:flex;align-items:center;justify-content:center;font-family:var(--sans);
+        }
+        .qty-btn:hover{border-color:var(--ink);color:var(--ink);background:var(--bg2);}
+        .qty-val{
+            width:38px;height:30px;text-align:center;align-content: center;
+            background:transparent;
+            border-top:1px solid var(--line2);border-bottom:1px solid var(--line2);
+            border-left:none;border-right:none;
+            color:var(--ink);font-family:var(--sans);font-size:12px;
+        }
+
+        /* TOTAL BAR */
+        .total-bar{
+            /*position:sticky;*/
+            bottom:0;z-index:50;
+            background:var(--ink);
+            padding:18px 24px;
+            display:flex;align-items:center;justify-content:space-between;
+            border-top:1px solid rgba(250,249,247,0.1);
+            margin-bottom: 20px;
+        }
+        .total-label{font-size:15px;letter-spacing:0.3em;color:var(--bg);text-transform:uppercase;}
+        .total-amount{font-family:var(--sans);font-size:20px;font-weight:300;color:var(--bg);letter-spacing:-0.01em;}
+        .btn-cta{
+            padding:14px 44px;background:var(--bg);color:var(--ink);
+            font-family:var(--sans);font-size:10px;font-weight:500;letter-spacing:0.25em;text-transform:uppercase;
+            border:none;cursor:pointer;transition:opacity .2s;
+        }
+        .btn-cta:hover{opacity:.9;}
+
+        /* FORM */
+        .form-grid{display:flex;flex-direction:column;gap:3px;}
+        .form-item{background:var(--bg2);border:1px solid var(--line);padding:22px 24px;}
+        .form-label{
+            font-size:13px;letter-spacing:0.25em;color:var(--ink60);text-transform:uppercase;
+            margin-bottom:12px;display:flex;gap:10px;align-items:flex-start;
+        }
+        .form-num{font-family:var(--sans);font-size:13px;color:var(--ink60);flex-shrink:0;}
+        textarea,input[type=text],input[type=email],input[type=url]{
+            width:100%;background:var(--bg);
+            border:1px solid var(--line);
+            color:var(--ink);font-family:var(--sans);font-size:13px;font-weight:300;
+            padding:12px 14px;resize:vertical;outline:none;
+            transition:border-color .2s;
+        }
+        textarea:focus,input:focus{border-color:var(--ink);}
+        textarea{min-height:72px;}
+        ::placeholder{color:var(--ink35);}
+
+        /* live preview */
+        .preview-card{background:var(--bg);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;box-shadow:var(--sh-md);position:sticky;top:16px;margin-top: 46px;}
+        .preview-head{background:var(--sky-pl);border-bottom:1px solid var(--line);padding:12px 16px;display:flex;align-items:center;justify-content:space-between}
+        .preview-head-t{font-size:13px;font-weight:900;color:var(--ink)}
+        .preview-head-b{font-size:9px;font-weight:900;letter-spacing:.1em;color:var(--bg);background:var(--ink);padding:3px 8px;border-radius:var(--r-xs);animation:pulse2 2.4s infinite}
+        @keyframes pulse2{0%,100%{opacity:1}50%{opacity:.55}}
+        .preview-body{padding:14px 16px;font-family:'Noto Sans KR',monospace;font-size:11.5px;line-height:1.85;white-space:pre-wrap;color:var(--ink);max-height:46vh;overflow-y:auto;background:var(--sky-bg)}
+        .preview-total{padding:14px 18px;border-top:1px solid var(--line);background:var(--sky-pl);text-align:center}
+        .preview-total-lbl{font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);margin-bottom:4px}
+        .preview-total-amt{font-family:'Playfair Display',serif;font-size:32px;font-weight:700;color:var(--sky-d);line-height:1}
+        .preview-total-won{font-size:15px;font-weight:900;color:var(--ink2)}
+        .preview-total-cnt{font-size:11px;color:var(--ink3);font-weight:700}
+        .preview-copy{width:100%;padding:15px;border:none;background:var(--ink);color:var(--bg);font-family:inherit;font-size:14px;font-weight:900;cursor:pointer;transition:opacity .15s;letter-spacing:.02em}
+        .preview-copy:hover{opacity:.9}
+        .preview-reset{display:block;width:100%;padding:8px;border:none;border-top:1px solid var(--line);background:var(--bg);color:var(--ink3);font-family:inherit;font-size:11px;font-weight:700;cursor:pointer}
+        .preview-reset:hover{color:var(--ink)}
+
+        .form-2col{display:grid;grid-template-columns:1fr 360px;gap:18px;align-items:start;margin-top:18px}
+        @media(max-width:860px){.form-2col{grid-template-columns:1fr}.preview-card{position:static}}
+
+        /* ACCORDION */
+        .accord-list{display:flex;flex-direction:column;gap:2px;}
+        .accord-item{border:1px solid var(--line);overflow:hidden;}
+        .accord-head{
+            padding:18px 22px;cursor:pointer;
+            display:flex;align-items:center;justify-content:space-between;
+            background:var(--bg2);transition:background .15s;
+        }
+        .accord-head:hover{background:var(--bg3);}
+        .accord-head-left{display:flex;align-items:center;gap:12px;}
+        .accord-icon{font-size:12px;color:var(--ink35);}
+        .accord-label{font-size:12px;color:var(--ink60);letter-spacing:0.05em;}
+        .accord-arrow{font-size:11px;color:var(--ink35);transition:transform .25s;}
+        .accord-item.open .accord-arrow{transform:rotate(180deg);}
+        .accord-body{max-height:0;overflow:hidden;transition:max-height .3s ease;background:var(--bg);}
+        .accord-item.open .accord-body{max-height:400px;}
+        .accord-content{padding:22px 24px;font-size:13px;color:var(--ink60);line-height:2;white-space:pre-line;}
+
+        /* toast */
+        .toast{position:fixed;bottom:54px;left:50%;transform:translateX(-50%) translateY(20px);z-index:9000;background:var(--ink);color:#fff;padding:12px 22px;border-radius:var(--r-sm);font-size:13px;font-weight:800;opacity:0;pointer-events:none;transition:all .3s;}
+        .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+        /* section heading */
+        #sideMini{display:none;position:fixed;top:84px;margin-left:20px;z-index:500;width:150px;background:#fff;border:1px solid var(--line);border-radius:var(--r-sm);box-shadow:var(--sh-md);padding:12px 13px}
+        #sideMini.show{display:block}
+        .sm-tl{font-size:10px;font-weight:800;color:var(--ink3);letter-spacing:.05em}
+        .sm-amt{font-size:16px;font-weight:900;color:var(--sky-d);margin:2px 0 9px;font-variant-numeric:tabular-nums}
+        .sm-nav{display:flex;flex-direction:column;gap:1px;border-top:1px solid var(--line2);padding-top:7px}
+        .sm-link{font-size:11.5px;font-weight:700;color:var(--ink2);padding:5px 7px;border-radius:6px;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+        .sm-link:hover{background:var(--sky-pl);color:var(--sky-d)}
+        @media(max-width:780px){#sideMini{display:none!important}}
+        .sec-title{font-size:18px;font-weight:900;letter-spacing:-.01em;color:var(--ink)}
+
+
+        /* FOOTER */
+        footer{
+            padding:28px 0;
+            display:flex;align-items:center;justify-content:space-between;
+            border-top:1px solid var(--line);
+            background:var(--bg);
+        }
+        .footer-logo{font-family:var(--serif);font-size:16px;letter-spacing:0.4em;color:var(--ink35);}
+        .footer-copy{font-size:9px;letter-spacing:0.2em;color:var(--ink15);text-transform:uppercase;}
+
+        @media(max-width:768px){
+            body::before{border-width:10px;}
+            body > nav,
+            body > .hero,
+            body > .section,
+            body > footer{width:min(100% - 32px, 1180px);}
+            nav,.section,.hero,footer,.total-bar{padding-left:0;padding-right:0;}
+            nav{align-items:flex-start;gap:14px;flex-direction:column;}
+            .nav-lang{width:100%;}
+            .lang-btn{flex:1;}
+            .hero{grid-template-columns:1fr;}
+            .hero-mark{display:flex;align-items:center;order:-1;}
+            .hero-mark img{width:100%;max-height:360px;object-fit:cover;}
+            .port-grid{grid-template-columns:repeat(2,1fr);}
+            .steps-grid,.steps-row2{grid-template-columns:repeat(2,1fr);}
+            .price-cards{grid-template-columns:repeat(2,1fr);}
+            .hero-ctas{flex-direction:column;}
+            .btn-primary,.btn-outline{width:100%;}
+            .slot-row{grid-template-columns:72px 1fr auto;gap:12px;}
+            .preview-card{margin-top: 10px;}
+            footer{align-items:flex-start;flex-direction:column;gap:8px;}
+        }
+        @media(max-width:520px){
+            .port-grid,.price-cards,.steps-grid,.steps-row2{grid-template-columns:1fr;}
+            .hero-desc{font-size:15px;}
+            .section{padding:28px 0;}
+            .option-item{grid-template-columns:1fr auto;align-items:flex-start;}
+            .qty-ctrl{width:100%;}
+            .qty-btn,.qty-val{flex:1;}
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+    <div>
+        <div class="nav-logo">ODE</div>
+        <div class="nav-sub">Objective / Different / Existence</div>
+    </div>
+    <div class="nav-lang">
+        <button class="lang-btn active" id="langKo" onclick="setLang('ko')">한국어</button>
+        <button class="lang-btn" id="langEn" onclick="setLang('en')">EN</button>
+    </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+    <div class="hero-box">
+        <p class="hero-desc" id="heroSub"></p>
+        <div class="hero-tags" id="heroTags"></div>
+        <div class="hero-ctas">
+            <button class="btn-primary" id="ctaPrice" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'})">가격 계산하기</button>
+            <button class="btn-outline" id="ctaPort" onclick="document.getElementById('portfolio').scrollIntoView({behavior:'smooth'})">포트폴리오 보기</button>
+        </div>
+    </div>
+    <div class="hero-mark">
+        <img src="img/logo.png" width="83%">
+    </div>
+</div>
+
+<!-- SLOTS -->
+<section class="section">
+    <div class="section-head">
+        <div class="section-eyebrow">Availability</div>
+        <div class="section-title sec-title" id="slot"></div>
+    </div>
+    <div id="slotRows"></div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="section" id="portfolio">
+    <div class="section-head">
+        <div class="section-eyebrow">Works</div>
+        <div class="section-title sec-title" id="port"></div>
+    </div>
+
+    <div class="port-loading" id="portLoading"></div>
+    <div class="port-empty" id="portEmpty" style="display:none"></div>
+    <div class="port-wrap" id="portWrap">
+        <div class="port-viewer" id="portViewer">
+            <button class="pv-x" onclick="closeLb()" aria-label="닫기">✕</button>
+            <img id="pvImg" alt="">
+            <div class="pv-bar"><button class="pv-nav" onclick="lbNav(-1)">‹</button><span class="pv-cap" id="pvCap"></span><button class="pv-nav" onclick="lbNav(1)">›</button></div>
+        </div>
+        <div class="port-grid" id="portGrid"></div>
+    </div>
+</section>
+
+<!-- STEPS -->
+<section class="section">
+    <div class="section-head">
+        <div class="section-eyebrow">Process</div>
+        <div class="section-title sec-title" id="process"></div>
+    </div>
+    <div class="steps-grid" id="stepGrid"></div>
+</section>
+
+<!-- PRICING -->
+<section class="section" id="pricing">
+    <div class="section-head">
+        <div class="section-eyebrow">Pricing & Order</div>
+        <div class="section-title sec-title" id="priceOrder"></div>
+    </div>
+
+    <div class="card"><div class="pricing-block" id="formGroups"></div></div>
+
+    <div class="form-2col">
+        <!-- LEFT: message + apply -->
+        <div>
+            <div class="form-grid">
+                <div id="aqFill"></div>
+<!--                <div class="form-item" style="margin-top:14px">-->
+<!--                    <div class="form-label" id="l-ref"></div>-->
+<!--                    <input class="inp" id="fixedRef" type="url" placeholder="https://..." oninput="rebuild()">-->
+<!--                </div>-->
+<!--                <div class="form-item">-->
+<!--                    <div class="form-label" id="l-email"></div>-->
+<!--                    <input class="inp" id="fixedEmail" type="email" placeholder="example@gmail.com" oninput="rebuild()">-->
+<!--                </div>-->
+            </div>
+        </div>
+
+        <!-- RIGHT: live preview -->
+        <div class="preview-card">
+            <div class="preview-head"><span class="preview-head-t" id="l-preview"></span><span class="preview-head-b">LIVE</span></div>
+            <div class="preview-body" id="previewBody"></div>
+            <div class="preview-total">
+                <div class="preview-total-lbl" id="l-total"></div>
+                <div><span class="preview-total-amt" id="totalAmt">0</span> <span class="preview-total-won" id="t-won"></span> <span class="preview-total-cnt" id="totalCnt"></span></div>
+            </div>
+            <button class="preview-copy" id="btnCopy" onclick="copyForm()"></button>
+            <button class="preview-reset" id="btnReset" onclick="resetForm()"></button>
+        </div>
+    </div>
+</section>
+
+<!-- ACCORDION -->
+<section class="section">
+    <div class="section-head">
+        <div class="section-eyebrow">Information</div>
+        <div class="section-title sec-title" id="notice"></div>
+    </div>
+    <div class="accord-list" id="accordList"></div>
+</section>
+
+<div class="toast" id="toast"></div>
+
+<!-- lightbox -->
+<div class="lb" id="lb">
+    <button class="lb-x" onclick="closeLb()">✕</button>
+    <img id="lbImg" src="" alt="">
+    <div class="lb-cap" id="lbCap"></div>
+    <div class="lb-nav"><button id="lbPrev" onclick="lbNav(-1)"></button><button id="lbNext" onclick="lbNav(1)"></button></div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <span class="footer-logo">ODE</span>
+    <span class="footer-copy">Objective / Different / Existence</span>
+</footer>
+
+<script>
+
+    /* ════════ UI strings ════════ */
+    var UI={
+        ko:{
+            heroBadge:'Live2D Illustrator · ODE',
+            heroSub:'퀄리티 높고 가성비 있는 그림을 지향합니다.<br>편하게 문의주세요.',
+            ctaPrice:'가격 계산하기', ctaPort:'포트폴리오 보기',
+            tSlots:'작업 슬롯 현황', bSlots:'실시간',
+            tPort:'포트폴리오', bPort:'갤러리',
+            tWork:'작업 순서',
+            tPrice:'가격 계산 & 신청서', bPrice:'간편',
+            tNotice:'작업 안내 & 약관',
+            lApply:'신청양식',
+            lPreview:'작업양식 미리보기', lTotal:'현재 선택 합계', won:'원',
+            cnt:function(n){return '· '+n+'개 선택';}, copy:'📋 양식 복사하기', reset:'↺ 초기화',
+            foot:'© ODE · Live2D Illustration',
+            lbPrev:'‹ 이전', lbNext:'다음 ›',
+            portLoad:'작품을 불러오는 중...', portEmpty:'아직 등록된 작품이 없어요', portErr:'작품을 불러오지 못했어요.',
+            slotOpen:function(n){return n+'자리 OPEN';}, slotFull:'마감',
+            needSel:'먼저 기본 일러스트를 선택해 주세요 ✦', resetDone:'초기화되었어요 ✦', copyDone:'복사 완료! 작가님께 전달해 주세요 📋',
+            emptyPreview:'옵션을 선택하면\n여기에 신청서가 만들어져요 ✦'
+        },
+        en:{
+            heroBadge:'Live2D Illustrator · ODE',
+            heroSub:'Quality artwork at a fair price.<br>Feel free to reach out.',
+            ctaPrice:'Price Calculator', ctaPort:'View Portfolio',
+            tSlots:'Slot Availability', bSlots:'Live',
+            tPort:'Portfolio', bPort:'Gallery',
+            tWork:'Work Process',
+            tPrice:'Price & Order Form', bPrice:'Easy',
+            tNotice:'Terms & Info',
+            lApply:'Application Form',
+            lPreview:'Order Form Preview', lTotal:'Current Total', won:'KRW',
+            cnt:function(n){return '· '+n+' selected';}, copy:'📋 Copy Order Form', reset:'↺ Reset',
+            foot:'© ODE · Live2D Illustration',
+            lbPrev:'‹ Prev', lbNext:'Next ›',
+            portLoad:'Loading artworks...', portEmpty:'No artworks yet', portErr:'Failed to load artworks.',
+            slotOpen:function(n){return n+' slot'+(n>1?'s':'')+' open';}, slotFull:'Full',
+            needSel:'Please select a base illustration first ✦', resetDone:'Reset done ✦', copyDone:'Copied! Please send it to the artist 📋',
+            emptyPreview:'Select options and your\norder form appears here ✦'
+        }
+    };
+
+    /* ════════ work steps ════════ */
+    var STEPS=[
+        {num:'STEP 01', ko:'신청', koSub:'(입금)', en:'Apply', enSub:'(payment)'},
+        {num:'STEP 02', ko:'러프', koSub:'(디자인)', en:'Rough', enSub:'(design)'},
+        {num:'STEP 03', ko:'수정 및 컨펌', en:'Revise & confirm'},
+        {num:'STEP 04', ko:'선화 및 배색', en:'Lineart & colors'},
+        {num:'STEP 05', ko:'2차 컨펌', en:'2nd confirm'},
+        {num:'STEP 06', ko:'채색 및 완성', en:'Coloring & done'},
+        {num:'STEP 07', ko:'컨펌 후', koSub:'추가파츠 제작', en:'After confirm', enSub:'extra parts'},
+        {num:'STEP 08', ko:'전달', koSub:'(완료)', en:'Delivery', enSub:'(complete)', last:true}
+    ];
+
+    /* ════════ DATA (bilingual; ko name used in copied form for dashboard) ════════ */
+    var DATA={
+        hero: {
+            "badgeKo": "Live2D Illustrator · ODE",
+            "badgeEn": "Live2D Illustrator · ODE",
+            "subKo": "퀄리티 높고 가성비 있는 그림을 지향합니다.<br>편하게 문의주세요.",
+            "subEn": "Quality artwork at a fair price.<br>Feel free to reach out."
+        },
+        tags:[
+            {ko:'접수 <b>진행중</b>', en:'<b>Open</b> for requests', live:true, pk:true},
+            {ko:'Live2D <b>전문</b>', en:'Live2D <b>specialist</b>', pk:true},
+            {ko:'작업기간 <b>30일</b>', en:'<b>~30 day</b> turnaround'}
+        ],
+        slots:[
+            {ko:'4월', en:'April', filled:[true,true,false]},
+            {ko:'5월', en:'May', filled:[false,false,false]}
+        ],
+        sections:[
+            {id:'base', ko:'기본 일러스트', en:'Base Illustration', koLabel:'기본 일러스트', tagKo:'필수', tagEn:'Required', tagCls:'req', type:'radio', items:[
+                    {id:'b1', ko:'전신 · 협업용', en:'Full body · Collab', p:1050000, subKo:'🎉 20만원 할인', subEn:'🎉 ₩200,000 off'},
+                    {id:'b2', ko:'전신', en:'Full body', p:1100000, subKo:'🎉 20만원 할인', subEn:'🎉 ₩200,000 off'},
+                    {id:'b3', ko:'반신 (리깅X)', en:'Half body (no rigging)', p:850000},
+                    {id:'b4', ko:'디자인, 전신, 알몸파츠(추후 신의상에 용의), 게임기, 저작권(리깅x)+기본표정파츠 전체', en:'Full package (design + full body + nude parts + game device + copyright, no rigging)', p:1950000}
+                ]},
+            {id:'rig', ko:'리깅 협업 세트', en:'Rigging Collab Set', koLabel:'리깅 협업 세트', type:'radio',
+                noteKo:'리깅은 협업 작가님께 별도 신청이 필요해요.', noteEn:'Rigging must be requested separately from the collab rigger.', items:[
+                    {id:'r1', ko:'리깅 + 전신 세트 (5만원 할인)', en:'Hayena rigging + full body set', p:800000, subKo:'🎉 5만원 할인', subEn:'🎉 ₩50,000 off'},
+                    {id:'r2', ko:'리깅 + 전신 세트 (표정 리깅 무료+5만원 할인)', en:'Momon rigging + full body set', p:900000, subKo:'🎉 표정리깅 전부 무료', subEn:'🎉 all expression rigging free'},
+                    {id:'r3', ko:'리깅 + 전신 세트 (5만원 할인)', en:'Pini rigging + full body set', p:1300000, subKo:'🎉 5만원 할인', subEn:'🎉 ₩50,000 off'}
+                ]},
+            {id:'add', ko:'추가 옵션', en:'Add-ons', koLabel:'추가 옵션', type:'pill',
+                hintKo:'의상·헤어는 먼저 문의 후 선택해 주세요', hintEn:'Please inquire before choosing outfit/hair add-ons', items:[
+                    {id:'a1', ko:'R18 파츠 추가', en:'R18 parts', p:100000},
+                    {id:'a2', ko:'표정·얼굴 파츠 추가', en:'Expression / face parts', p:10000},
+                    {id:'a3', ko:'의상 추가 (전신)', en:'Extra outfit (full body)', p:200000},
+                    {id:'a4', ko:'악세서리·소품 파츠', en:'Accessory / prop parts', p:10000},
+                    {id:'a5', ko:'게임기 파츠 및 맞춤 손·팔', en:'Game device + custom hands/arms', p:150000},
+                    {id:'a6', ko:'헤어 추가', en:'Extra hairstyle', p:200000},
+                    {id:'a7', ko:'센시티브 파츠', en:'Sensitive parts', p:10000},
+                    {id:'a8', ko:'동물귀', en:'Animal ears', p:20000},
+                    {id:'a9', ko:'꼬리', en:'Tail', p:10000},
+                    {id:'a10', ko:'3면도 (단색채색)', en:'3-view sheet (flat color)', p:150000}
+                ]},
+            {id:'debut', ko:'데뷔축전', en:'Debut Celebration', koLabel:'데뷔축전', type:'radio', items:[
+                    {id:'d1', ko:'데뷔축전 전신', en:'Debut art (full body)', p:250000},
+                    {id:'d2', ko:'데뷔축전 (장패드·상업용)', en:'Debut art (mousepad · commercial)', p:450000}
+                ]},
+            {id:'etc', ko:'기타', en:'Others', koLabel:'기타', type:'pill', items:[
+                    {id:'e1', ko:'저작권 구매 (굿즈·모델양도·상업 사용)', en:'Copyright (goods · transfer · commercial)', p:400000},
+                    {id:'e2', ko:'빠른 마감 7일', en:'Rush delivery (7 days)', p:300000},
+                    {id:'e3', ko:'작품 비공개', en:'Private work', p:100000}
+                ]},
+            {id:'expr', ko:'기본 제공 표정(기본 5개 무료)', en:'Free Expressions', koLabel:'기본 제공 표정(기본 5개 무료)', tagKo:'무료', tagEn:'Free', tagCls:'free', type:'expr', items:[
+                    {id:'x1', ko:'빠직', en:'Anger mark'},{id:'x2', ko:'정색 (얼굴 어두워짐)', en:'Deadpan'},{id:'x3', ko:'반짝이는 눈', en:'Sparkly eyes'},
+                    {id:'x4', ko:'하트눈', en:'Heart eyes'},{id:'x5', ko:'눈물', en:'Tears'},{id:'x6', ko:'땀', en:'Sweat'},
+                    {id:'x7', ko:'죽은눈', en:'Dead eyes'},{id:'x8', ko:'동공 작아짐', en:'Shrunk pupils'},{id:'x9', ko:'볼빵빵', en:'Puffed cheeks'}
+                ]}
+        ],
+        notice:[
+            {ico:'🎨', qKo:'작업 범위', qEn:'Scope of Work',
+                aKo:'본 작품은 리깅이 포함된 작품이 아닌 "일러스트" 및 "파츠분리" 작업입니다.\n업계 최고급의 퀄리티를 위해 노력하겠습니다.\n절대 고정틀로 작업하지 않으며, 작업마다 캐릭터 특징이 다르기에 나체의 파츠부터 전부 새로 작업합니다.',
+                aEn:'This is "illustration" + "parts separation" work, not rigging-included work.\nI strive for top-tier industry quality.\nI never use fixed templates — since each character differs, everything is drawn fresh from the nude base parts.'},
+            {ico:'©', qKo:'저작권 안내', qEn:'Copyright',
+                aKo:'작품의 저작권은 작가에게 있습니다.\n굿즈 제작 및 상업적 이용을 위해서는 사용권을 구매해주시길 바랍니다.\n스트리밍 및 유튜브 업로드를 위해서는 구매하실 필요 없습니다.',
+                aEn:'Copyright belongs to the artist.\nPlease purchase a usage license for merchandise or commercial use.\nNo purchase needed for streaming or YouTube uploads.'},
+            {ico:'📢', qKo:'공개 / 포트폴리오', qEn:'Disclosure / Portfolio',
+                aKo:'작품의 무단 수정을 금하며, 작업물은 SNS 및 아트머그의 포트폴리오로 사용될 수 있습니다.\n단 버튜버의 공개과정 특성상 업로드 및 공개일은 조정하실 수 있습니다.',
+                aEn:'Unauthorized modification is prohibited. Works may be used as portfolio on SNS and Artmug.\nDue to the nature of VTuber debuts, upload and reveal dates can be adjusted.'},
+            {ico:'💰', qKo:'디자인비 / 추가 파츠', qEn:'Design Fee / Extra Parts',
+                aKo:'캐릭터의 디자인비는 따로 받고있지 않습니다.\n장신구·패턴과 같이 복잡하거나 개수를 정하기 힘든 부분은 협의가 필요합니다.\n간단 파츠들도 협의 후 가능하면 무료로 작업해드립니다. 먼저 가격 추가하지 마시고 꼭 먼저 문의 부탁드립니다.',
+                aEn:'No separate design fee is charged.\nComplex items like accessories/patterns that are hard to count need discussion.\nSimple parts may be done free after discussion — please inquire first before adding to the price.'},
+            {ico:'📅', qKo:'작업 기한', qEn:'Turnaround',
+                aKo:'작업 기한은 입금일로부터 최소 14일 ~ 최대 30일로 잡고 있습니다.\n작업 기한은 작품의 난이도에 따라 늘어날 수 있습니다.\n바른 마감을 위해 연락처 및 디스코드 통을 요청드릴 수 있습니다.',
+                aEn:'Work takes minimum 14 to maximum 30 days from the payment date.\nThe timeline may extend based on difficulty.\nContact info and a Discord channel may be requested for proper delivery.'},
+            {ico:'🛠', qKo:'수정 / 표정', qEn:'Revisions / Expressions',
+                aKo:'파츠분리 관련 문제는 언제든 무상 수정 가능합니다.\n기본적으로 표정 5개를 제공해 드립니다.',
+                aEn:'Parts-separation issues can be fixed free anytime.\n5 expressions are provided by default.'}
+        ],
+        apply:[
+            {ko:'방송 및 유튜브의 주소 혹은 닉네임 (미정이시라면 공란가능)', en:'Your stream / YouTube URL or nickname (optional if undecided)', type:'textarea'},
+            {ko:'캐릭터의 자세한 설정 (이미지가 있을 시 아트머그 문의에 첨부 부탁드립니다. :) )', en:'Detailed character settings (please attach references to your Artmug inquiry if available :) )', type:'textarea'},
+            {ko:'원하시는 마감일 (빠른마감 여부 등)', en:'Preferred deadline (rush or not, etc.)', type:'textarea'},
+            {ko:'요청사항 및 디테일', en:'Requests and details', type:'textarea'},
+            {ko:'공개여부 (데뷔전 비공개 요청 가능. 데뷔 후 비공개는 포트폴리오 사용 불가 옵션 구매 부탁드립니다.)', en:'Disclosure preference (private before debut OK; for private after debut, please purchase the no-portfolio option)', type:'textarea'},
+            {ko:'메시지 (캐릭터 설명, 특이사항 등 자유롭게 작성해 주세요)', en:'Message (Feel free to describe your character, special notes, etc.)', type:'textarea'},
+            {ko:'레퍼런스 링크 (이미지 URL 등)', en:'Reference link (image URL, etc.)', type:'url'},
+            {ko:'파일 수령 이메일', en:'Email for file delivery', type:'email'}
+        ]
+    };
+    var GH={user:'hmyu-dev',repo:'ODE',folder:'portfolio'};
+
+
+    function toggleAccord(h){
+        var item=h.closest('.accord-item');
+        if(!item)return;
+        item.classList.toggle('open');
+    }
+    document.querySelectorAll('.lang-btn').forEach(b=>{
+        b.addEventListener('click',function(){
+            document.querySelectorAll('.lang-btn').forEach(x=>x.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+    document.querySelectorAll('.expr-tag').forEach(b=>{
+        b.addEventListener('click',function(){this.classList.toggle('active');});
+    });
+
+
+    /* ════════ STATE ════════ */
+    var lang='ko', sel={};
+    function won(n){return n.toLocaleString('en-US');}
+
+    function setLang(l){
+        lang=l; document.documentElement.lang=l;
+        document.getElementById('langKo').classList.toggle('active',l==='ko');
+        document.getElementById('langEn').classList.toggle('active',l==='en');
+        renderAll();
+    }
+    function renderAll(){renderUI();renderTags();renderSlots();renderWork();renderForm();renderApplyFill();renderNotice();rebuild();if(typeof buildSideNav==='function')buildSideNav();}
+
+    function renderUI(){
+        var u=UI[lang];
+        var map={heroBadge:'heroBadge',heroSub:'heroSub'};
+        document.getElementById('heroSub').innerHTML=DATA.hero?(lang==='ko'?DATA.hero.subKo:DATA.hero.subEn):u.heroSub;
+        document.getElementById('ctaPrice').textContent=u.ctaPrice;
+        document.getElementById('ctaPort').textContent=u.ctaPort;
+        set('slot',u.tSlots);set('port',u.tPort)
+        set('process',u.tWork);set('priceOrder',u.tPrice);set('b-price',u.bPrice);set('notice',u.tNotice);
+        set('l-preview',u.lPreview);set('l-total',u.lTotal);set('t-won',u.won);
+        set('btnCopy',u.copy);set('btnReset',u.reset);set('foot',u.foot);
+        set('lbPrev',u.lbPrev);set('lbNext',u.lbNext);
+        document.getElementById('portLoading').textContent=u.portLoad;
+    }
+    function set(id,t){var e=document.getElementById(id);if(e)e.textContent=t;}
+
+    function renderTags(){
+        var h='';
+        DATA.tags.forEach(function(c){
+            h+='<span class="tag'+(c.pk?' pk':'')+'">'+(c.live?'<span class="dotlive"></span>':'')+c[lang]+'</span>';
+        });
+        document.getElementById('heroTags').innerHTML=h;
+    }
+
+    function renderSlots(){
+        var u=UI[lang],h='';
+        DATA.slots.forEach(function(s){
+            var open=s.filled.filter(function(f){return !f;}).length,full=open===0;
+            h+='<div class="slot-row"><div class="slot-month">'+s[lang]+'</div><div class="slot-dots">';
+            s.filled.forEach(function(f){h+='<div class="dot '+(f?'filled':'open')+'"></div>';});
+            h+='</div><span class="slot-status '+(full?'closed':'open')+'">'+(full?u.slotFull:u.slotOpen(open))+'</span></div>';
+        });
+        document.getElementById('slotRows').innerHTML=h;
+    }
+
+    function renderWork(){
+        var h='';
+        STEPS.forEach(function(s){
+            var name=lang==='ko'?s.ko:s.en, sub=lang==='ko'?s.koSub:s.enSub;
+            h+='<div class="step-item'+(s.last?' highlight':'')+'"><div class="step-num">'+s.num+'</div><div class="step-name">'+name+'</div>'+(sub?'<div class="step-sub">'+sub+'</div>':'')+'</div>';
+        });
+        document.getElementById('stepGrid').innerHTML=h;
+    }
+
+    function renderForm(){
+        var h='';
+        DATA.sections.forEach(function(sec){
+            h+='<div class="pricing-block"><div class="pricing-block-title"><span class="accent-rule"></span>'+sec[lang];
+            var tag=lang==='ko'?sec.tagKo:sec.tagEn; if(tag)h+='<span class="new-badge">'+tag+'</span>';
+            h+='</div>';
+            var note=lang==='ko'?sec.noteKo:sec.noteEn; if(note)h+='<div class="note">'+note+'</div>';
+            if(sec.type==='radio'){
+                h+='<div class="price-cards">';
+                sec.items.forEach(function(it){
+                    var sub=lang==='ko'?it.subKo:it.subEn;
+                    h+='<div class="price-card'+(sel[sec.id]===it.id?' featured':'')+'" id="pc-'+it.id+'" onclick="pickRadio(\''+sec.id+'\',\''+it.id+'\')">'+
+                        '<div class="price-card-name">'+it[lang]+'</div><div class="price-card-amount">'+won(it.p)+' '+UI[lang].won+'</div>'+(sub?'<div class="price-card-note">'+sub+'</div>':'')+'</div>';
+                });
+                h+='</div>';
+            } else if(sec.type==='qty'||sec.type==='pill'){ // 수량·다중선택: 박스 + [ − N + ] 스테퍼 (통일)
+                h+='<div class="options-list">';
+                sec.items.forEach(function(it){
+                    var q=(sel[sec.id]&&sel[sec.id][it.id])||0;
+                    h+='<div class="option-item'+(q>0?' on':'')+'" id="qi-'+it.id+'">'+
+                        '<div>' +
+                            '<div class="opt-name">'+it[lang]+'</div>'+
+                            '<div class="opt-price" id="qp-'+it.id+'">'+won(it.p)+' '+UI[lang].won+(q>1?' × '+q+' = '+won(it.p*q):'')+'</div>' +
+                        '</div>'+
+                        '<div class="qty-ctrl">' +
+                            '<button class="qty-btn" onclick="setQty(\''+sec.id+'\',\''+it.id+'\',-1)">−</button>'+
+                            '<span class="qty-val" id="qn-'+it.id+'">'+q+'</span>'+
+                            '<button class="qty-btn" onclick="setQty(\''+sec.id+'\',\''+it.id+'\',1)">＋</button>' +
+                        '</div>' +
+                        '</div>';
+                });
+                h+='</div>';
+            } else { // expr (기본 제공 표정) — 토글 pill
+                h+='<div class="expr-grid">';
+                sec.items.forEach(function(it){
+                    var on=sel[sec.id]&&sel[sec.id][it.id];
+                    var price=sec.type==='expr'?'':' <span class="pp">+'+won(it.p)+'</span>';
+                    h+='<span class="expr-tag'+(on?' active':'')+'" id="pl-'+it.id+'" onclick="togglePill(\''+sec.id+'\',\''+it.id+'\')">'+it[lang]+price+'</span>';
+                });
+                h+='</div>';
+            }
+            var hint=lang==='ko'?sec.hintKo:sec.hintEn; if(hint)h+='<div class="hint">'+hint+'</div>';
+            h+='</div></div>';
+        });
+        document.getElementById('formGroups').innerHTML=h;
+    }
+    function renderApplyFill(){
+        var u=UI[lang];
+        var h='<div class="pricing-block-title"><span class="accent-rule"></span>&nbsp;'+u.lApply+'</div>'
+        + '<div class="form-grid">';
+        DATA.apply.forEach(function(q,i){
+            console.log(q);
+            var prev=document.getElementById('aq_'+i); var val=prev?prev.value:'';
+            h+='<div class="form-item"><div class="form-label">'+q[lang]+'</div>';
+            if(q.type==='textarea') {
+                h+='<textarea class="ta" id="aq_'+i+'" style="min-height:54px" oninput="rebuild()">'+val.replace(/</g,'&lt;')+'</textarea></div>';
+            }
+            else if (q.type==='url') {
+                h+='<input class="ta" id="aq_'+i+'" placeholder="https://..." oninput="rebuild()" type="url">'+val.replace(/</g,'&lt;')+'</div>';
+            }
+            else if (q.type==='email') {
+                h+='<input class="ta" id="aq_'+i+'" placeholder="example@gmail.com" oninput="rebuild()" type="email">'+val.replace(/</g,'&lt;')+'</div>';
+            }
+        });
+        h+='</div>';
+        document.getElementById('aqFill').innerHTML=h;
+    }
+
+    function renderNotice() {
+        var h='';
+        DATA.notice.forEach(function(s){
+            var q=lang==='ko'?s.qKo:s.qEn;
+            var a=lang==='ko'?s.aKo:s.aEn;
+            h+='<div class="accord-item">' +
+                '<div class="accord-head" onClick="toggleAccord(this)">' +
+                  '<div class="accord-head-left"><span class="accord-icon">✦</span><span class="accord-label">'+q+'</span></div>' +
+                  '<span class="accord-arrow">∨</span>' +
+                '</div>' +
+                '<div class="accord-body"><div class="accord-content">'+a+'</div></div>' +
+                '</div>';
+        });
+        document.getElementById('accordList').innerHTML=h;
+    }
+
+    /* ════════ portfolio ════════ */
+    var imgs = [], lbIdx = 0;
+
+    function loadPortfolio() {
+        fetch('https://api.github.com/repos/' + GH.user + '/' + GH.repo + '/contents/' + GH.folder)
+            .then(function (r) {
+                if (!r.ok) throw new Error(r.status);
+                return r.json();
+            })
+            .then(function (data) {
+                imgs = [];
+                (data || []).forEach(function(f){if(f.type==='file'&&/\.(png|jpe?g|gif|webp)$/i.test(f.name)){imgs.push({src:f.download_url,cap:f.name.replace(/\.[^.]+$/,'')});}});
+                document.getElementById('portLoading').style.display='none';
+                if(!imgs.length){var e=document.getElementById('portEmpty');e.style.display='block';e.textContent=UI[lang].portEmpty;return;}
+                var g='';
+                imgs = imgs.reverse();
+                imgs.forEach(function(im,i){g+='<div class="port-item" onclick="openLb('+i+')"><div class="port-placeholder"><img loading="lazy" src="'+im.src+'" alt="'+im.cap+'"></div><div class="cap">'+im.cap+'</div></div>';});
+                document.getElementById('portGrid').innerHTML=g;document.getElementById('portWrap').style.display='block';
+            })
+            .catch(function(){document.getElementById('portLoading').style.display='none';var e=document.getElementById('portEmpty');e.style.display='block';e.textContent=UI[lang].portErr;});
+    }
+    /* iframe 임베드에서도 동작하는 인라인 뷰어 (position:fixed 미사용) */
+    function openLb(i){
+        if(!imgs.length)return; lbIdx=(i+imgs.length)%imgs.length; var im=imgs[lbIdx];
+        document.getElementById('pvImg').src=im.src;
+        document.getElementById('pvImg').alt=im.cap;
+        document.getElementById('pvCap').textContent=(lbIdx+1)+' / '+imgs.length;
+        var v=document.getElementById('portViewer'); v.classList.add('open');
+        try{ v.scrollIntoView({behavior:'smooth',block:'center'}); }catch(e){ v.scrollIntoView(); }
+    }
+    function closeLb(){document.getElementById('portViewer').classList.remove('open');}
+    function lbNav(d){openLb(lbIdx+d);}
+
+    /* ════════ selection ════════ */
+    function findItem(secId,itId){var s=DATA.sections.find(function(x){return x.id===secId;});return s.items.find(function(i){return i.id===itId;});}
+    function pickRadio(secId,itId){
+        var sec=DATA.sections.find(function(s){return s.id===secId;});
+        sec.items.forEach(function(it){var el=document.getElementById('pc-'+it.id);if(el)el.classList.remove('featured');});
+        if(sel[secId]===itId){sel[secId]=null;}else{sel[secId]=itId;document.getElementById('pc-'+itId).classList.add('featured');}
+        rebuild();
+    }
+    function togglePill(secId,itId){
+        if(!sel[secId])sel[secId]={};
+        var el=document.getElementById('pl-'+itId);
+        if(sel[secId][itId]){delete sel[secId][itId];el.classList.remove('active');}
+        else{
+            var sec=DATA.sections.find(function(s){return s.id===secId;});
+            if(sec&&sec.type==='expr'){
+                var max=sec.maxFree||5;
+                if(Object.keys(sel[secId]).length>=max){ toast(lang==='ko'?('기본 제공 표정은 '+max+'개까지 무료예요'):('Up to '+max+' free expressions')); return; }
+            }
+            sel[secId][itId]=true;el.classList.add('active');
+        }
+        rebuild();
+    }
+    function setQty(secId,itId,d){
+        if(!sel[secId])sel[secId]={};
+        var cur=(sel[secId][itId]||0)+d; if(cur<0)cur=0;
+        setQtyVal(secId,itId,cur);
+    }
+    function setQtyVal(secId,itId,val){
+        if(!sel[secId])sel[secId]={};
+        val=parseInt(val,10)||0; if(val<0)val=0;
+        if(val===0)delete sel[secId][itId]; else sel[secId][itId]=val;
+        var it=findItem(secId,itId);
+        var qn=document.getElementById('qn-'+itId); if(qn)qn.textContent=val;
+        var qi=document.getElementById('qi-'+itId); if(qi)qi.classList.toggle('on',val>0);
+        var qp=document.getElementById('qp-'+itId); if(qp)qp.textContent=won(it.p)+' '+UI[lang].won+(val>1?' × '+val+' = '+won(it.p*val):'');
+        rebuild();
+    }
+    function resetForm(){
+        sel={};
+        renderForm(); // 라디오/필/수량 전부 초기 상태로 다시 그림
+        document.getElementById('formMsg').value='';
+        document.getElementById('fixedRef').value='';
+        document.getElementById('fixedEmail').value='';
+        DATA.apply.forEach(function(q,i){var e=document.getElementById('aq_'+i);if(e)e.value='';});
+        rebuild();toast(UI[lang].resetDone);
+    }
+
+    /* ════════ build form text (DASHBOARD-COMPATIBLE, always Korean structure) ════════ */
+    function cleanLabel(s){return s.replace(/^[^\wㄱ-힣]+\s*/,'');}
+    function buildFormText(){
+        var lines=['ODE 작가 · Live2D 의뢰 양식','━━━━━━━━━━━━━━━━━━━━━━━━━━━━',''];
+        var total=0, any=false;
+        DATA.sections.forEach(function(sec){
+            if(sec.type==='radio'){
+                if(!sel[sec.id])return; var it=findItem(sec.id,sel[sec.id]); if(!it)return;
+                any=true;
+                lines.push('▸ '+sec.koLabel); lines.push('  · '+it.ko); lines.push('    → '+won(it.p)+'원'); lines.push('');
+                total+=it.p;
+            } else if(sec.type==='pill'||sec.type==='qty'){
+                if(!sel[sec.id])return; var ids=Object.keys(sel[sec.id]); if(!ids.length)return;
+                any=true; lines.push('▸ '+sec.koLabel);
+                ids.forEach(function(id){var it=findItem(sec.id,id);var q=sel[sec.id][id]||1;lines.push('  · '+it.ko+(q>1?' × '+q+'개':''));lines.push('    → '+won(it.p*q)+'원');total+=it.p*q;});
+                lines.push('');
+            } else if(sec.type==='expr'){
+                if(!sel[sec.id])return; var ids=Object.keys(sel[sec.id]); if(!ids.length)return;
+                var names=ids.map(function(id){return findItem(sec.id,id).ko;});
+                lines.push('▸ '+sec.koLabel+' (무료)'); lines.push('  · '+names.join(', ')); lines.push('');
+            }
+        });
+        lines.push('─────────────────────────────');
+        lines.push('  합계 금액 : '+won(total)+'원');
+        lines.push('─────────────────────────────');
+        lines.push('');lines.push('[ 신청양식 ]');
+        DATA.apply.forEach(function(q,i){
+            var el=document.getElementById('aq_'+i); var v=el?el.value.trim():'';
+            lines.push('▸ '+q.ko); lines.push('  '+(v||'(미입력)')); lines.push('');
+        });
+        lines.push('━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+        lines.push('양식이 완성되면 복사해서 작가님께 전달해주세요 :)');
+        return {text:lines.join('\n'), total:total, any:any};
+    }
+    function countSel(){
+        var c=0;
+        DATA.sections.forEach(function(sec){
+            if(sec.type==='radio'&&sel[sec.id])c++;
+            else if(sel[sec.id])c+=Object.keys(sel[sec.id]).length;
+        });
+        return c;
+    }
+    function mmPostMeta(total){
+        try{
+            if(window.self===window.top) return;
+            var secs=[]; document.querySelectorAll('.section').forEach(function(s){var t=s.querySelector('.sec-title');var lab=t?t.textContent.trim():'';if(lab)secs.push({label:lab, y:s.getBoundingClientRect().top+(window.pageYOffset||document.documentElement.scrollTop||0)});});
+            parent.postMessage({src:'ode-artmug', sections:secs, total:(total||0)}, '*');
+        }catch(e){}
+    }
+    function rebuild(){
+        var r=buildFormText();
+        document.getElementById('totalAmt').textContent=won(r.total);
+        var sm=document.getElementById('smTotal'); if(sm)sm.textContent=won(r.total)+' '+UI[lang].won;
+        mmPostMeta(r.total);
+        var c=countSel();
+        document.getElementById('totalCnt').textContent=c?UI[lang].cnt(c):'';
+        var body=document.getElementById('previewBody');
+        if(!r.any){body.textContent=UI[lang].emptyPreview;body.style.color='var(--ink3)';}
+        else{body.textContent=r.text;body.style.color='var(--ink)';}
+    }
+    function copyForm(){
+        var r=buildFormText();
+        if(!r.any){toast(UI[lang].needSel);return;}
+        navigator.clipboard.writeText(r.text).then(function(){toast(UI[lang].copyDone);}).catch(function(){
+            var ta=document.createElement('textarea');ta.value=r.text;document.body.appendChild(ta);ta.select();document.execCommand('copy');ta.remove();toast(UI[lang].copyDone);
+        });
+    }
+
+    /* ════════ toast ════════ */
+    var toastT;
+    function toast(msg){var el=document.getElementById('toast');el.textContent=msg;el.classList.add('show');clearTimeout(toastT);toastT=setTimeout(function(){el.classList.remove('show');},2200);}
+
+    /* ════════ init ════════ */
+    /* 데이터는 data/commission.json 에서 불러옴 (스튜디오 편집탭에서 수정).
+       불러오기 실패 시 위에 하드코딩된 DATA를 그대로 사용(fallback). */
+    function applyData(j){
+        if(!j)return;
+        if(j.hero)DATA.hero=j.hero;
+        if(j.steps&&j.steps.length)STEPS=j.steps;
+        if(j.chips)DATA.chips=j.chips;
+        if(j.slots)DATA.slots=j.slots;
+        if(j.sections)DATA.sections=j.sections;
+        if(j.notice)DATA.notice=j.notice;
+        if(j.apply)DATA.apply=j.apply;
+        if(j.portfolioOrder)DATA.portfolioOrder=j.portfolioOrder;
+    }
+    function init(){
+        fetch('data/commission.json?t='+Date.now())
+            .then(function(r){return r.ok?r.json():null;})
+            .then(function(j){applyData(j);})
+            .catch(function(){})
+            .then(function(){ setLang('ko'); loadPortfolio(); });
+    }
+    init();
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb();});
+
+    /* ── iframe 자동 높이: 부모(artmug.kr)에 내 높이 전달 ── */
+    (function(){
+        var _lastH=0;
+        /* 실제 콘텐츠 바닥 높이 — body min-height 스트레치/position:fixed·absolute 요소에 영향 안 받음 → 무한루프 차단 */
+        function contentHeight(){
+            var max=0, kids=document.body.children;
+            for(var i=0;i<kids.length;i++){
+                var el=kids[i], pos='';
+                try{ pos=getComputedStyle(el).position; }catch(e){}
+                if(pos==='fixed'||pos==='absolute') continue;
+                var b=el.getBoundingClientRect().bottom + (window.pageYOffset||document.documentElement.scrollTop||0);
+                if(b>max) max=b;
+            }
+            return Math.ceil(max)||document.body.scrollHeight;
+        }
+        function postH(){
+            try{
+                var h=contentHeight();
+                if(Math.abs(h-_lastH)<4) return; _lastH=h;
+                parent.postMessage({src:'ode-artmug', mmHeight:h}, '*');
+            }catch(e){}
+        }
+        if(window.self!==window.top){ try{ document.body.style.minHeight='0'; document.documentElement.style.minHeight='0'; }catch(e){} } // 보조: 스트레치 제거
+        function tick(){ postH(); try{ if(window.mmPostMeta){ var el=document.getElementById('totalAmt'); var t=el?parseInt((el.textContent||'0').replace(/[^\d]/g,''),10)||0:0; mmPostMeta(t); } }catch(e){} }
+        window.addEventListener('load', tick);
+        window.addEventListener('resize', tick);
+        try{ new MutationObserver(postH).observe(document.body, {childList:true,subtree:true,attributes:true,characterData:true}); }catch(e){}
+        setInterval(tick, 1000);
+        tick();
+    })();
+
+    /* ── 떠있는 사이드바 (합계 + 섹션 이동) ── */
+    (function(){
+        var EMB = window.self!==window.top;
+        function navTo(sec){
+            if(!sec) return;
+            if(!EMB){ try{ sec.scrollIntoView({behavior:'smooth',block:'start'}); }catch(e){ sec.scrollIntoView(); } }
+            else { try{ var y=sec.getBoundingClientRect().top+(window.pageYOffset||document.documentElement.scrollTop||0); parent.postMessage({src:'momuuko-artmug', scrollToY:y}, '*'); }catch(e){} }
+        }
+        function buildSideNav(){
+            var nav=document.getElementById('smNav'); if(!nav) return;
+            var secs=document.querySelectorAll('.section'); var h='';
+            secs.forEach(function(s,i){ var t=s.querySelector('.sec-title'); var lab=t?t.textContent.trim():''; if(lab) h+='<div class="sm-link" data-i="'+i+'">'+lab+'</div>'; });
+            nav.innerHTML=h;
+            nav.querySelectorAll('.sm-link').forEach(function(a){ a.addEventListener('click',function(){ navTo(secs[+a.dataset.i]); }); });
+        }
+        function initSide(){
+            window.buildSideNav=buildSideNav;
+            buildSideNav();
+            var sm=document.getElementById('sideMini');
+            if(typeof rebuild==='function') rebuild();              // 합계 동기화
+            if(!EMB){ if(sm) sm.classList.add('show'); }            // 단독 페이지: 고정 표시
+            else {                                                  // 임베드: 부모 스크롤 동기화 시 표시
+                window.addEventListener('message', function(e){
+                    var d=e.data; if(!d||d.src!=='ode-parent'||typeof d.vTop!=='number') return;
+                    if(!sm) return; sm.style.position='absolute'; sm.style.top=(d.vTop+16)+'px'; sm.classList.add('show');
+                });
+            }
+        }
+        if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', initSide); else initSide();
+    })();
+</script>
+<div id="sideMini">
+    <div class="sm-tl">현재 합계</div>
+    <div class="sm-amt" id="smTotal">0 원</div>
+    <div class="sm-nav" id="smNav"></div>
+</div>
+</body>
+</html>
