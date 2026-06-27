@@ -1,12 +1,12 @@
 {
-  "updated": "2026-06-27T06:17:55.823Z",
+  "updated": "2026-06-27T07:13:23.786Z",
   "portfolio": [
     {
       "file": "LILLET_BLANC.jpeg",
       "title": "LILLET_BLANC",
-      "title_en": "",
+      "title_en": "4fc96589028471d221a70f8a2033fc17ffc5323b",
       "tag": "Live2D",
-      "sha": "4fc96589028471d221a70f8a2033fc17ffc5323b"
+      "sha": ""
     },
     {
       "file": "ABSINTHE.jpeg",
@@ -40,3 +40,4 @@
     }
   ]
 }
+
