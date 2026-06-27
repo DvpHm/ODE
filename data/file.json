@@ -1,0 +1,37 @@
+{
+  "updated": "2026-06-27T05:56:24.072Z",
+  "portfolio": [
+    {
+      "file": "LILLET_BLANC.jpeg",
+      "title": "LILLET_BLANC",
+      "title_en": "",
+      "tag": "Live2D"
+    },
+    {
+      "file": "ABSINTHE.jpeg",
+      "title": "ABSINTHE",
+      "title_en": "",
+      "tag": "Live2D"
+    },
+    {
+      "file": "logo.png",
+      "title": "logo",
+      "title_en": "",
+      "tag": "Live2D"
+    }
+  ],
+  "rigging": [
+    {
+      "file": "face.mp4",
+      "title": "얼굴",
+      "title_en": "",
+      "tag": "Rigging"
+    },
+    {
+      "file": "body.mp4",
+      "title": "전신",
+      "title_en": "",
+      "tag": "Rigging"
+    }
+  ]
+}
