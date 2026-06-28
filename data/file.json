@@ -1,17 +1,17 @@
 {
-  "updated": "2026-06-27T08:37:56.942Z",
+  "updated": "2026-06-28T04:15:24.258Z",
   "categories": [
     {
-      "id":"portfolio",
-      "name":"포트폴리오",
-      "sub":"Live2D 일러스트",
-      "num":"01"
+      "id": "portfolio",
+      "name": "포트폴리오",
+      "sub": "Live2D 일러스트",
+      "num": "01"
     },
     {
-      "id":"rigging",
-      "name":"리깅",
-      "sub":"리깅 영상",
-      "num":"02"
+      "id": "rigging",
+      "name": "리깅",
+      "sub": "리깅 영상",
+      "num": "02"
     }
   ],
   "portfolio": [
@@ -19,15 +19,19 @@
       "file": "LILLET_BLANC.jpeg",
       "title": "LILLET_BLANC",
       "title_en": "",
-      "tag": "Live2D",
-      "sha": "4fc96589028471d221a70f8a2033fc17ffc5323b"
+      "tag": "Live2D"
     },
     {
       "file": "ABSINTHE.jpeg",
       "title": "ABSINTHE",
       "title_en": "",
-      "tag": "Live2D",
-      "sha": "19bfdccaad775db496243843576b785364f7e10b"
+      "tag": "Live2D"
+    },
+    {
+      "file": "logo.png",
+      "title": "logo",
+      "title_en": "",
+      "tag": "Live2D"
     }
   ],
   "rigging": [
@@ -35,15 +39,13 @@
       "file": "face.mp4",
       "title": "얼굴",
       "title_en": "",
-      "tag": "Rigging",
-      "sha": "ab0cfb7a8318c6c5948430eb7c1ee5ff48016652"
+      "tag": "Rigging"
     },
     {
       "file": "body.mp4",
       "title": "전신",
       "title_en": "",
-      "tag": "Rigging",
-      "sha": "62c6488660c8bbcc32924e21266f302b1f1ee3ac"
+      "tag": "Rigging"
     }
   ]
 }
