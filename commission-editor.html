@@ -333,7 +333,7 @@
     function addSlot(){D.slots.push({ko:'새 월',en:'',filled:[false,false,false]});renderSlots();}
     function rmSlot(i){D.slots.splice(i,1);renderSlots();}
     function autoSlots(){
-        var raw; try{raw=JSON.parse(localStorage.getItem('mm_dash_v1')||'[]');}catch(e){raw=[];}
+        var raw; try{raw=JSON.parse(localStorage.getItem('ode_dash_v1')||'[]');}catch(e){raw=[];}
         var comms=Array.isArray(raw)?raw:(raw.commissions||[]);
         if(!comms.length){toast('대시보드 의뢰 데이터가 없어요 (같은 브라우저에서 대시보드를 먼저 여세요)','err');return;}
         var DONE=7, byMonth={};

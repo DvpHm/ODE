@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ODE 스튜디오</title>
+<meta name="theme-color" content="#1A1A22">
+<link rel="manifest" href="manifest.json">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700;900&family=Noto+Sans+KR:wght@300;400;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;scrollbar-width:none;-ms-overflow-style:none;}
+*::-webkit-scrollbar{display:none;}
+:root{
+  --Y:#3D8EF0;
+  --bg:#1A1A22;
+  --border:rgba(255,255,255,.12);
+  --text:#F0EEE8;
+  --text2:#B8B4AC;
+  --text3:#7A7870;
+  --display:'Bebas Neue',sans-serif;
+  --cond:'Barlow Condensed',sans-serif;
+  --mono:'DM Mono',monospace;
+}
+html,body{height:100%;overflow:hidden;background:var(--bg);}
+
+/* ── 헤더 ── */
+#shell-header{
+  position:fixed;top:0;left:0;right:0;z-index:999;
+  height:50px;
+  display:flex;align-items:center;gap:16px;
+  padding:0 20px;
+  background:rgba(26,26,34,.97);
+  border-bottom:1px solid var(--border);
+  backdrop-filter:blur(12px);
+}
+.shell-logo{
+  font-family:var(--display);font-size:18px;
+  color:var(--Y);letter-spacing:1.5px;flex-shrink:0;
+}
+.tab-nav{display:flex;gap:2px;}
+.tab-btn{
+  padding:5px 16px;border-radius:8px;border:none;
+  background:transparent;color:var(--text3);
+  font-family:var(--cond);font-size:13px;font-weight:700;letter-spacing:.5px;
+  cursor:pointer;transition:all .15s;white-space:nowrap;
+}
+.tab-btn:hover{color:var(--text2);background:rgba(255,255,255,.05);}
+.tab-btn.active{background:rgba(61,142,240,.15);color:var(--Y);}
+.shell-stats{
+  margin-left:auto;
+  display:flex;gap:16px;align-items:center;
+  font-family:var(--mono);font-size:11px;color:var(--text3);
+  flex-shrink:0;
+}
+.shell-stat b{color:var(--text2);}
+@media(max-width:640px){
+  .shell-stats{display:none;}
+  .tab-btn{padding:5px 10px;font-size:12px;}
+}
+
+/* ── iframe 패널 ── */
+.panel{
+  position:fixed;
+  top:50px;left:0;right:0;bottom:0;
+  border:none;width:100%;height:calc(100vh - 50px);
+  display:none;
+}
+.panel.active{display:block;}
+</style>
+</head>
+<body>
+
+<div id="shell-header">
+  <div class="shell-logo">ODE</div>
+  <nav class="tab-nav">
+    <button class="tab-btn active" onclick="switchTab('dashboard')">대시보드</button>
+    <button class="tab-btn" onclick="switchTab('today')">오늘</button>
+    <button class="tab-btn" onclick="switchTab('planner')">플래너</button>
+    <button class="tab-btn" onclick="switchTab('practice')">연습트래커</button>
+    <button class="tab-btn" onclick="switchTab('editor')">커미션편집</button>
+    <button class="tab-btn" onclick="switchTab('portfolio')">포트폴리오</button>
+    <button class="tab-btn" onclick="switchTab('stats')">통계</button>
+    <button class="tab-btn" onclick="switchTab('quote')">견적서</button>
+  </nav>
+  <div class="shell-stats">
+    <span class="shell-stat">진행 <b id="stat-wip">-</b>건</span>
+    <span class="shell-stat">이번주 마감 <b id="stat-week">-</b>건</span>
+    <span class="shell-stat">스트릭 <b id="stat-streak">-</b>일</span>
+  </div>
+</div>
+
+<iframe id="panel-dashboard" class="panel active" src="d_e5f91a26c0bc49a9.html"></iframe>
+<iframe id="panel-today"     class="panel"        src="today.html"></iframe>
+<iframe id="panel-planner"   class="panel"        src="planner.html"></iframe>
+<iframe id="panel-practice"  class="panel"        src="practice.html"></iframe>
+<iframe id="panel-editor"    class="panel"        src="commission-editor.html"></iframe>
+<iframe id="panel-portfolio" class="panel"        src="portfolio-manager.html"></iframe>
+<iframe id="panel-stats"     class="panel"        src="stats.html"></iframe>
+<iframe id="panel-quote"     class="panel"        src="quote.html"></iframe>
+
+<script>
+function switchTab(id) {
+  var ids = ['dashboard', 'today', 'planner', 'practice', 'editor', 'portfolio', 'stats', 'quote'];
+  document.querySelectorAll('.tab-btn').forEach(function(b, i) {
+    b.classList.toggle('active', ids[i] === id);
+  });
+  document.querySelectorAll('.panel').forEach(function(p) {
+    p.classList.remove('active');
+  });
+  document.getElementById('panel-' + id).classList.add('active');
+}
+
+// 헤더 통계: localStorage 폴링 (같은 origin이므로 직접 읽기 가능)
+function updateStats() {
+  // 진행 건수 & 이번주 마감
+  try {
+    // ode_dash_v1 = 의뢰 배열(직접 저장). stage=숫자(0~7), 7=전달완료, 마감=deadline
+    var raw = JSON.parse(localStorage.getItem('ode_dash_v1') || '[]');
+    var comms = Array.isArray(raw) ? raw : (raw.commissions || []);
+    var DONE = 7;
+    function isActive(c){ return (typeof c.stage === 'number' ? c.stage < DONE : c.stage !== '전달완료') && !c.hidden; }
+    document.getElementById('stat-wip').textContent = comms.filter(isActive).length;
+
+    var now = new Date();
+    var weekStart = new Date(now);
+    weekStart.setDate(now.getDate() - ((now.getDay() + 6) % 7)); // 월요일 시작
+    weekStart.setHours(0,0,0,0);
+    var weekEnd = new Date(weekStart);
+    weekEnd.setDate(weekStart.getDate() + 6);
+    weekEnd.setHours(23,59,59,999);
+    var weekCount = comms.filter(function(c) {
+      var dd = c.deadline || c.due; if (!dd || !isActive(c)) return false;
+      var d = new Date(dd);
+      return d >= weekStart && d <= weekEnd;
+    }).length;
+    document.getElementById('stat-week').textContent = weekCount;
+  } catch(e) {}
+
+  // 연습 스트릭
+  try {
+    var pr = JSON.parse(localStorage.getItem('ode_practice_v2') || '{}');
+    var sessions = pr.sessions || [];
+    var streak = 0;
+    var check = new Date();
+    check.setHours(0,0,0,0);
+    function _ld(d){ return d.getFullYear()+'-'+('0'+(d.getMonth()+1)).slice(-2)+'-'+('0'+d.getDate()).slice(-2); }
+    for (var i = 0; i < 365; i++) {
+      var ds = _ld(check); // 연습트래커와 동일한 로컬 날짜 형식 (KST 어긋남 방지)
+      if (!sessions.some(function(s) { return s.date === ds; })) break;
+      streak++;
+      check.setDate(check.getDate() - 1);
+    }
+    document.getElementById('stat-streak').textContent = streak;
+  } catch(e) {}
+}
+
+updateStats();
+setInterval(updateStats, 5000);
+
+// 서비스워커 등록 (PWA 설치 지원)
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/ODE/sw.js');
+}
+</script>
+</body>
+</html>
