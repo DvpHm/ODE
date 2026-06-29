@@ -11,8 +11,10 @@ const SHELL = [
   '/ODE/stats.html',
   '/ODE/quote.html',
   '/ODE/manifest.json',
-  '/ODE/icons/icon-192.png',
-  '/ODE/icons/icon-512.png'
+  '/ODE/favicon.ico',
+  '/ODE/favicon-16x16.png',
+  '/ODE/favicon-32x32.png',
+  '/ODE/favicon-48x48.png',
 ];
 
 self.addEventListener('install', function(e) {
