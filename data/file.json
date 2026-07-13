@@ -12,34 +12,58 @@
       "name": "리깅",
       "sub": "리깅 영상",
       "num": "02"
+    },
+    {
+      "id": "youtube",
+      "name": "유튜브",
+      "sub": "유튜브 영상",
+      "num": "03"
     }
   ],
   "portfolio": [
     {
+      "type": "file",
       "file": "ABSINTHE.jpeg",
       "title": "ABSINTHE",
       "title_en": "",
-      "tag": "Live2D"
+      "tag": "Live2D",
+      "url": ""
     },
     {
+      "type": "file",
       "file": "LILLET_BLANC.jpeg",
       "title": "LILLET_BLANC",
       "title_en": "",
-      "tag": "Live2D"
+      "tag": "Live2D",
+      "url": ""
     }
   ],
   "rigging": [
     {
+      "type": "file",
       "file": "face.mp4",
       "title": "얼굴",
       "title_en": "",
-      "tag": "Rigging"
+      "tag": "Rigging",
+      "url": ""
     },
     {
+      "type": "file",
       "file": "body.mp4",
       "title": "전신",
       "title_en": "",
-      "tag": "Rigging"
+      "tag": "Rigging",
+      "url": ""
+    }
+  ],
+  "youtube": [
+    {
+      "type": "link",
+      "file": "link",
+      "title": "쇼케이스",
+      "title_en": "",
+      "tag": "Rigging",
+      "url": "https://www.youtube.com/embed/d7mGrq3lZ78?si=MJGUo5bQRlTj1HPB"
     }
   ]
 }

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
-    <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ODE — 커미션</title>
@@ -33,8 +33,8 @@
         }
         body{
             background:
-                    radial-gradient(circle at 50% -20%, rgba(15,15,13,0.07), transparent 34rem),
-                    var(--bg);
+                radial-gradient(circle at 50% -20%, rgba(15,15,13,0.07), transparent 34rem),
+                var(--bg);
             color:var(--ink);
             font-family:var(--sans);
             font-weight:300;
@@ -94,7 +94,7 @@
         .hero-desc{font-size:18px;color:var(--ink60);margin-bottom:60px;line-height:1.9;max-width:420px;word-break:keep-all;}
         .hero-tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom: 20px;}
         .tag{font-size:12px;letter-spacing:0.12em;color:var(--ink60);border:1px solid var(--line2);padding:5px 14px;}
-        .dotlive{display:inline-flex;width:7px;height:7px;margin-right:10px;border-radius:50%;background:var(--ink);box-shadow:0 0 0 0 rgba(236,90,158,.5);animation:pulse 1.8s infinite}
+        .dotlive{display:inline-flex;width:7px;height:7px;margin-right:10px;border-radius:50%;background:var(--accent-d);box-shadow:0 0 0 0 rgba(236,90,158,.5);animation:pulse 1.8s infinite}
         @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(236,90,158,.5)}70%{box-shadow:0 0 0 7px rgba(236,90,158,0)}100%{box-shadow:0 0 0 0 rgba(236,90,158,0)}}
         .hero-ctas{display:flex;gap:12px;}
         .btn-primary{
@@ -109,12 +109,6 @@
             border:1px solid var(--line2);cursor:pointer;transition:all .2s;
         }
         .btn-outline:hover{border-color:var(--ink);color:var(--ink);}
-        .btn-outline2{
-            padding:14px 36px;background:transparent;color:var(--ink60);
-            font-family:var(--sans);font-size:12px;letter-spacing:0.25em;text-transform:uppercase;
-            border:1px solid var(--line2);cursor:pointer;transition:all .2s;
-        }
-        .btn-outline2:hover{border-color:var(--ink);color:var(--ink);}
 
         /* Hero right — big ODE mark */
         .hero-mark{
@@ -139,7 +133,7 @@
 
         /* ── SLOTS ── */
         .slot-row{
-            display:grid;grid-template-columns:100px 1fr auto;
+            display:grid;grid-template-columns:72px 1fr auto;
             align-items:center;gap:24px;
             padding:22px 0;
             border-bottom:1px solid var(--line);
@@ -191,22 +185,9 @@
         .rigg-item video{width:100%;height:100%;display:block;filter:saturate(.82) contrast(1.02);}
         .rigg-item:hover .port-overlay{opacity:1;}
 
-        /* ── RIGGING YOUTUBE ── */
-        .youtb-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px;}
-        .youtb-item{
-            aspect-ratio:4/2.25;
-            background:#ffffff;
-            border:1px solid var(--line);
-            overflow:hidden;position:relative;cursor:pointer;
-            transition:border-color .2s, transform .2s;
-        }
-        .youtb-item:hover{border-color:var(--ink);transform:translateY(-2px);}
-        .youtb-item:hover .port-overlay{opacity:1;}
-
         .cap{position:absolute;left:12px;right:12px;bottom:10px;color:var(--bg);font-size:10px;letter-spacing:.14em;text-transform:uppercase;text-shadow:0 1px 12px rgba(0,0,0,.6);}
         .port-loading,.port-empty{text-align:center;padding:34px;color:var(--ink3);font-size:13px;font-weight:600}
-        /*.port-viewer{display:none;position:relative;background:var(--bg2);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--sh-md);padding:16px;margin-bottom:16px;text-align:center}*/
-        .port-viewer{display:none;position:relative;border-radius:var(--r);padding:16px;margin-bottom:16px;text-align:center}
+        .port-viewer{display:none;position:relative;background:var(--bg2);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--sh-md);padding:16px;margin-bottom:16px;text-align:center}
         .port-viewer.open{display:block;animation:fade .2s}
         .port-viewer img{max-width:75%;border-radius:var(--r-sm);display:block;margin:0 auto}
         .port-viewer .pv-x{position:absolute;top:10px;right:10px;width:38px;height:38px;border:1px solid var(--line);background:var(--bg);border-radius:var(--r-sm);font-size:16px;font-weight:800;color:var(--ink2);cursor:pointer;z-index:2}
@@ -228,22 +209,21 @@
 
 
         /* ── STEPS ── */
-        .steps-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:3px;}
+        .steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;}
         .step-item{background:var(--bg2);border:1px solid var(--line);padding:24px 22px;}
         .step-item.highlight{background:var(--ink);color:var(--bg);}
         .step-num{font-size:12px;letter-spacing:0.2em;color:var(--ink60);margin-bottom:10px;text-transform:uppercase;}
         /*.step-item.highlight .step-num{color:rgba(250,249,247,0.4);}*/
         .step-item.highlight .step-num{color:var(--bg);}
-        .step-name{font-family:var(--sans);font-size:17px;font-weight:300;}
+        .step-name{font-family:var(--sans);font-size:20px;font-weight:300;}
         .step-sub{font-size:12px;color:var(--ink60);margin-top:4px;}
-        .step-desc{font-size:14px;color:var(--ink60);margin-top:4px;}
         /*.step-item.highlight .step-sub{color:rgba(250,249,247,0.45);}*/
         .step-item.highlight .step-sub{color:var(--bg);}
 
         /* ── PRICING ── */
         .pricing-block{margin-bottom:48px;}
         .pricing-block-title{
-            font-size:14px;letter-spacing:0.3em;color:var(--ink35);text-transform:uppercase;
+            font-size:15px;letter-spacing:0.3em;color:var(--ink35);text-transform:uppercase;
             /*border-bottom:1px solid var(--line);*/
             padding-bottom:10px;margin-bottom:10px;
             display:flex;align-items:center;gap:10px;
@@ -257,13 +237,12 @@
         .note{font-size:12px;color:var(--ink60);margin-bottom:10px;line-height:1.6;font-weight:600;}
         .hint{font-size:12px;color:var(--ink60);margin-top:9px;font-weight:600}
         .price-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;}
-        .price-card{background:var(--bg2);border:1px solid var(--line);padding:24px 20px;cursor: pointer}
+        .price-card{background:var(--bg2);border:1px solid var(--line);padding:24px 20px;}
+        .price-card.featured{background:var(--ink);color:var(--bg);}
         .price-card-name{font-size:13px;letter-spacing:0.12em;color:var(--ink60);text-transform:uppercase;margin-bottom:12px;}
+        .price-card.featured .price-card-name{color:rgba(250,249,247,0.9);}
         .price-card-amount{font-family:var(--sans);font-size:18px;font-weight:300;}
         .price-card-note{font-size:13px;color:var(--ink60);margin-top:10px;line-height:1.6;}
-
-        .price-card.featured{background:var(--ink);color:var(--bg);}
-        .price-card.featured .price-card-name{color:rgba(250,249,247,0.9);}
         .price-card.featured .price-card-note{color:rgba(250,249,247,0.8);}
 
         /* EXPRESSION TAGS */
@@ -277,8 +256,7 @@
         .expr-tag:hover,.expr-tag.active{border-color:var(--ink);color:var(--ink);background:var(--bg2);}
 
         /* OPTIONS */
-        /*.options-list{display:flex;flex-direction:column;gap:2px;}*/
-        .options-list{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;}
+        .options-list{display:flex;flex-direction:column;gap:2px;}
         .option-item{
             display:grid;grid-template-columns:1fr auto;align-items:center;
             background:var(--bg);border:1px solid var(--line);
@@ -305,11 +283,11 @@
         }
 
         /* FORM */
-        .form-grid{display:flex;flex-direction:column;gap:5px;}
-        .form-item{background:var(--bg2);border:1px solid var(--line);padding:12px 24px;}
+        .form-grid{display:flex;flex-direction:column;gap:3px;}
+        .form-item{background:var(--bg2);border:1px solid var(--line);padding:22px 24px;}
         .form-label{
             font-size:13px;letter-spacing:0.25em;color:var(--ink60);text-transform:uppercase;
-            margin-bottom:6px;display:flex;gap:10px;align-items:flex-start;
+            margin-bottom:12px;display:flex;gap:10px;align-items:flex-start;
         }
         textarea,input[type=text],input[type=email],input[type=url]{
             width:100%;background:var(--bg);
@@ -323,28 +301,24 @@
         ::placeholder{color:var(--ink35);}
 
         /* live preview */
-        .preview-card{background:var(--bg);border:1.3px solid var(--ink60);border-radius:var(--r);overflow:hidden;box-shadow:var(--sh-md);position:sticky;bottom:16px;margin-top: 46px;}
+        .preview-card{background:var(--bg);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;box-shadow:var(--sh-md);position:sticky;top:16px;margin-top: 46px;}
         .preview-head{background:var(--sky-pl);border-bottom:1px solid var(--line);padding:12px 16px;display:flex;align-items:center;justify-content:space-between}
         .preview-head-t{font-size:13px;font-weight:900;color:var(--ink)}
-        .preview-head-sub{}
         .preview-head-b{font-size:9px;font-weight:900;letter-spacing:.1em;color:var(--bg);background:var(--ink);padding:3px 8px;border-radius:var(--r-xs);animation:pulse2 2.4s infinite}
         @keyframes pulse2{0%,100%{opacity:1}50%{opacity:.55}}
-        /*.preview-body{font-family:'Noto Sans KR',monospace;font-size:11.5px;line-height:1.85;white-space:pre-wrap;color:var(--ink);max-height:46vh;overflow-y:auto;background:var(--sky-bg)}*/
-        .preview-body-contents{padding:14px 16px;display: grid;grid-template-columns:1.5fr 2fr;font-family:'Noto Sans KR',monospace;font-size:11.5px;line-height:1.85;white-space:pre-wrap;color:var(--ink);max-height:40vh;overflow-y:auto;background:var(--sky-bg)}
-        .preview-total-div{display: grid;grid-template-columns: 5fr 2fr 1fr}
-        .preview-total{display:flex;justify-content:space-around;padding:14px 18px;border:1px solid var(--line);background:var(--ink);text-align:center}
-        .preview-total-lbl{font-size:12px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--bg);align-content: center}
-        .preview-total-amt{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--bg);line-height:1}
-        .preview-total-won{font-size:15px;font-weight:900;color:var(--bg)}
+        .preview-body{padding:14px 16px;font-family:'Noto Sans KR',monospace;font-size:11.5px;line-height:1.85;white-space:pre-wrap;color:var(--ink);max-height:46vh;overflow-y:auto;background:var(--sky-bg)}
+        .preview-total{padding:14px 18px;border-top:1px solid var(--line);background:var(--sky-pl);text-align:center}
+        .preview-total-lbl{font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);margin-bottom:4px}
+        .preview-total-amt{font-family:'Playfair Display',serif;font-size:32px;font-weight:700;color:var(--sky-d);line-height:1}
+        .preview-total-won{font-size:15px;font-weight:900;color:var(--ink2)}
         .preview-total-cnt{font-size:11px;color:var(--ink3);font-weight:700}
-        .preview-copy{width:100%;padding:15px;border:1px solid var(--line);background:var(--sky-pl);color:var(--ink2);font-family:inherit;font-size:13px;font-weight:700;cursor:pointer;transition:opacity .15s;letter-spacing:.02em}
+        .preview-copy{width:100%;padding:15px;border:none;background:var(--ink);color:var(--bg);font-family:inherit;font-size:14px;font-weight:900;cursor:pointer;transition:opacity .15s;letter-spacing:.02em}
         .preview-copy:hover{opacity:.9}
-        .preview-reset{display:block;width:100%;padding:8px;border:1px solid var(--line);border-top:1px solid var(--line);background:var(--bg);color:var(--ink3);font-family:inherit;font-size:13px;font-weight:700;cursor:pointer}
+        .preview-reset{display:block;width:100%;padding:8px;border:none;border-top:1px solid var(--line);background:var(--bg);color:var(--ink3);font-family:inherit;font-size:11px;font-weight:700;cursor:pointer}
         .preview-reset:hover{color:var(--ink)}
 
-        /*.form-2col{display:grid;grid-template-columns:1fr 360px;gap:18px;align-items:start;margin-top:18px}*/
-        .form-2col{display:grid;gap:18px;align-items:start;margin-top:18px}
-        /*@media(max-width:860px){.form-2col{grid-template-columns:1fr}.preview-card{position:static}}*/
+        .form-2col{display:grid;grid-template-columns:1fr 360px;gap:18px;align-items:start;margin-top:18px}
+        @media(max-width:860px){.form-2col{grid-template-columns:1fr}.preview-card{position:static}}
 
         /* ACCORDION */
         .accord-list{display:flex;flex-direction:column;gap:2px;}
@@ -356,8 +330,8 @@
         }
         .accord-head:hover{background:var(--bg3);}
         .accord-head-left{display:flex;align-items:center;gap:12px;}
-        .accord-icon{font-size:14px;}
-        .accord-label{font-size:14px;color:var(--ink60);letter-spacing:0.05em;}
+        .accord-icon{font-size:12px;color:var(--ink35);}
+        .accord-label{font-size:12px;color:var(--ink60);letter-spacing:0.05em;}
         .accord-arrow{font-size:11px;color:var(--ink35);transition:transform .25s;}
         .accord-item.open .accord-arrow{transform:rotate(180deg);}
         .accord-body{max-height:0;overflow:hidden;transition:max-height .3s ease;background:var(--bg);}
@@ -390,9 +364,6 @@
         .footer-logo{font-family:var(--serif);font-size:16px;letter-spacing:0.4em;color:var(--ink35);}
         .footer-copy{font-size:9px;letter-spacing:0.2em;color:var(--ink15);text-transform:uppercase;}
 
-        @media(max-width:860px){
-            .preview-body-contents{grid-template-columns: 1fr}
-        }
         @media(max-width:768px){
             body::before{border-width:10px;}
             body > nav,
@@ -408,26 +379,21 @@
             .hero-mark img{width:100%;max-height:360px;object-fit:cover;}
             .port-grid{grid-template-columns:repeat(2,1fr);}
             .rigg-grid{grid-template-columns:repeat(2,1fr);}
-            .youtb-grid{grid-template-columns:repeat(1,1fr);}
             .steps-grid,.steps-row2{grid-template-columns:repeat(2,1fr);}
             .price-cards{grid-template-columns:repeat(2,1fr);}
-            .options-list{display:grid;grid-template-columns:1fr 1fr;gap:2px;}
             .hero-ctas{flex-direction:column;}
             .btn-primary,.btn-outline{width:100%;}
-            .slot-row{grid-template-columns:100px 1fr auto;gap:12px;}
+            .slot-row{grid-template-columns:72px 1fr auto;gap:12px;}
             .preview-card{margin-top: 10px;}
-            .preview-head-div{display: flex;flex-direction: column;}
             footer{align-items:flex-start;flex-direction:column;gap:8px;}
         }
         @media(max-width:520px){
             .port-grid,.rigg-grid,.price-cards,.steps-grid,.steps-row2{grid-template-columns:1fr;}
             .hero-desc{font-size:15px;}
             .section{padding:28px 0;}
-            .options-list{display:grid;grid-template-columns:1fr;gap:2px;}
             .option-item{grid-template-columns:1fr auto;align-items:flex-start;}
             .qty-ctrl{width:100%;}
             .qty-btn,.qty-val{flex:1;}
-            .preview-total-div{display: flex;flex-direction: column;}
         }
     </style>
 </head>
@@ -469,21 +435,11 @@
     <div id="slotRows"></div>
 </section>
 
-<!-- IMPORTANT -->
-<section class="section" style="border: 1px solid">
-    <!--    <div class="section-head">-->
-    <!--        <div class="section-eyebrow">Notice</div>-->
-    <!--        <div class="section-title sec-title" id="important"></div>-->
-    <!--    </div>-->
-    <div id="importantRows"></div>
-</section>
-
 <!-- PORTFOLIO -->
-<section class="section" id="portfolio" style="border-bottom: none">
+<section class="section" id="portfolio">
     <div class="section-head">
         <div class="section-eyebrow">Works</div>
         <div class="section-title sec-title" id="port"></div>
-        <div id="portNoti"></div>
     </div>
 
     <div class="port-loading" id="portLoading"></div>
@@ -498,8 +454,9 @@
     </div>
 </section>
 
-<section class="section" id="rigging" style="border-bottom: none">
+<section class="section" id="rigging">
     <div class="section-head">
+        <div class="section-eyebrow">Works</div>
         <div class="section-title sec-title" id="rigg"></div>
     </div>
 
@@ -507,18 +464,6 @@
     <div class="port-empty" id="riggEmpty" style="display:none"></div>
     <div class="rigg-wrap" id="riggWrap">
         <div class="rigg-grid" id="riggGrid"></div>
-    </div>
-</section>
-
-<section class="section" id="youtube">
-    <div class="section-head">
-        <div class="section-title sec-title" id="youtb"></div>
-    </div>
-
-    <div class="port-loading" id="youtbLoading"></div>
-    <div class="port-empty" id="youtbEmpty" style="display:none"></div>
-    <div class="youtb-wrap" id="youtbWrap">
-        <div class="youtb-grid" id="youtbGrid"></div>
     </div>
 </section>
 
@@ -547,26 +492,14 @@
                 <div id="aqFill"></div>
             </div>
         </div>
-    </div>
-    <!-- RIGHT: live preview -->
-    <div class="preview-card">
-        <div class="preview-head">
-            <div class="preview-head-div">
-                <span class="preview-head-t" id="l-preview" style="margin-right: 10px"></span>
-                <span class="preview-head-sub" id="r-preview"></span>
-            </div>
-            <button class="btn-outline2" id="previewBtn" onclick="togglePreview()" style="padding: 5px 10px;">펼치기</button>
-        </div>
-        <div class="preview-body" id="previewBody" style="display: none">
-            <div class="preview-body-contents">
-                <div id="previewPrice"></div>
-                <div id="previewContents"></div>
-            </div>
-        </div>
-        <div class="preview-total-div">
+
+        <!-- RIGHT: live preview -->
+        <div class="preview-card">
+            <div class="preview-head"><span class="preview-head-t" id="l-preview"></span><span class="preview-head-b">LIVE</span></div>
+            <div class="preview-body" id="previewBody"></div>
             <div class="preview-total">
                 <div class="preview-total-lbl" id="l-total"></div>
-                <div style="text-align: right;align-content:center"><span class="preview-total-amt" id="totalAmt">0</span> <span class="preview-total-won" id="t-won"></span> <span class="preview-total-cnt" id="totalCnt"></span></div>
+                <div><span class="preview-total-amt" id="totalAmt">0</span> <span class="preview-total-won" id="t-won"></span> <span class="preview-total-cnt" id="totalCnt"></span></div>
             </div>
             <button class="preview-copy" id="btnCopy" onclick="copyForm()"></button>
             <button class="preview-reset" id="btnReset" onclick="resetForm()"></button>
@@ -605,10 +538,9 @@
             heroBadge:'Live2D Illustrator · ODE',
             heroSub:'퀄리티 높고 가성비 있는 그림을 지향합니다.<br>편하게 문의주세요.',
             ctaPrice:'가격 계산하기', ctaPort:'포트폴리오 보기',
-            tSlots:'작업 슬롯 현황', bSlots:'실시간', tImportant:'',
+            tSlots:'작업 슬롯 현황', bSlots:'실시간',
             tPort:'포트폴리오', bPort:'갤러리',
-            tRigging:'리깅 샘플',
-            tYoutube:'리깅 영상',
+            tRigging:'리깅',
             tWork:'작업 순서',
             tPrice:'가격 계산 & 신청서', bPrice:'간편',
             tNotice:'작업 안내 & 약관',
@@ -619,18 +551,16 @@
             lbPrev:'‹ 이전', lbNext:'다음 ›',
             portLoad:'작품을 불러오는 중...', portEmpty:'아직 등록된 작품이 없어요', portErr:'작품을 불러오지 못했어요.',
             slotOpen:function(n){return n+'자리 OPEN';}, slotFull:'마감',
-            needSel:'먼저 기본 일러스트를 선택해 주세요.', resetDone:'초기화되었어요 ✦', copyDone:'복사 완료! 작가님께 전달해 주세요 📋',
-            emptyPreview:'옵션을 선택하면 여기에 신청서가 만들어져요.',
-            sendPreview:'양식을 복사해서 작가님께 전달해주세요 :)'
+            needSel:'먼저 기본 일러스트를 선택해 주세요 ✦', resetDone:'초기화되었어요 ✦', copyDone:'복사 완료! 작가님께 전달해 주세요 📋',
+            emptyPreview:'옵션을 선택하면\n여기에 신청서가 만들어져요 ✦'
         },
         en:{
             heroBadge:'Live2D Illustrator · ODE',
             heroSub:'Quality artwork at a fair price.<br>Feel free to reach out.',
             ctaPrice:'Price Calculator', ctaPort:'View Portfolio',
-            tSlots:'Slot Availability', bSlots:'Live',tImportant:'',
+            tSlots:'Slot Availability', bSlots:'Live',
             tPort:'Portfolio', bPort:'Gallery',
-            tRigging:'Rigging Sample',
-            tYoutube:'Rigging Video',
+            tRigging:'Rigging',
             tWork:'Work Process',
             tPrice:'Price & Order Form', bPrice:'Easy',
             tNotice:'Terms & Info',
@@ -641,9 +571,8 @@
             lbPrev:'‹ Prev', lbNext:'Next ›',
             portLoad:'Loading artworks...', portEmpty:'No artworks yet', portErr:'Failed to load artworks.',
             slotOpen:function(n){return n+' slot'+(n>1?'s':'')+' open';}, slotFull:'Full',
-            needSel:'Please select a base illustration first.', resetDone:'Reset done ✦', copyDone:'Copied! Please send it to the artist 📋',
-            emptyPreview:'Select options and your order form appears here.',
-            sendPreview:'Please copy the form and send it to the author :)'
+            needSel:'Please select a base illustration first ✦', resetDone:'Reset done ✦', copyDone:'Copied! Please send it to the artist 📋',
+            emptyPreview:'Select options and your\norder form appears here ✦'
         }
     };
 
@@ -673,47 +602,8 @@
             {ko:'작업기간 <b>30일</b>', en:'<b>~30 day</b> turnaround'}
         ],
         slots:[
-            {ko:'7월', en:'July', filled:[false]},
-            {ko:'8월', en:'August', filled:[false,false]},
-            {ko:'9월', en:'September', filled:[false,false]}
-        ],
-        important: [
-            {
-                ico: '🎨',
-                qKo: '안내 사항',
-                qEn: '',
-                aKo: '본 작업은 Live2D 리깅이 포함되지 않은 파츠 분리 일러스트입니다.<br>디자인이 준비되지 않은 경우 디자인 비용이 추가됩니다.<br>예약은 전액 입금 완료 후 확정됩니다.',
-                aEn: ''
-            },
-            {
-                ico: '🎨',
-                qKo: '작업 사양',
-                qEn: '',
-                aKo: '기본 사이즈 : 4000 × 6000px / 300dpi<br>기본 포즈 : 정면 스탠딩 포즈',
-                aEn: ''
-            },
-            {
-                ico: '🎨',
-                qKo: '수정',
-                qEn: '',
-                aKo: '각 컨펌 단계별 최대 2회 수정 가능합니다.<br>수정 사항은 가능한 한 한 번에 정리하여 전달 부탁드립니다.<br>작가의 누락 및 작업 실수는 수정 횟수에 포함되지 않습니다.<br>작업이 상당 부분 진행된 이후에는 큰 폭의 디자인 변경이 어려울 수 있습니다.<br>리깅시 발생되는 파츠문제는 무료로 수정 가능합니다.',
-                aEn: ''
-            },
-            {
-                ico: '🎨',
-                qKo: '파츠 분리',
-                qEn: '',
-                aKo: 'Live2D 제작에 필요한 기준으로 분리됩니다.<br>리깅 편의를 위한 과도한 추가 분리 요청은 어렵습니다.',
-                aEn: ''
-            }
-        ],
-        port: [
-            {
-                ko: '* 3캐릭 모두 분양중',
-                koSub: '분양을 원하시는 경우 문의 부탁드립니다 ( 표정.팔.소품등 추가 유무등 안내 )',
-                en: '',
-                enSub: ''
-            }
+            {ko:'4월', en:'April', filled:[true,true,false]},
+            {ko:'5월', en:'May', filled:[false,false,false]}
         ],
         sections:[
             {id:'base', ko:'기본 일러스트', en:'Base Illustration', koLabel:'기본 일러스트', tagKo:'필수', tagEn:'Required', tagCls:'req', type:'radio', items:[
@@ -795,16 +685,6 @@
         if(!item)return;
         item.classList.toggle('open');
     }
-    function togglePreview() {
-        console.log(document.getElementById('previewBody').style.display);
-        if (document.getElementById('previewBody').style.display==='none') {
-            document.getElementById('previewBtn').innerText='접기';
-            document.getElementById('previewBody').style.display='block';
-        } else {
-            document.getElementById('previewBtn').innerText='펼치기';
-            document.getElementById('previewBody').style.display='none';
-        }
-    }
     document.querySelectorAll('.lang-btn').forEach(b=>{
         b.addEventListener('click',function(){
             document.querySelectorAll('.lang-btn').forEach(x=>x.classList.remove('active'));
@@ -826,7 +706,7 @@
         document.getElementById('langEn').classList.toggle('active',l==='en');
         renderAll();
     }
-    function renderAll(){renderUI();renderTags();renderSlots();renderImportants();renderPortDesc();renderWork();renderForm();renderApplyFill();renderNotice();rebuild();if(typeof buildSideNav==='function')buildSideNav();}
+    function renderAll(){renderUI();renderTags();renderSlots();renderWork();renderForm();renderApplyFill();renderNotice();rebuild();if(typeof buildSideNav==='function')buildSideNav();}
 
     function renderUI(){
         var u=UI[lang];
@@ -834,14 +714,13 @@
         document.getElementById('heroSub').innerHTML=DATA.hero?(lang==='ko'?DATA.hero.subKo:DATA.hero.subEn):u.heroSub;
         document.getElementById('ctaPrice').textContent=u.ctaPrice;
         document.getElementById('ctaPort').textContent=u.ctaPort;
-        set('slot',u.tSlots);set('important',u.tImportant);set('port',u.tPort);set('rigg',u.tRigging);set('youtb',u.tYoutube);
+        set('slot',u.tSlots);set('port',u.tPort);set('rigg',u.tRigging);
         set('process',u.tWork);set('priceOrder',u.tPrice);set('b-price',u.bPrice);set('notice',u.tNotice);
-        set('l-preview',u.lPreview);set('r-preview',u.sendPreview);set('l-total',u.lTotal);set('t-won',u.won);
+        set('l-preview',u.lPreview);set('l-total',u.lTotal);set('t-won',u.won);
         set('btnCopy',u.copy);set('btnReset',u.reset);set('foot',u.foot);
         set('lbPrev',u.lbPrev);set('lbNext',u.lbNext);
         document.getElementById('portLoading').textContent=u.portLoad;
         document.getElementById('riggLoading').textContent=u.portLoad;
-        document.getElementById('youtbLoading').textContent=u.portLoad;
     }
     function set(id,t){var e=document.getElementById(id);if(e)e.textContent=t;}
 
@@ -862,29 +741,6 @@
             h+='</div><span class="slot-status '+(full?'closed':'open')+'">'+(full?u.slotFull:u.slotOpen(open))+'</span></div>';
         });
         document.getElementById('slotRows').innerHTML=h;
-    }
-
-    function renderImportants(){
-        var h='<div style="display: flex;flex-direction:column;gap: 15px;text-align: center">';
-        DATA.important.forEach(function(s){
-            var q=lang==='ko'?s.qKo:s.qEn;
-            var a=lang==='ko'?s.aKo:s.aEn;
-            h+='<div>' +
-                '<div><span class="sec-title">'+q+'</span></div>' +
-                '<div style="font-size: 15px;margin: 10px 0;">'+a+'</div>' +
-                '</div>';
-        });
-        h+='</div>';
-        document.getElementById('importantRows').innerHTML=h;
-    }
-
-    function renderPortDesc(){
-        var h='';
-        DATA.port.forEach(function(s){
-            var name=lang==='ko'?s.ko:s.en, sub=lang==='ko'?s.koSub:s.enSub;
-            h+='<div style="margin-top: 10px;"><div class="step-desc">'+name+'</div>'+(sub?'<div class="step-desc">'+sub+'</div>':'')+'</div>';
-        });
-        document.getElementById('portNoti').innerHTML=h;
     }
 
     function renderWork(){
@@ -908,9 +764,7 @@
                 sec.items.forEach(function(it){
                     var sub=lang==='ko'?it.subKo:it.subEn;
                     h+='<div class="price-card'+(sel[sec.id]===it.id?' featured':'')+'" id="pc-'+it.id+'" onclick="pickRadio(\''+sec.id+'\',\''+it.id+'\')">'+
-                        '<div class="price-card-name">'+it[lang]+'</div><div class="price-card-amount">'+won(it.p)+' '+UI[lang].won+'</div>'+
-                        (sub?'<div class="price-card-note">'+sub+'</div>':'')+
-                        '</div>';
+                        '<div class="price-card-name">'+it[lang]+'</div><div class="price-card-amount">'+won(it.p)+' '+UI[lang].won+'</div>'+(sub?'<div class="price-card-note">'+sub+'</div>':'')+'</div>';
                 });
                 h+='</div>';
             } else if(sec.type==='qty'||sec.type==='pill'){ // 수량·다중선택: 박스 + [ − N + ] 스테퍼 (통일)
@@ -919,13 +773,13 @@
                     var q=(sel[sec.id]&&sel[sec.id][it.id])||0;
                     h+='<div class="option-item'+(q>0?' on':'')+'" id="qi-'+it.id+'">'+
                         '<div>' +
-                        '<div class="opt-name">'+it[lang]+'</div>'+
-                        '<div class="opt-price" id="qp-'+it.id+'">'+won(it.p)+' '+UI[lang].won+(q>1?' × '+q+' = '+won(it.p*q):'')+'</div>' +
+                            '<div class="opt-name">'+it[lang]+'</div>'+
+                            '<div class="opt-price" id="qp-'+it.id+'">'+won(it.p)+' '+UI[lang].won+(q>1?' × '+q+' = '+won(it.p*q):'')+'</div>' +
                         '</div>'+
                         '<div class="qty-ctrl">' +
-                        '<button class="qty-btn" onclick="setQty(\''+sec.id+'\',\''+it.id+'\',-1)">−</button>'+
-                        '<span class="qty-val" id="qn-'+it.id+'">'+q+'</span>'+
-                        '<button class="qty-btn" onclick="setQty(\''+sec.id+'\',\''+it.id+'\',1)">＋</button>' +
+                            '<button class="qty-btn" onclick="setQty(\''+sec.id+'\',\''+it.id+'\',-1)">−</button>'+
+                            '<span class="qty-val" id="qn-'+it.id+'">'+q+'</span>'+
+                            '<button class="qty-btn" onclick="setQty(\''+sec.id+'\',\''+it.id+'\',1)">＋</button>' +
                         '</div>' +
                         '</div>';
                 });
@@ -937,7 +791,8 @@
                     var price=sec.type==='expr'?'':' <span class="pp">+'+won(it.p)+'</span>';
                     h+='<span class="expr-tag'+(on?' active':'')+'" id="pl-'+it.id+'" onclick="togglePill(\''+sec.id+'\',\''+it.id+'\')">'+it[lang]+price+'</span>';
                 });
-                h+='</div>';
+                h+='</div>' +
+                    '<div class="toast" id="toast"></div>';
             }
             var hint=lang==='ko'?sec.hintKo:sec.hintEn; if(hint)h+='<div class="hint">'+hint+'</div>';
             h+='</div></div>';
@@ -947,15 +802,12 @@
     function renderApplyFill(){
         var u=UI[lang];
         var h='<div class="pricing-block-title"><span class="accent-rule"></span>&nbsp;'+u.lApply+'</div>'
-            + '<div class="form-grid">';
+        + '<div class="form-grid">';
         DATA.apply.forEach(function(q,i){
             var prev=document.getElementById('aq_'+i); var val=prev?prev.value:'';
             h+='<div class="form-item"><div class="form-label">'+q[lang]+'</div>';
             if(q.type==='textarea') {
                 h+='<textarea class="ta" id="aq_'+i+'" style="min-height:54px" oninput="rebuild()">'+val.replace(/</g,'&lt;')+'</textarea></div>';
-            }
-            else if(q.type==='text') {
-                h+='<input class="ta" id="aq_'+i+'" oninput="rebuild()" type="text">'+val.replace(/</g,'&lt;')+'</div>';
             }
             else if (q.type==='url') {
                 h+='<input class="ta" id="aq_'+i+'" placeholder="https://..." oninput="rebuild()" type="url">'+val.replace(/</g,'&lt;')+'</div>';
@@ -975,8 +827,8 @@
             var a=lang==='ko'?s.aKo:s.aEn;
             h+='<div class="accord-item">' +
                 '<div class="accord-head" onClick="toggleAccord(this)">' +
-                '<div class="accord-head-left"><span class="accord-icon">'+s.ico+'</span><span class="accord-label">'+q+'</span></div>' +
-                '<span class="accord-arrow">∨</span>' +
+                  '<div class="accord-head-left"><span class="accord-icon">✦</span><span class="accord-label">'+q+'</span></div>' +
+                  '<span class="accord-arrow">∨</span>' +
                 '</div>' +
                 '<div class="accord-body"><div class="accord-content">'+a+'</div></div>' +
                 '</div>';
@@ -984,66 +836,43 @@
         document.getElementById('accordList').innerHTML=h;
     }
 
-    /* ════════ file = portfolio + rigging + youtube ════════ */
+    /* ════════ file = portfolio + rigging ════════ */
     var imgs = [], lbIdx = 0;
     var videos = [];
-    var links = [];
     function loadFile() {
         fetch("data/file.json")
             .then(r => r.json())
             .then(data => {
                 imgs = [];
                 videos = [];
-                links = [];
 
-                document.getElementById('portLoading').style.display='none';
-                document.getElementById('riggLoading').style.display='none';
-                document.getElementById('youtbLoading').style.display='none';
-
-                // 일러
                 data.portfolio.forEach(f => {
                     var url = 'https://raw.githubusercontent.com/'+GH.user+'/'+GH.repo+'/main/portfolio/'+f.file;
-                    // var url = '/portfolio/'+f.file;
                     if(/\.(png|jpe?g|webp)$/i.test(f.file)){
                         imgs.push({src:url,cap:f.title.replace(/\.[^.]+$/,'')});
                     }
+                    document.getElementById('portLoading').style.display='none';
                 });
                 if(!imgs.length){var e=document.getElementById('portEmpty');e.style.display='block';e.textContent=UI[lang].portEmpty;return;}
                 var g='';
-                // imgs.forEach(function(im,i){g+='<div class="port-item" onclick="openLb('+i+')"><div class="port-placeholder"><img loading="lazy" src="'+im.src+'" alt="'+im.cap+'"></div><div class="cap">'+im.cap+'</div></div>';});
-                imgs.forEach(function(im,i){g+='<div class="port-item" onclick="openLb('+i+')"><div class="port-placeholder"><img loading="lazy" src="'+im.src+'" alt="'+im.cap+'"></div></div>';});
+                imgs.forEach(function(im,i){g+='<div class="port-item" onclick="openLb('+i+')"><div class="port-placeholder"><img loading="lazy" src="'+im.src+'" alt="'+im.cap+'"></div><div class="cap">'+im.cap+'</div></div>';});
                 document.getElementById('portGrid').innerHTML=g;document.getElementById('portWrap').style.display='block';
 
-                // 리깅
                 data.rigging.forEach(f => {
                     var url = 'https://raw.githubusercontent.com/'+GH.user+'/'+GH.repo+'/main/rigging/'+f.file;
-                    // var url = '/rigging/'+f.file;
                     if(/\.(mp4|gif)$/i.test(f.file)){
-                        videos.push({type:f.type,src:url,cap:f.title.replace(/\.[^.]+$/,'')});
+                        videos.push({src:url,cap:f.title.replace(/\.[^.]+$/,'')});
                     }
+                    document.getElementById('riggLoading').style.display='none';
+                    if(!videos.length){var e=document.getElementById('riggEmpty');e.style.display='block';e.textContent=UI[lang].portEmpty;return;}
+                    var g='';
+                    videos.forEach(function(im){g+='<div class="rigg-item"><video loading="lazy" src="'+im.src+'" alt="'+im.cap+'" controls width="300" height="200"></video></div>';});
+                    document.getElementById('riggGrid').innerHTML=g;document.getElementById('riggWrap').style.display='block';
                 });
-                if(!videos.length){var e=document.getElementById('riggEmpty');e.style.display='block';e.textContent=UI[lang].portEmpty;return;}
-                var g='';
-                videos.forEach(function(im){
-                    g+='<div class="rigg-item"><video loading="lazy" src="'+im.src+'" alt="'+im.cap+'" controls width="300" height="200"></video></div>';
-                });
-                document.getElementById('riggGrid').innerHTML=g;document.getElementById('riggWrap').style.display='block';
-
-                // 유튜브
-                data.youtube.forEach(f => {
-                    links.push({type:f.type,src:f.url,cap:f.title.replace(/\.[^.]+$/,'')});
-                });
-                if(!links.length){var e=document.getElementById('youtbEmpty');e.style.display='block';e.textContent=UI[lang].portEmpty;return;}
-                var g='';
-                links.forEach(function(im){
-                    g+='<div class="youtb-item" style="align-content: center"><iframe src="'+im.src+'" alt="'+im.cap+'" width="100%" height="100%" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>';
-                });
-                document.getElementById('youtbGrid').innerHTML=g;document.getElementById('youtbWrap').style.display='block';
             })
             .catch(function(){
                 document.getElementById('portLoading').style.display='none';var e=document.getElementById('portEmpty');e.style.display='block';e.textContent=UI[lang].portErr;
                 document.getElementById('riggLoading').style.display='none';var e=document.getElementById('riggEmpty');e.style.display='block';e.textContent=UI[lang].portErr;
-                document.getElementById('youtbLoading').style.display='none';var e=document.getElementById('youtbEmpty');e.style.display='block';e.textContent=UI[lang].portErr;
             });
     }
 
@@ -1076,7 +905,7 @@
             var sec=DATA.sections.find(function(s){return s.id===secId;});
             if(sec&&sec.type==='expr'){
                 var max=sec.maxFree||5;
-                if(Object.keys(sel[secId]).length>=max){ alert(lang==='ko'?('기본 제공 표정은 '+max+'개까지 무료예요'):('Up to '+max+' free expressions')); return; }
+                if(Object.keys(sel[secId]).length>=max){ toast(lang==='ko'?('기본 제공 표정은 '+max+'개까지 무료예요'):('Up to '+max+' free expressions')); return; }
             }
             sel[secId][itId]=true;el.classList.add('active');
         }
@@ -1138,43 +967,6 @@
         lines.push('양식이 완성되면 복사해서 작가님께 전달해주세요 :)');
         return {text:lines.join('\n'), total:total, any:any};
     }
-
-    function buildFormPriceText(){
-        var lines=['[가격 계산]'];
-        var total=0, any=false;
-        DATA.sections.forEach(function(sec){
-            if(sec.type==='radio'){
-                if(!sel[sec.id])return; var it=findItem(sec.id,sel[sec.id]); if(!it)return;
-                any=true;
-                lines.push('▸ '+sec.koLabel); lines.push('  · '+it.ko); lines.push('    → '+won(it.p)+'원'); lines.push('');
-                total+=it.p;
-            } else if(sec.type==='pill'||sec.type==='qty'){
-                if(!sel[sec.id])return; var ids=Object.keys(sel[sec.id]); if(!ids.length)return;
-                any=true; lines.push('▸ '+sec.koLabel);
-                ids.forEach(function(id){var it=findItem(sec.id,id);var q=sel[sec.id][id]||1;lines.push('  · '+it.ko+(q>1?' × '+q+'개':''));lines.push('    → '+won(it.p*q)+'원');total+=it.p*q;});
-                lines.push('');
-            } else if(sec.type==='expr'){
-                if(!sel[sec.id])return; var ids=Object.keys(sel[sec.id]); if(!ids.length)return;
-                var names=ids.map(function(id){return findItem(sec.id,id).ko;});
-                lines.push('▸ '+sec.koLabel); lines.push('  · '+names.join(', ')); lines.push('');
-            }
-        });
-        lines.pop();
-        lines.push('');
-        lines.push('  합계 금액 : '+won(total)+'원');
-        lines.push('');
-        lines.push('');
-        return {text:lines.join('\n'), total:total, any:any};
-    }
-
-    function buildFormContentsText(){
-        var lines=['[ 신청양식 ]'];
-        DATA.apply.forEach(function(q,i){
-            var el=document.getElementById('aq_'+i); var v=el?el.value.trim():'';
-            lines.push('▸ '+q.ko); lines.push('  '+(v||'(미입력)')); lines.push('');
-        });
-        return {text:lines.join('\n')};
-    }
     function countSel(){
         var c=0;
         DATA.sections.forEach(function(sec){
@@ -1191,15 +983,15 @@
         }catch(e){}
     }
     function rebuild(){
-        var price=buildFormPriceText();
-        var contents=buildFormContentsText();
-        document.getElementById('totalAmt').textContent=won(price.total);
-        var sm=document.getElementById('smTotal'); if(sm)sm.textContent=won(price.total)+' '+UI[lang].won;
-        mmPostMeta(price.total);
-        var bodyPrice=document.getElementById('previewPrice');
-        var bodyContents=document.getElementById('previewContents');
-        if(!price.any){bodyPrice.textContent=UI[lang].emptyPreview;bodyPrice.style.color='var(--ink3)';bodyContents.textContent='';}
-        else{bodyPrice.style.color='var(--ink)';bodyPrice.textContent=price.text;bodyContents.style.color='var(--ink)';bodyContents.textContent=contents.text;}
+        var r=buildFormText();
+        document.getElementById('totalAmt').textContent=won(r.total);
+        var sm=document.getElementById('smTotal'); if(sm)sm.textContent=won(r.total)+' '+UI[lang].won;
+        mmPostMeta(r.total);
+        var c=countSel();
+        document.getElementById('totalCnt').textContent=c?UI[lang].cnt(c):'';
+        var body=document.getElementById('previewBody');
+        if(!r.any){body.textContent=UI[lang].emptyPreview;body.style.color='var(--ink3)';}
+        else{body.textContent=r.text;body.style.color='var(--ink)';}
     }
     function copyForm(){
         var r=buildFormText();
@@ -1226,10 +1018,8 @@
         if(!j)return;
         if(j.hero)DATA.hero=j.hero;
         if(j.steps&&j.steps.length)STEPS=j.steps;
-        if(j.tags)DATA.tags=j.tags;
+        if(j.chips)DATA.chips=j.chips;
         if(j.slots)DATA.slots=j.slots;
-        if(j.important)DATA.important=j.important;
-        if(j.port)DATA.port=j.port;
         if(j.sections)DATA.sections=j.sections;
         if(j.notice)DATA.notice=j.notice;
         if(j.apply)DATA.apply=j.apply;
@@ -1307,11 +1097,10 @@
         if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', initSide); else initSide();
     })();
 </script>
-</body>
-</html>
-</title>
-</head>
-<body>
-
+<div id="sideMini">
+    <div class="sm-tl">현재 합계</div>
+    <div class="sm-amt" id="smTotal">0 원</div>
+    <div class="sm-nav" id="smNav"></div>
+</div>
 </body>
 </html>

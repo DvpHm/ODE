@@ -6,6 +6,82 @@
     "subKo": "퀄리티 높고 가성비 있는 그림을 지향합니다.<br>편하게 문의주세요.",
     "subEn": "Quality artwork at a fair price.<br>Feel free to reach out."
   },
+  "tags": [
+    {
+      "ko": "접수 <b>진행중</b>",
+      "en": "<b>Open</b> for requests",
+      "live": true,
+      "pk": true
+    },
+    {
+      "ko": "Live2D <b>전문</b>",
+      "en": "Live2D <b>specialist</b>",
+      "pk": true
+    },
+    {
+      "ko": "작업기간 <b>30일</b>",
+      "en": "<b>~30 day</b> turnaround"
+    }
+  ],
+  "slots": [
+    {
+      "ko": "7월",
+      "en": "July",
+      "filled": [
+        false
+      ]
+    },
+    {
+      "ko": "8월",
+      "en": "August",
+      "filled": [
+        false,
+        false
+      ]
+    },
+    {
+      "ko": "9월",
+      "en": "September",
+      "filled": [
+        false,
+        false
+      ]
+    }
+  ],
+  "important": [
+    {
+      "qKo": "안내 사항",
+      "qEn": "",
+      "aKo": "본 작업은 Live2D 리깅이 포함되지 않은 파츠 분리 일러스트입니다.<br>디자인이 준비되지 않은 경우 디자인 비용이 추가됩니다.<br>예약은 전액 입금 완료 후 확정됩니다.",
+      "aEn": ""
+    },
+    {
+      "qKo": "작업 사양",
+      "qEn": "",
+      "aKo": "기본 사이즈 : 4000 × 6000px / 300dpi<br>기본 포즈 : 정면 스탠딩 포즈",
+      "aEn": ""
+    },
+    {
+      "qKo": "수정",
+      "qEn": "",
+      "aKo": "각 컨펌 단계별 최대 2회 수정 가능합니다.<br>수정 사항은 가능한 한 한 번에 정리하여 전달 부탁드립니다.<br>작가의 누락 및 작업 실수는 수정 횟수에 포함되지 않습니다.<br>작업이 상당 부분 진행된 이후에는 큰 폭의 디자인 변경이 어려울 수 있습니다.<br>리깅시 발생되는 파츠문제는 무료로 수정 가능합니다.",
+      "aEn": ""
+    },
+    {
+      "qKo": "파츠 분리",
+      "qEn": "",
+      "aKo": "Live2D 제작에 필요한 기준으로 분리됩니다.<br>리깅 편의를 위한 과도한 추가 분리 요청은 어렵습니다.",
+      "aEn": ""
+    }
+  ],
+  "port": [
+    {
+      "ko": "* 3캐릭 모두 분양중",
+      "koSub": "분양을 원하시는 경우 문의 부탁드립니다 ( 표정.팔.소품등 추가 유무등 안내 )",
+      "en": "",
+      "enSub": ""
+    }
+  ],
   "steps": [
     {
       "num": "STEP 01",
@@ -63,52 +139,6 @@
       "en": "Delivery",
       "enSub": "(complete)",
       "last": true
-    }
-  ],
-  "tags": [
-    {
-      "ko": "접수 <b>진행중</b>",
-      "en": "<b>Open</b> for requests",
-      "live": true,
-      "pk": true
-    },
-    {
-      "ko": "Live2D <b>전문</b>",
-      "en": "Live2D <b>specialist</b>",
-      "pk": true
-    },
-    {
-      "ko": "작업기간 <b>30일</b>",
-      "en": "<b>~30 day</b> turnaround"
-    }
-  ],
-  "slots": [
-    {
-      "ko": "6,7월",
-      "en": "July",
-      "filled": [
-        true,
-        true,
-        true,
-        false
-      ]
-    },
-    {
-      "ko": "8월",
-      "en": "August",
-      "filled": [
-        true,
-        false,
-        false
-      ]
-    },
-    {
-      "ko": "9월",
-      "en": "September",
-      "filled": [
-        false,
-        false
-      ]
     }
   ],
   "sections": [
