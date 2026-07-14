@@ -284,7 +284,7 @@
     .memo-ta:focus{border-color:#a78bfa}
     .cc-memo{margin-top:7px;padding:7px 11px;background:rgba(167,139,250,.08);
       border-left:2px solid #a78bfa;border-radius:0 7px 7px 0;
-      font-size:11px;color:#a78bfa;white-space:pre-wrap;max-height:54px;overflow:hidden}
+      font-size:11px;color:#a78bfa;white-space:pre-wrap;overflow-y:auto;max-height: 150px;margin-bottom: 10px;}
 
     /* ── EmailJS 발송 버튼 ── */
     .btn-green{background:rgba(52,211,153,.15);color:#34d399;border:1.5px solid #34d399}
@@ -1208,17 +1208,17 @@
     if(amtLine){ var m=amtLine.match(/([\d,]+)원/); if(m) _parsed.amount=m[1].replace(/,/g,''); }
     document.getElementById('parseAmount').value=_parsed.amount||'';
 
-    /* 이메일 */
-    var emailIdx=lines.findIndex(function(l){return l.includes('파일 수령 이메일');});
-    if(emailIdx>=0 && lines[emailIdx+1]) _parsed.email=lines[emailIdx+1].trim();
-
-    /* 레퍼런스 링크 */
-    var refIdx=lines.findIndex(function(l){return l.includes('레퍼런스 링크');});
-    if(refIdx>=0 && lines[refIdx+1]) _parsed.ref=lines[refIdx+1].trim();
-
-    /* 작가님께 전할 말 (첫 번째 ▸ 섹션) */
-    var msgIdx=lines.findIndex(function(l){return l.includes('작가님께 전할 말');});
-    if(msgIdx>=0 && lines[msgIdx+1]) _parsed.msg=lines[msgIdx+1].trim();
+    // /* 이메일 */
+    // var emailIdx=lines.findIndex(function(l){return l.includes('파일 수령 이메일');});
+    // if(emailIdx>=0 && lines[emailIdx+1]) _parsed.email=lines[emailIdx+1].trim();
+    //
+    // /* 레퍼런스 링크 */
+    // var refIdx=lines.findIndex(function(l){return l.includes('레퍼런스 링크');});
+    // if(refIdx>=0 && lines[refIdx+1]) _parsed.ref=lines[refIdx+1].trim();
+    //
+    // /* 작가님께 전할 말 (첫 번째 ▸ 섹션) */
+    // var msgIdx=lines.findIndex(function(l){return l.includes('작가님께 전할 말');});
+    // if(msgIdx>=0 && lines[msgIdx+1]) _parsed.msg=lines[msgIdx+1].trim();
 
     /* 선택 옵션 파싱 (▸ 로 시작하는 섹션들) */
     var opts=[];
@@ -1228,7 +1228,7 @@
         var items=[];
         for(var j=i+1;j<lines.length&&!lines[j].startsWith('▸')&&!lines[j].startsWith('─')&&!lines[j].startsWith('━')&&!lines[j].startsWith('[');j++){
           var il=lines[j];
-          if(il.startsWith('·')) items.push(il.replace(/^·\s*/,''));
+          if(il.startsWith('·')) items.push(il.replace(/^·\s*/,'').split('<br>')[0]);
         }
         if(items.length) opts.push(sec+': '+items.join(', '));
       }
@@ -1238,10 +1238,7 @@
     /* 미리보기 렌더 */
     var html='';
     if(_parsed.amount) html+='<span class="pk">금액</span> <span class="pv">'+parseInt(_parsed.amount).toLocaleString()+'원</span><br>';
-    if(_parsed.email)  html+='<span class="pk">이메일</span> <span class="pv">'+_parsed.email+'</span><br>';
-    if(_parsed.ref)    html+='<span class="pk">레퍼런스</span> <span class="pv">'+_parsed.ref+'</span><br>';
     if(_parsed.opts&&_parsed.opts.length){ html+='<span class="pk">선택 옵션</span><br>'; _parsed.opts.forEach(function(o){html+='<span class="pv" style="font-size:11px;padding-left:8px">· '+o+'</span><br>';}); }
-    if(_parsed.msg)    html+='<span class="pk">전달 메모</span> <span class="pv">'+_parsed.msg+'</span><br>';
 
     if(!html){ html='<span style="color:var(--text3)">파싱된 정보가 없어요. 양식 형식이 맞는지 확인해주세요.</span>'; document.getElementById('parseRegBtn').style.display='none'; }
     else document.getElementById('parseRegBtn').style.display='';
@@ -1271,7 +1268,7 @@
       startDate:document.getElementById('parseStartDate').value||'',
       email:_parsed.email||'',
       note:note,
-      memo:'레퍼런스: '+(_parsed.ref||'없음')+'\n원문:\n'+txt.substring(0,400),
+      memo:'원문:\n'+txt.substring(0,400),
       platform:_parsePlatform||'',
       contact:document.getElementById('parseContact').value.trim(),
       stage:0,

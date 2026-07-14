@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-13T21:13:15.617Z",
+  "updated": "2026-07-13T21:41:13.043Z",
   "hero": {
     "badgeKo": "Live2D Illustrator · ODE",
     "badgeEn": "Live2D Illustrator · ODE",
@@ -136,136 +136,44 @@
   "sections": [
     {
       "id": "base",
-      "ko": "기본 일러스트",
-      "en": "Base Illustration",
-      "koLabel": "기본 일러스트",
+      "ko": "기본",
+      "en": "Base",
+      "koLabel": "기본",
       "tagKo": "필수",
       "tagEn": "Required",
       "tagCls": "req",
       "type": "radio",
+      "dc": "Y",
       "items": [
         {
           "id": "b1",
-          "ko": "전신 · 협업용",
-          "en": "Full body · Collab",
-          "p": 1050000,
-          "subKo": "🎉 20만원 할인",
-          "subEn": "🎉 ₩200,000 off"
+          "ko": "흉상<br><sub>✔\uFE0F 반신 파츠 분리 일러스트<br>✔\uFE0F 기본 표정<br>✔\uFE0F 원하시는 표정 2개</sub>",
+          "en": "Bust-up<br><sub>✔\uFE0F half-body part-separated illustration<br>✔\uFE0F base expression<br>✔\uFE0F 2 expressions of your choice</sub>",
+          "p": 800000,
+          "subKo": "",
+          "subEn": "",
+          "inquire": "N"
         },
         {
           "id": "b2",
-          "ko": "전신",
-          "en": "Full body",
-          "p": 1100000,
-          "subKo": "🎉 20만원 할인",
-          "subEn": "🎉 ₩200,000 off"
+          "ko": "전신<br><sub>✔\uFE0F 전신 파츠 분리 일러스트<br>✔\uFE0F 기본 표정<br>✔\uFE0F 원하시는 표정 2개</sub>",
+          "en": "Full body<br><sub>✔\uFE0F full-body part-separated illustration<br>✔\uFE0F base expression<br>✔\uFE0F 2 expressions of your choice</sub>",
+          "p": 1500000,
+          "subKo": "",
+          "subEn": "",
+          "inquire": "N"
         },
         {
           "id": "b3",
-          "ko": "반신 (리깅X)",
-          "en": "Half body (no rigging)",
-          "p": 850000
-        },
-        {
-          "id": "b4",
-          "ko": "풀옵션[디자인, 전신, 알몸파츠(추후 신의상에 용의), 게임기, 저작권(리깅x)+기본표정파츠 전체]",
-          "en": "Full package (design + full body + nude parts + game device + copyright, no rigging)",
-          "p": 1950000,
-          "cat": "fullopt"
-        }
-      ]
-    },
-    {
-      "id": "rig",
-      "ko": "리깅 협업 세트",
-      "en": "Rigging Collab Set",
-      "koLabel": "리깅 협업 세트",
-      "type": "radio",
-      "noteKo": "리깅은 협업 작가님께 별도 신청이 필요해요.",
-      "noteEn": "Rigging must be requested separately from the collab rigger.",
-      "items": [
-        {
-          "id": "r1",
-          "ko": "리깅 + 전신 세트 (5만원 할인)",
-          "en": "Hayena rigging + full body set",
-          "p": 800000,
-          "subKo": "🎉 5만원 할인",
-          "subEn": "🎉 ₩50,000 off"
-        },
-        {
-          "id": "r2",
-          "ko": "리깅 + 전신 세트 (표정 리깅 무료+5만원 할인)",
-          "en": "Momon rigging + full body set",
-          "p": 900000,
-          "subKo": "🎉 표정리깅 전부 무료",
-          "subEn": "🎉 all expression rigging free"
-        },
-        {
-          "id": "r3",
-          "ko": "리깅 + 전신 세트 (5만원 할인)",
-          "en": "Pini rigging + full body set",
+          "ko": "오픈 이벤트 전신<br><sub>✔\uFE0F 전신 일러스트<br>✔\uFE0F 기본 표정<br>✔\uFE0F 원하시는 표정 2개</sub>",
+          "en": "Opening event full body<br><sub>✔\uFE0F full-body illustration<br>✔\uFE0F base expression<br>✔\uFE0F 2 expressions of your choice</sub>",
           "p": 1300000,
-          "subKo": "🎉 5만원 할인",
-          "subEn": "🎉 ₩50,000 off"
+          "subKo": "\uD83C\uDF89 20만원 할인",
+          "subEn": "\uD83C\uDF89 ₩200,000 off",
+          "inquire": "N"
         }
-      ]
-    },
-    {
-      "id": "expr",
-      "ko": "기본 제공 표정(5개 무료)",
-      "en": "Free Expressions(5 Free)",
-      "koLabel": "기본 제공 표정(5개 무료)",
-      "tagKo": "무료",
-      "tagEn": "Free",
-      "tagCls": "free",
-      "type": "expr",
-      "items": [
-        {
-          "id": "x1",
-          "ko": "빠직",
-          "en": "Anger mark"
-        },
-        {
-          "id": "x2",
-          "ko": "정색 (얼굴 어두워짐)",
-          "en": "Deadpan"
-        },
-        {
-          "id": "x3",
-          "ko": "반짝이는 눈",
-          "en": "Sparkly eyes"
-        },
-        {
-          "id": "x4",
-          "ko": "하트눈",
-          "en": "Heart eyes"
-        },
-        {
-          "id": "x5",
-          "ko": "눈물",
-          "en": "Tears"
-        },
-        {
-          "id": "x6",
-          "ko": "땀",
-          "en": "Sweat"
-        },
-        {
-          "id": "x7",
-          "ko": "죽은눈",
-          "en": "Dead eyes"
-        },
-        {
-          "id": "x8",
-          "ko": "동공 작아짐",
-          "en": "Shrunk pupils"
-        },
-        {
-          "id": "x9",
-          "ko": "볼빵빵",
-          "en": "Puffed cheeks"
-        }
-      ]
+      ],
+      "noteKo": ""
     },
     {
       "id": "add",
@@ -273,122 +181,188 @@
       "en": "Add-ons",
       "koLabel": "추가 옵션",
       "type": "pill",
-      "hintKo": "의상·헤어는 먼저 문의 후 선택해 주세요",
-      "hintEn": "Please inquire before choosing outfit/hair add-ons",
+      "hintKo": "",
+      "hintEn": "",
       "items": [
         {
           "id": "a2",
-          "ko": "표정·얼굴 파츠 추가",
-          "en": "Expression / face parts",
-          "p": 10000
+          "ko": "표정 추가",
+          "en": "Extra Expression",
+          "p": 20000,
+          "inquire": "N"
         },
         {
           "id": "a3",
-          "ko": "의상 추가 (전신)",
-          "en": "Extra outfit (full body)",
-          "p": 200000
+          "ko": "헤어 추가",
+          "en": "Extra hairstyle",
+          "p": 300000,
+          "inquire": "N"
         },
         {
           "id": "a4",
-          "ko": "악세서리·소품 파츠",
-          "en": "Accessory / prop parts",
-          "p": 10000
+          "ko": "의상 추가",
+          "en": "Extra outfit",
+          "p": 400000,
+          "inquire": "N"
         },
         {
           "id": "a5",
-          "ko": "게임기 파츠 및 맞춤 손·팔",
-          "en": "Game device + custom hands/arms",
-          "p": 150000
+          "ko": "풀바디<br>(가려진 부분까지 풀바디)",
+          "en": "Full body<br>(including normally hidden areas)",
+          "p": 200000,
+          "inquire": "N"
         },
         {
           "id": "a6",
-          "ko": "헤어 추가",
-          "en": "Extra hairstyle",
-          "p": 200000
-        },
-        {
-          "id": "a8",
-          "ko": "동물귀",
-          "en": "Animal ears",
-          "p": 20000
-        },
-        {
-          "id": "a9",
-          "ko": "꼬리",
-          "en": "Tail",
-          "p": 10000
-        },
-        {
-          "id": "a10",
-          "ko": "3면도 (단색채색)",
-          "en": "3-view sheet (flat color)",
-          "p": 200000
-        },
-        {
-          "id": "add_mqa7prr6",
-          "ko": "r18 파츠 추가",
-          "en": "r18 parts",
-          "p": 100000
-        },
-        {
-          "id": "add_mqbswruz",
-          "ko": "겉옷 on/off",
-          "en": "Outerwear on/off",
-          "p": 50000
+          "ko": "팔 포즈 + 소품",
+          "en": "Arm pose + prop",
+          "p": 150000,
+          "inquire": "N"
         }
       ]
     },
     {
-      "id": "debut",
-      "ko": "데뷔축전",
-      "en": "Debut Celebration",
-      "koLabel": "데뷔축전",
-      "type": "pill",
+      "id": "design",
+      "ko": "디자인",
+      "en": "Design",
+      "koLabel": "디자인",
+      "type": "radio",
       "items": [
         {
           "id": "d1",
-          "ko": "데뷔축전 전신",
-          "en": "Debut art (full body)",
-          "p": 300000
+          "ko": "정해진 디자인 있음",
+          "en": "Design already provided",
+          "p": 0,
+          "inquire": "N"
         },
         {
           "id": "d2",
-          "ko": "데뷔축전 ( 상업용·장패드등의 굿즈)",
-          "en": "Debut art ( commercial · ex)mousepad )",
-          "p": 550000
+          "ko": "디자인 리폼",
+          "en": "Design reform/redesign",
+          "p": 100000,
+          "inquire": "N"
         },
         {
-          "id": "debut_mqa7n7il",
-          "ko": "메모리얼용 파츠분리 추가",
-          "en": "Adding Parts Separation for Memorials",
-          "p": 250000
+          "id": "d3",
+          "ko": "처음부터 디자인(시안 2개)",
+          "en": "No design yet(from scratch: 2 drafts)",
+          "p": 200000,
+          "inquire": "N"
+        },
+        {
+          "id": "d4",
+          "ko": "처음부터 디자인(시안 3개)",
+          "en": "No design yet(from scratch: 3 drafts)",
+          "p": 300000,
+          "inquire": "N"
         }
       ]
     },
     {
       "id": "etc",
-      "ko": "기타",
-      "en": "Others",
-      "koLabel": "기타",
+      "ko": "빠른 마감",
+      "en": "Rush Delivery",
+      "koLabel": "빠른 마감",
+      "type": "radio",
+      "items": [
+        {
+          "id": "e2",
+          "ko": "빠른 마감 10일",
+          "en": "Rush delivery (10 days)",
+          "p": 300000,
+          "inquire": "N"
+        }
+      ]
+    },
+    {
+      "id": "secret",
+      "ko": "비공개",
+      "en": "Private Use",
+      "koLabel": "비공개",
+      "type": "radio",
+      "items": [
+        {
+          "id": "s1",
+          "ko": "영구 비공개",
+          "en": "Permanently private",
+          "p": "총 금액의 50%",
+          "inquire": "N"
+        },
+        {
+          "id": "s2",
+          "ko": "전달 후 n일",
+          "en": "Private for a set number of days after delivery",
+          "p": 0,
+          "inquire": "Y"
+        }
+      ]
+    },
+    {
+      "id": "copyright",
+      "ko": "저작권",
+      "en": "Copyright",
+      "koLabel": "저작권",
       "type": "pill",
       "items": [
         {
-          "id": "e1",
-          "ko": "저작권 구매 (굿즈·모델양도·상업 사용)",
-          "en": "Copyright (goods · transfer · commercial)",
-          "p": 400000
+          "id": "c1",
+          "ko": "개인세 상업용 (굿즈 등)",
+          "en": "Personal/commercial use (merch, etc.)",
+          "p": 400000,
+          "inquire": "N"
         },
         {
-          "id": "e2",
-          "ko": "빠른 마감 7일",
-          "en": "Rush delivery (7 days)",
-          "p": 300000
+          "id": "c2",
+          "ko": "기업세",
+          "en": "Corporate use",
+          "p": 800000,
+          "inquire": "N"
+        }
+      ]
+    },
+    {
+      "id": "secmrjqr6p7",
+      "ko": "분양",
+      "en": "Adoption (Available Characters)",
+      "koLabel": "분양",
+      "type": "radio",
+      "items": [
+        {
+          "id": "secmrjqr6p7_mrjqras2",
+          "ko": "압생트<br><sub>✔\uFE0F 전신 분리 O<br>✔\uFE0F 리깅 O</sub>",
+          "en": "Absinthe<br><sub>✔\uFE0F full-body parts separated: yes<br>✔\uFE0F rigging: yes</sub>",
+          "p": 0,
+          "inquire": "Y"
         },
         {
-          "id": "e3",
-          "ko": "작품 비공개",
-          "en": "Private work",
-          "p": 100000
+          "id": "secmrjqr6p7_mrjqrby4",
+          "ko": "릴레 블랑<br><sub>✔\uFE0F 전신 분리 O<br>✔\uFE0F 상반신 리깅 O</sub>",
+          "en": "Relais Blanc<br><sub>✔\uFE0F full-body parts separated: yes<br>✔\uFE0F upper-body rigging: yes</sub>",
+          "p": 0,
+          "inquire": "Y"
+        },
+        {
+          "id": "secmrjqr6p7_mrjqrck9",
+          "ko": "벨리니<br><sub>✔\uFE0F 전신 분리 O<br>✔\uFE0F 리깅 X</sub>",
+          "en": "Bellini<br><sub>✔\uFE0F full-body parts separated: yes<br>✔\uFE0F rigging: no</sub>",
+          "p": 0,
+          "inquire": "Y"
+        }
+      ]
+    },
+    {
+      "id": "secmrjqslno",
+      "ko": "현업 리거 목록",
+      "en": "Collaborating Riggers",
+      "koLabel": "현업 리거 목록",
+      "type": "radio",
+      "items": [
+        {
+          "id": "secmrjqslno_mrjqszc6",
+          "ko": "선셋 (5만원 할인)",
+          "en": "sunset (₩50,000 off)",
+          "p": -50000,
+          "inquire": "N"
         }
       ]
     }

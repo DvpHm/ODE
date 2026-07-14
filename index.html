@@ -243,7 +243,7 @@
         /* ── PRICING ── */
         .pricing-block{margin-bottom:48px;}
         .pricing-block-title{
-            font-size:14px;letter-spacing:0.3em;color:var(--ink35);text-transform:uppercase;
+            font-size:14px;letter-spacing:0.3em;color:var(--ink60);text-transform:uppercase;
             /*border-bottom:1px solid var(--line);*/
             padding-bottom:10px;margin-bottom:10px;
             display:flex;align-items:center;gap:10px;
@@ -256,15 +256,40 @@
         .accent-rule{width:28px;height:1px;background:var(--ink15);display:inline-block;vertical-align:middle;}
         .note{font-size:12px;color:var(--ink60);margin-bottom:10px;line-height:1.6;font-weight:600;}
         .hint{font-size:12px;color:var(--ink60);margin-top:9px;font-weight:600}
-        .price-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;}
-        .price-card{background:var(--bg2);border:1px solid var(--line);padding:24px 20px;cursor: pointer}
-        .price-card-name{font-size:13px;letter-spacing:0.12em;color:var(--ink60);text-transform:uppercase;margin-bottom:12px;}
-        .price-card-amount{font-family:var(--sans);font-size:18px;font-weight:300;}
-        .price-card-note{font-size:13px;color:var(--ink60);margin-top:10px;line-height:1.6;}
+        .price-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;}
+        .price-cards-4{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;}
+        /*.price-card{background:var(--bg2);border:1px solid var(--line);padding:24px 20px;cursor: pointer}*/
+        .price-card{background:var(--bg);border:1px solid var(--line);padding:24px 20px;cursor: pointer}
+        .price-card:hover{background:var(--bg2)}
+        /*.price-card-name{font-size:12px;letter-spacing:0.12em;color:var(--ink60);text-transform:uppercase;margin-bottom:12px;}*/
+        /*.price-card-name b{font-size:15px;letter-spacing:0.12em;color:var(--ink);text-transform:uppercase;margin-bottom:12px;font-weight: 300}*/
+        .price-card-name{font-size:14px;letter-spacing:0.12em;color:var(--ink);margin-bottom:12px;}
+        .price-card-name sub{font-size:12px;letter-spacing:0.12em;color:var(--ink60);margin-bottom:12px;font-weight: 300}
+        .price-card-amount{font-family:var(--sans);font-size:14px;font-weight:300;}
+        .price-card-note{font-size:13px;color:var(--ink);line-height:1.3;text-align: right}
 
-        .price-card.featured{background:var(--ink);color:var(--bg);}
-        .price-card.featured .price-card-name{color:rgba(250,249,247,0.9);}
-        .price-card.featured .price-card-note{color:rgba(250,249,247,0.8);}
+        .price-card.featured{background:var(--bg2);color:var(--ink);position: relative}
+        /*.price-card.featured .price-card-name{color:rgba(250,249,247,0.9);}*/
+        /*.price-card.featured .price-card-note{color:rgba(250,249,247,0.8);}*/
+        .price-card.featured .price-card-name{color:var(--ink);}
+        .price-card.featured .price-card-note{color:var(--ink);}
+
+        .check-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            width: 24px;
+            height: 24px;
+            background: var(--ink);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
 
         /* EXPRESSION TAGS */
         .expr-grid{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
@@ -286,8 +311,8 @@
             transition:background .15s;
         }
         .option-item:hover{background:var(--bg2);}
-        .opt-name{font-size:13px;color:var(--ink);}
-        .opt-price{font-size:11px;color:var(--ink35);margin-top:3px;}
+        .opt-name{font-size:14px;color:var(--ink);}
+        .opt-price{font-size:14px;color:var(--ink60);margin-top:3px;}
         .qty-ctrl{display:flex;align-items:center;}
         .qty-btn{
             width:30px;height:30px;background:transparent;
@@ -330,11 +355,11 @@
         .preview-head-b{font-size:9px;font-weight:900;letter-spacing:.1em;color:var(--bg);background:var(--ink);padding:3px 8px;border-radius:var(--r-xs);animation:pulse2 2.4s infinite}
         @keyframes pulse2{0%,100%{opacity:1}50%{opacity:.55}}
         /*.preview-body{font-family:'Noto Sans KR',monospace;font-size:11.5px;line-height:1.85;white-space:pre-wrap;color:var(--ink);max-height:46vh;overflow-y:auto;background:var(--sky-bg)}*/
-        .preview-body-contents{padding:14px 16px;display: grid;grid-template-columns:1.5fr 2fr;font-family:'Noto Sans KR',monospace;font-size:11.5px;line-height:1.85;white-space:pre-wrap;color:var(--ink);max-height:40vh;overflow-y:auto;background:var(--sky-bg)}
+        .preview-body-contents{padding:14px 16px;display: grid;grid-template-columns:1fr 1fr;font-family:'Noto Sans KR',monospace;font-size:11.5px;line-height:1.85;white-space:pre-wrap;color:var(--ink);max-height:40vh;overflow-y:auto;background:var(--sky-bg)}
         .preview-total-div{display: grid;grid-template-columns: 5fr 2fr 1fr}
-        .preview-total{display:flex;justify-content:space-around;padding:14px 18px;border:1px solid var(--line);background:var(--ink);text-align:center}
+        .preview-total{display:flex;justify-content:space-between;padding:14px 18px;border:1px solid var(--line);background:var(--ink);text-align:center}
         .preview-total-lbl{font-size:12px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--bg);align-content: center}
-        .preview-total-amt{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--bg);line-height:1}
+        .preview-total-amt{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--bg);line-height:1;}
         .preview-total-won{font-size:15px;font-weight:900;color:var(--bg)}
         .preview-total-cnt{font-size:11px;color:var(--ink3);font-weight:700}
         .preview-copy{width:100%;padding:15px;border:1px solid var(--line);background:var(--sky-pl);color:var(--ink2);font-family:inherit;font-size:13px;font-weight:700;cursor:pointer;transition:opacity .15s;letter-spacing:.02em}
@@ -555,9 +580,9 @@
                 <span class="preview-head-t" id="l-preview" style="margin-right: 10px"></span>
                 <span class="preview-head-sub" id="r-preview"></span>
             </div>
-            <button class="btn-outline2" id="previewBtn" onclick="togglePreview()" style="padding: 5px 10px;">펼치기</button>
+            <button class="btn-outline2" id="previewBtn" onclick="togglePreview()" style="padding: 5px 10px;">접기</button>
         </div>
-        <div class="preview-body" id="previewBody" style="display: none">
+        <div class="preview-body" id="previewBody" style="display: block">
             <div class="preview-body-contents">
                 <div id="previewPrice"></div>
                 <div id="previewContents"></div>
@@ -566,7 +591,7 @@
         <div class="preview-total-div">
             <div class="preview-total">
                 <div class="preview-total-lbl" id="l-total"></div>
-                <div style="text-align: right;align-content:center"><span class="preview-total-amt" id="totalAmt">0</span> <span class="preview-total-won" id="t-won"></span> <span class="preview-total-cnt" id="totalCnt"></span></div>
+                <div style="text-align: right;align-content:center;margin-right: 20px;"><span class="preview-total-amt" id="totalAmt">0</span> <span class="preview-total-won" id="t-won"></span> <span class="preview-total-cnt" id="totalCnt"></span></div>
             </div>
             <button class="preview-copy" id="btnCopy" onclick="copyForm()"></button>
             <button class="preview-reset" id="btnReset" onclick="resetForm()"></button>
@@ -904,11 +929,15 @@
             h+='</div>';
             var note=lang==='ko'?sec.noteKo:sec.noteEn; if(note)h+='<div class="note">'+note+'</div>';
             if(sec.type==='radio'){
-                h+='<div class="price-cards">';
+                h+=sec.items.length>3?'<div class="price-cards-4">':'<div class="price-cards">';
                 sec.items.forEach(function(it){
                     var sub=lang==='ko'?it.subKo:it.subEn;
+                    sub=sec.dc==='Y'?sub:'';
+                    var percentIdx=typeof it.p==='string'?it.p.indexOf('%'):0;
+
                     h+='<div class="price-card'+(sel[sec.id]===it.id?' featured':'')+'" id="pc-'+it.id+'" onclick="pickRadio(\''+sec.id+'\',\''+it.id+'\')">'+
-                        '<div class="price-card-name">'+it[lang]+'</div><div class="price-card-amount">'+won(it.p)+' '+UI[lang].won+'</div>'+
+                        '<span class="check-badge" style="display: none" id="pc-'+it.id+'-check">✔</span>'+
+                        '<div class="price-card-name">'+it[lang]+'</div><div class="price-card-amount">'+(it.inquire==='Y'?'문의 부탁드립니다.':won(it.p))+' '+(it.inquire==='Y'||percentIdx>0?'':UI[lang].won)+'</div>'+
                         (sub?'<div class="price-card-note">'+sub+'</div>':'')+
                         '</div>';
                 });
@@ -1064,8 +1093,21 @@
     function findItem(secId,itId){var s=DATA.sections.find(function(x){return x.id===secId;});return s.items.find(function(i){return i.id===itId;});}
     function pickRadio(secId,itId){
         var sec=DATA.sections.find(function(s){return s.id===secId;});
-        sec.items.forEach(function(it){var el=document.getElementById('pc-'+it.id);if(el)el.classList.remove('featured');});
-        if(sel[secId]===itId){sel[secId]=null;}else{sel[secId]=itId;document.getElementById('pc-'+itId).classList.add('featured');}
+        sec.items.forEach(function(it){
+            var el=document.getElementById('pc-'+it.id);
+            if(el){
+                el.classList.remove('featured');
+                document.getElementById('pc-'+it.id+'-check').style.display='none';
+            }
+        });
+        if(sel[secId]===itId){
+            sel[secId]=null;
+        }
+        else{
+            sel[secId]=itId;
+            document.getElementById('pc-'+itId).classList.add('featured');
+            document.getElementById('pc-'+itId+'-check').style.display='flex';
+        }
         rebuild();
     }
     function togglePill(secId,itId){
@@ -1108,24 +1150,24 @@
     function cleanLabel(s){return s.replace(/^[^\wㄱ-힣]+\s*/,'');}
     function buildFormText(){
         var lines=['ODE 작가 · Live2D 의뢰 양식','━━━━━━━━━━━━━━━━━━━━━━━━━━━━',''];
-        var total=0, any=false;
+        var total=0, any=false, plus=false, percent=false;
+        var percentNum=0.5;
         DATA.sections.forEach(function(sec){
             if(sec.type==='radio'){
                 if(!sel[sec.id])return; var it=findItem(sec.id,sel[sec.id]); if(!it)return;
                 any=true;
-                lines.push('▸ '+sec.koLabel); lines.push('  · '+it.ko); lines.push('    → '+won(it.p)+'원'); lines.push('');
-                total+=it.p;
+                plus=it.inquire==='Y';
+                percent=typeof it.p==='string'&&it.p.indexOf('%')>0;
+                lines.push('▸ '+sec.koLabel); lines.push('  · '+it.ko); lines.push('    → '+(it.inquire==='Y'?'문의':won(it.p)+(!percent?'원':''))); lines.push('');
+                total+=!percent?it.p:0;
             } else if(sec.type==='pill'||sec.type==='qty'){
                 if(!sel[sec.id])return; var ids=Object.keys(sel[sec.id]); if(!ids.length)return;
                 any=true; lines.push('▸ '+sec.koLabel);
                 ids.forEach(function(id){var it=findItem(sec.id,id);var q=sel[sec.id][id]||1;lines.push('  · '+it.ko+(q>1?' × '+q+'개':''));lines.push('    → '+won(it.p*q)+'원');total+=it.p*q;});
                 lines.push('');
-            } else if(sec.type==='expr'){
-                if(!sel[sec.id])return; var ids=Object.keys(sel[sec.id]); if(!ids.length)return;
-                var names=ids.map(function(id){return findItem(sec.id,id).ko;});
-                lines.push('▸ '+sec.koLabel+' (무료)'); lines.push('  · '+names.join(', ')); lines.push('');
             }
         });
+        total=percent?total+(total*percentNum):total;
         lines.push('─────────────────────────────');
         lines.push('  합계 금액 : '+won(total)+'원');
         lines.push('─────────────────────────────');
@@ -1141,24 +1183,26 @@
 
     function buildFormPriceText(){
         var lines=['[가격 계산]'];
-        var total=0, any=false;
+        var total=0, any=false, dc=0, percent=false;
+        var percentNum=0.5;
         DATA.sections.forEach(function(sec){
             if(sec.type==='radio'){
                 if(!sel[sec.id])return; var it=findItem(sec.id,sel[sec.id]); if(!it)return;
                 any=true;
-                lines.push('▸ '+sec.koLabel); lines.push('  · '+it.ko); lines.push('    → '+won(it.p)+'원'); lines.push('');
-                total+=it.p;
+                percent=!percent?typeof it.p==='string'&&it.p.indexOf('%')>0:percent;
+                var isPercent=typeof it.p==='string'&&it.p.indexOf('%')>0;
+                lines.push('▸ '+sec.koLabel); lines.push('  · '+it.ko.split('<br>')[0]); lines.push('    → '+(it.inquire==='Y'?'문의':won(it.p)+(!isPercent?'원':''))); lines.push('');
+                total+=!isPercent&&it.p>0?it.p:0;
+                dc+=it.p<0?it.p:0;
             } else if(sec.type==='pill'||sec.type==='qty'){
                 if(!sel[sec.id])return; var ids=Object.keys(sel[sec.id]); if(!ids.length)return;
                 any=true; lines.push('▸ '+sec.koLabel);
-                ids.forEach(function(id){var it=findItem(sec.id,id);var q=sel[sec.id][id]||1;lines.push('  · '+it.ko+(q>1?' × '+q+'개':''));lines.push('    → '+won(it.p*q)+'원');total+=it.p*q;});
+                ids.forEach(function(id){var it=findItem(sec.id,id);var q=sel[sec.id][id]||1;lines.push('  · '+it.ko.split('<br>')[0]+(q>1?' × '+q+'개':''));lines.push('    → '+won(it.p*q)+'원');total+=it.p*q;});
                 lines.push('');
-            } else if(sec.type==='expr'){
-                if(!sel[sec.id])return; var ids=Object.keys(sel[sec.id]); if(!ids.length)return;
-                var names=ids.map(function(id){return findItem(sec.id,id).ko;});
-                lines.push('▸ '+sec.koLabel); lines.push('  · '+names.join(', ')); lines.push('');
             }
         });
+        total=percent?total+(total*percentNum):total;
+        total=total+dc;
         lines.pop();
         lines.push('');
         lines.push('  합계 금액 : '+won(total)+'원');
