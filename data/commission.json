@@ -3,8 +3,8 @@
   "hero": {
     "badgeKo": "Live2D Illustrator · ODE",
     "badgeEn": "Live2D Illustrator · ODE",
-    "subKo": "퀄리티 높고 가성비 있는 그림을 지향합니다.<br>편하게 문의주세요.",
-    "subEn": "Quality artwork at a fair price.<br>Feel free to reach out."
+    "subKo": "리깅에 적합하고 퀄리티 높은 일러스트를 지향합니다.<br>24시 언제든 편하게 문의주세요.",
+    "subEn": "I aim to create high-quality illustrations well-suited for rigging.<br>Feel free to reach out anytime, 24/7."
   },
   "steps": [
     {
@@ -26,7 +26,8 @@
       "ko": "수정 및 컨펌",
       "koSub": "",
       "en": "Revise & confirm",
-      "enSub": ""
+      "enSub": "",
+      "point": true
     },
     {
       "num": "STEP 04",
@@ -40,7 +41,8 @@
       "ko": "2차 컨펌",
       "koSub": "",
       "en": "2nd confirm",
-      "enSub": ""
+      "enSub": "",
+      "point": true
     },
     {
       "num": "STEP 06",
@@ -78,8 +80,8 @@
       "pk": true
     },
     {
-      "ko": "작업기간 <b>30일</b>",
-      "en": "<b>~30 day</b> turnaround"
+      "ko": "작업기간 <b>10~30일</b>",
+      "en": "<b>10~30 day</b> turnaround"
     }
   ],
   "slots": [
@@ -165,7 +167,7 @@
         },
         {
           "id": "b3",
-          "ko": "오픈 이벤트 전신<br><sub>✔\uFE0F 전신 일러스트<br>✔\uFE0F 기본 표정<br>✔\uFE0F 원하시는 표정 2개</sub>",
+          "ko": "오픈 이벤트 전신<br><sub>✔\uFE0F 전신 파츠 분리 일러스트<br>✔\uFE0F 기본 표정<br>✔\uFE0F 원하시는 표정 2개</sub>",
           "en": "Opening event full body<br><sub>✔\uFE0F full-body illustration<br>✔\uFE0F base expression<br>✔\uFE0F 2 expressions of your choice</sub>",
           "p": 1300000,
           "subKo": "\uD83C\uDF89 20만원 할인",

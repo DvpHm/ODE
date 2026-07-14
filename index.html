@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ODE — 커미션</title>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico?">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Sans+KR:wght@200;300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.css" />
     <style>
         *{margin:0;padding:0;box-sizing:border-box;}
         :root{
@@ -28,15 +28,14 @@
             --sh-md: 0 22px 70px rgba(15,15,13,0.08);
             --ink2: rgba(15,15,13,0.72);
             --ink3: rgba(15,15,13,0.45);
-            --serif:   'Cormorant Garamond',serif;
-            --sans:    'Noto Sans KR',sans-serif;
+            --pretendard: 'Pretendard Variable', Pretendard;
         }
         body{
             background:
                     radial-gradient(circle at 50% -20%, rgba(15,15,13,0.07), transparent 34rem),
                     var(--bg);
             color:var(--ink);
-            font-family:var(--sans);
+            font-family:var(--pretendard);
             font-weight:300;
             line-height:1.7;
             font-size:14px;
@@ -69,14 +68,14 @@
             display:flex;align-items:center;justify-content:space-between;
             padding:26px 0 18px;
         }
-        .nav-logo{font-family:var(--serif);font-size:26px;font-weight:400;letter-spacing:0.32em;color:var(--ink);}
+        .nav-logo{font-family:var(--pretendard);font-size:26px;font-weight:400;letter-spacing:0.32em;color:var(--ink);}
         .nav-sub{font-size:12px;letter-spacing:0.25em;color:var(--ink35);text-transform:uppercase;margin-top:2px;}
         .nav-lang{display:flex;gap:8px;}
         .lang-btn{
             font-size:13px;letter-spacing:0.15em;color:var(--ink35);
             border:1px solid var(--line2);padding:5px 14px;
             background:transparent;cursor:pointer;transition:all .2s;
-            font-family:var(--sans);
+            font-family:var(--pretendard);
         }
         .lang-btn.active{color:var(--ink);border-color:var(--ink);background:var(--ink);color:var(--bg);}
         .lang-btn.active:hover{opacity:.65;color:var(--bg);}
@@ -99,19 +98,19 @@
         .hero-ctas{display:flex;gap:12px;}
         .btn-primary{
             padding:14px 36px;background:var(--ink);color:var(--bg);
-            font-family:var(--sans);font-size:12px;font-weight:400;letter-spacing:0.25em;text-transform:uppercase;
+            font-family:var(--pretendard);font-size:12px;font-weight:400;letter-spacing:0.25em;text-transform:uppercase;
             border:none;cursor:pointer;transition:opacity .2s;
         }
         .btn-primary:hover{opacity:.65;}
         .btn-outline{
             padding:14px 36px;background:transparent;color:var(--ink60);
-            font-family:var(--sans);font-size:12px;letter-spacing:0.25em;text-transform:uppercase;
+            font-family:var(--pretendard);font-size:12px;letter-spacing:0.25em;text-transform:uppercase;
             border:1px solid var(--line2);cursor:pointer;transition:all .2s;
         }
         .btn-outline:hover{border-color:var(--ink);color:var(--ink);}
         .btn-outline2{
             padding:14px 36px;background:transparent;color:var(--ink60);
-            font-family:var(--sans);font-size:12px;letter-spacing:0.25em;text-transform:uppercase;
+            font-family:var(--pretendard);font-size:12px;letter-spacing:0.25em;text-transform:uppercase;
             border:1px solid var(--line2);cursor:pointer;transition:all .2s;
         }
         .btn-outline2:hover{border-color:var(--ink);color:var(--ink);}
@@ -135,7 +134,7 @@
         }
         .section-head{margin-bottom:20px;}
         .section-eyebrow{font-size:12px;letter-spacing:0.4em;color:var(--ink35);text-transform:uppercase;margin-bottom:10px;}
-        .section-title{font-family:var(--sans);font-size:24px;font-weight:300;color:var(--ink);}
+        .section-title{font-family:var(--pretendard);font-size:24px;font-weight:300;color:var(--ink);}
 
         /* ── SLOTS ── */
         .slot-row{
@@ -221,7 +220,7 @@
         .lb img{max-width:92vw;max-height:78vh;border-radius:10px;box-shadow:0 24px 80px rgba(0,0,0,.5)}
         .lb-cap{color:#fff;font-weight:700;font-size:14px}
         .lb-nav{display:flex;gap:12px}
-        .lb-nav button,.lb-x{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:var(--r-sm);padding:9px 20px;font-family:inherit;font-weight:800;font-size:14px;cursor:pointer;transition:background .15s}
+        .lb-nav button,.lb-x{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:var(--r-sm);padding:9px 20px;font-family:var(--pretendard);font-weight:800;font-size:14px;cursor:pointer;transition:background .15s}
         .lb-nav button:hover,.lb-x:hover{background:rgba(255,255,255,.3)}
         .lb-x{position:absolute;top:20px;right:20px;width:44px;height:44px;border-radius:var(--r-sm);padding:0;font-size:18px}
 
@@ -231,10 +230,11 @@
         .steps-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:3px;}
         .step-item{background:var(--bg2);border:1px solid var(--line);padding:24px 22px;}
         .step-item.highlight{background:var(--ink);color:var(--bg);}
+        .step-item.point{background:var(--ink15);color:var(--ink);}
         .step-num{font-size:12px;letter-spacing:0.2em;color:var(--ink60);margin-bottom:10px;text-transform:uppercase;}
         /*.step-item.highlight .step-num{color:rgba(250,249,247,0.4);}*/
         .step-item.highlight .step-num{color:var(--bg);}
-        .step-name{font-family:var(--sans);font-size:17px;font-weight:300;}
+        .step-name{font-family:var(--pretendard);font-size:17px;font-weight:300;}
         .step-sub{font-size:12px;color:var(--ink60);margin-top:4px;}
         .step-desc{font-size:14px;color:var(--ink60);margin-top:4px;}
         /*.step-item.highlight .step-sub{color:rgba(250,249,247,0.45);}*/
@@ -265,7 +265,7 @@
         /*.price-card-name b{font-size:15px;letter-spacing:0.12em;color:var(--ink);text-transform:uppercase;margin-bottom:12px;font-weight: 300}*/
         .price-card-name{font-size:14px;letter-spacing:0.12em;color:var(--ink);margin-bottom:12px;}
         .price-card-name sub{font-size:12px;letter-spacing:0.12em;color:var(--ink60);margin-bottom:12px;font-weight: 300}
-        .price-card-amount{font-family:var(--sans);font-size:14px;font-weight:300;}
+        .price-card-amount{font-family:var(--pretendard);font-size:14px;font-weight:300;}
         .price-card-note{font-size:13px;color:var(--ink);line-height:1.3;text-align: right}
 
         .price-card.featured{background:var(--bg2);color:var(--ink);position: relative}
@@ -297,7 +297,7 @@
             font-size:12px;letter-spacing:0.1em;
             border:1px solid var(--line2);padding:6px 16px;
             color:var(--ink60);cursor:pointer;transition:all .2s;background:transparent;
-            font-family:var(--sans);
+            font-family:var(--pretendard);
         }
         .expr-tag:hover,.expr-tag.active{border-color:var(--ink);color:var(--ink);background:var(--bg2);}
 
@@ -318,7 +318,7 @@
             width:30px;height:30px;background:transparent;
             border:1px solid var(--line2);color:var(--ink60);
             font-size:16px;cursor:pointer;transition:all .15s;
-            display:flex;align-items:center;justify-content:center;font-family:var(--sans);
+            display:flex;align-items:center;justify-content:center;font-family:var(--pretendard);
         }
         .qty-btn:hover{border-color:var(--ink);color:var(--ink);background:var(--bg2);}
         .qty-val{
@@ -326,7 +326,7 @@
             background:transparent;
             border-top:1px solid var(--line2);border-bottom:1px solid var(--line2);
             border-left:none;border-right:none;
-            color:var(--ink);font-family:var(--sans);font-size:12px;
+            color:var(--ink);font-family:var(--pretendard);font-size:12px;
         }
 
         /* FORM */
@@ -339,7 +339,7 @@
         textarea,input[type=text],input[type=email],input[type=url]{
             width:100%;background:var(--bg);
             border:1px solid var(--line);
-            color:var(--ink);font-family:var(--sans);font-size:13px;font-weight:300;
+            color:var(--ink);font-family:var(--pretendard);font-size:13px;font-weight:300;
             padding:12px 14px;resize:vertical;outline:none;
             transition:border-color .2s;
         }
@@ -355,16 +355,16 @@
         .preview-head-b{font-size:9px;font-weight:900;letter-spacing:.1em;color:var(--bg);background:var(--ink);padding:3px 8px;border-radius:var(--r-xs);animation:pulse2 2.4s infinite}
         @keyframes pulse2{0%,100%{opacity:1}50%{opacity:.55}}
         /*.preview-body{font-family:'Noto Sans KR',monospace;font-size:11.5px;line-height:1.85;white-space:pre-wrap;color:var(--ink);max-height:46vh;overflow-y:auto;background:var(--sky-bg)}*/
-        .preview-body-contents{padding:14px 16px;display: grid;grid-template-columns:1fr 1fr;font-family:'Noto Sans KR',monospace;font-size:11.5px;line-height:1.85;white-space:pre-wrap;color:var(--ink);max-height:40vh;overflow-y:auto;background:var(--sky-bg)}
+        .preview-body-contents{padding:14px 16px;display: grid;grid-template-columns:1fr 1fr;font-family:var(--pretendard);font-size:11.5px;line-height:1.85;white-space:pre-wrap;color:var(--ink);max-height:40vh;overflow-y:auto;background:var(--sky-bg)}
         .preview-total-div{display: grid;grid-template-columns: 5fr 2fr 1fr}
         .preview-total{display:flex;justify-content:space-between;padding:14px 18px;border:1px solid var(--line);background:var(--ink);text-align:center}
         .preview-total-lbl{font-size:12px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--bg);align-content: center}
-        .preview-total-amt{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--bg);line-height:1;}
+        .preview-total-amt{font-family:var(--pretendard);font-size:22px;font-weight:700;color:var(--bg);line-height:1;}
         .preview-total-won{font-size:15px;font-weight:900;color:var(--bg)}
         .preview-total-cnt{font-size:11px;color:var(--ink3);font-weight:700}
-        .preview-copy{width:100%;padding:15px;border:1px solid var(--line);background:var(--sky-pl);color:var(--ink2);font-family:inherit;font-size:13px;font-weight:700;cursor:pointer;transition:opacity .15s;letter-spacing:.02em}
+        .preview-copy{width:100%;padding:15px;border:1px solid var(--line);background:var(--sky-pl);color:var(--ink2);font-family:var(--pretendard);font-size:13px;font-weight:700;cursor:pointer;transition:opacity .15s;letter-spacing:.02em}
         .preview-copy:hover{opacity:.9}
-        .preview-reset{display:block;width:100%;padding:8px;border:1px solid var(--line);border-top:1px solid var(--line);background:var(--bg);color:var(--ink3);font-family:inherit;font-size:13px;font-weight:700;cursor:pointer}
+        .preview-reset{display:block;width:100%;padding:8px;border:1px solid var(--line);border-top:1px solid var(--line);background:var(--bg);color:var(--ink3);font-family:var(--pretendard);font-size:13px;font-weight:700;cursor:pointer}
         .preview-reset:hover{color:var(--ink)}
 
         /*.form-2col{display:grid;grid-template-columns:1fr 360px;gap:18px;align-items:start;margin-top:18px}*/
@@ -412,7 +412,7 @@
             border-top:1px solid var(--line);
             background:var(--bg);
         }
-        .footer-logo{font-family:var(--serif);font-size:16px;letter-spacing:0.4em;color:var(--ink35);}
+        .footer-logo{font-family:var(--pretendard);font-size:16px;letter-spacing:0.4em;color:var(--ink35);}
         .footer-copy{font-size:9px;letter-spacing:0.2em;color:var(--ink15);text-transform:uppercase;}
 
         @media(max-width:860px){
@@ -632,11 +632,10 @@
             ctaPrice:'가격 계산하기', ctaPort:'포트폴리오 보기',
             tSlots:'작업 슬롯 현황', bSlots:'실시간', tImportant:'',
             tPort:'포트폴리오', bPort:'갤러리',
-            tRigging:'리깅 샘플',
-            tYoutube:'리깅 영상',
+            tYoutube:'협업 리거 선셋',
             tWork:'작업 순서',
             tPrice:'가격 계산 & 신청서', bPrice:'간편',
-            tNotice:'작업 안내 & 약관',
+            tNotice:'추가 안내',
             lApply:'신청양식',
             lPreview:'작업양식 미리보기', lTotal:'현재 선택 합계', won:'원',
             cnt:function(n){return '· '+n+'개 선택';}, copy:'📋 양식 복사하기', reset:'↺ 초기화',
@@ -654,11 +653,10 @@
             ctaPrice:'Price Calculator', ctaPort:'View Portfolio',
             tSlots:'Slot Availability', bSlots:'Live',tImportant:'',
             tPort:'Portfolio', bPort:'Gallery',
-            tRigging:'Rigging Sample',
-            tYoutube:'Rigging Video',
+            tYoutube:'Collaboration Rigger sunset',
             tWork:'Work Process',
             tPrice:'Price & Order Form', bPrice:'Easy',
-            tNotice:'Terms & Info',
+            tNotice:'Additional Information',
             lApply:'Application Form',
             lPreview:'Order Form Preview', lTotal:'Current Total', won:'KRW',
             cnt:function(n){return '· '+n+' selected';}, copy:'📋 Copy Order Form', reset:'↺ Reset',
@@ -859,7 +857,7 @@
         document.getElementById('heroSub').innerHTML=DATA.hero?(lang==='ko'?DATA.hero.subKo:DATA.hero.subEn):u.heroSub;
         document.getElementById('ctaPrice').textContent=u.ctaPrice;
         document.getElementById('ctaPort').textContent=u.ctaPort;
-        set('slot',u.tSlots);set('important',u.tImportant);set('port',u.tPort);set('rigg',u.tRigging);set('youtb',u.tYoutube);
+        set('slot',u.tSlots);set('important',u.tImportant);set('port',u.tPort);set('youtb',u.tYoutube);
         set('process',u.tWork);set('priceOrder',u.tPrice);set('b-price',u.bPrice);set('notice',u.tNotice);
         set('l-preview',u.lPreview);set('r-preview',u.sendPreview);set('l-total',u.lTotal);set('t-won',u.won);
         set('btnCopy',u.copy);set('btnReset',u.reset);set('foot',u.foot);
@@ -916,7 +914,7 @@
         var h='';
         STEPS.forEach(function(s){
             var name=lang==='ko'?s.ko:s.en, sub=lang==='ko'?s.koSub:s.enSub;
-            h+='<div class="step-item'+(s.last?' highlight':'')+'"><div class="step-num">'+s.num+'</div><div class="step-name">'+name+'</div>'+(sub?'<div class="step-sub">'+sub+'</div>':'')+'</div>';
+            h+='<div class="step-item'+(s.last?' highlight':s.point?' point':'')+'"><div class="step-num">'+s.num+'</div><div class="step-name">'+name+'</div>'+(sub?'<div class="step-sub">'+sub+'</div>':'')+'</div>';
         });
         document.getElementById('stepGrid').innerHTML=h;
     }
