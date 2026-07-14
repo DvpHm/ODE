@@ -135,6 +135,14 @@
       "aEn": "Parts are separated according to the standards required for Live2D production. <br>\nRequests for excessive additional separation for rigging convenience cannot be accommodated."
     }
   ],
+  "port": [
+    {
+      "ko": ",* 3캐릭 모두 분양중",
+      "koSub": "분양을 원하시는 경우 문의 부탁드립니다 ( 표정.팔.소품등 추가 유무등 안내 )",
+      "en": "* All 3 characters are currently available for adoption.",
+      "enSub": "If you're interested in adopting one, please contact me for details (expressions, arms, props, and other optional additions)."
+    }
+  ],
   "sections": [
     {
       "id": "base",
