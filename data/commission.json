@@ -178,8 +178,8 @@
           "ko": "오픈 이벤트 전신<br><sub>✔\uFE0F 전신 파츠 분리 일러스트<br>✔\uFE0F 기본 표정<br>✔\uFE0F 원하시는 표정 2개</sub>",
           "en": "Opening event full body<br><sub>✔\uFE0F full-body illustration<br>✔\uFE0F base expression<br>✔\uFE0F 2 expressions of your choice</sub>",
           "p": 1300000,
-          "subKo": "<div style='font-weight:400;'>선착순 첫 슬롯 한정</div> <div>\uD83C\uDF89 20만원 할인 \uD83C\uDF89</div>",
-          "subEn": "<div style='font-weight:400;'>Limited to the first slots</div> \uD83C\uDF89 ₩200,000 off \uD83C\uDF89</div>",
+          "subKo": "<div style='font-weight:500;'>선착순 첫 슬롯 한정</div> <div>\uD83C\uDF89 20만원 할인 \uD83C\uDF89</div>",
+          "subEn": "<div style='font-weight:500;'>Limited to the first slots</div> \uD83C\uDF89 ₩200,000 off \uD83C\uDF89</div>",
           "inquire": "N"
         }
       ],

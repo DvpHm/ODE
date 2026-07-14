@@ -29,6 +29,8 @@
             --ink2: rgba(15,15,13,0.72);
             --ink3: rgba(15,15,13,0.45);
             --pretendard: 'Pretendard Variable', Pretendard;
+            --f: .5em; /* control the folded part*/
+            --rr: .8em; /* control the ribbon shape */
         }
         body{
             background:
@@ -269,8 +271,33 @@
         .price-card-name sub{font-size:13px;letter-spacing:0.12em;color:var(--ink60);margin-bottom:12px;font-weight: 400;}
         .price-card-amount{font-family:var(--pretendard);font-size:16px;font-weight:600;}
         /*.price-card-note{font-size:13px;color:var(--ink);line-height:1.3;text-align: right}*/
-        .price-card-note{font-size:15px;color:var(--ink);line-height:1.3;font-weight:500;text-align: center;display: flex;flex-direction:column;justify-content: center;gap:10px;margin-top: 15px;border: 1px solid var(--ink15);padding: 10px;}
+        .price-card-note{font-size:15px;color:var(--ink);line-height:1.3;font-weight:500;text-align: center;display: flex;flex-direction:column;justify-content: center;gap:7px;margin-top: 10px;padding: 10px;}
         /*.price-card-note div{border: 1px solid var(--ink35);padding: 10px;}*/
+
+        /* HTML: <div class="ribbon">Your text content</div> */
+        .ribbon {
+            font-size: 15px;
+            font-weight: bold;
+            color: #fff;
+        }
+        .ribbon {
+            position: relative;
+            left: calc(-2.8*var(--f));
+            padding-inline: .25em;
+            line-height: 1;
+            /*background: #ff6b6b;*/
+            background: var(--ink);
+            border-top: var(--f) solid #0005;
+            border-right: var(--rr) solid #0000;
+            clip-path:
+                    polygon(0 100%,0 0,0 0,
+                    0 var(--f),100% var(--f),
+                    calc(100% - var(--rr)) calc(50% + var(--f)/2),100% 100%);
+            /*clip-path:*/
+            /*        polygon(calc(100% - var(--rr)) 100%,0 100%,0 0,0 0,*/
+            /*        0 var(--f),calc(100% - var(--rr)) var(--f),*/
+            /*        100% calc(50% + var(--f)/2));*/
+        }
 
         .price-card.featured{background:var(--bg2);color:var(--ink);position: relative}
         /*.price-card.featured .price-card-name{color:rgba(250,249,247,0.9);}*/
@@ -781,8 +808,8 @@
                         ko: "오픈 이벤트 전신<br><sub>✔\uFE0F 전신 파츠 분리 일러스트<br>✔\uFE0F 기본 표정<br>✔\uFE0F 원하시는 표정 2개</sub>",
                         en: "Opening event full body<br><sub>✔\uFE0F full-body illustration<br>✔\uFE0F base expression<br>✔\uFE0F 2 expressions of your choice</sub>",
                         p: 1300000,
-                        subKo: "<div style='font-weight:400;'>선착순 첫 슬롯 한정</div> <div>\uD83C\uDF89 20만원 할인 \uD83C\uDF89</div>",
-                        subEn: "<div style='font-weight:400;'>Limited to the first slots</div> \uD83C\uDF89 ₩200,000 off \uD83C\uDF89</div>",
+                        subKo: "<div style='font-weight:500;'>선착순 첫 슬롯 한정</div> <div>\uD83C\uDF89 20만원 할인 \uD83C\uDF89</div>",
+                        subEn: "<div style='font-weight:500;'>Limited to the first slots</div> \uD83C\uDF89 ₩200,000 off \uD83C\uDF89</div>",
                         inquire: "N"
                     }
                 ],
@@ -1169,7 +1196,7 @@
                     h+='<div class="price-card'+(sel[sec.id]===it.id?' featured':'')+'" id="pc-'+it.id+'" onclick="pickRadio(\''+sec.id+'\',\''+it.id+'\')">'+
                         '<span class="check-badge" style="display: none" id="pc-'+it.id+'-check">✔</span>'+
                         '<div class="price-card-name">'+it[lang]+'</div><div class="price-card-amount">'+(it.inquire==='Y'?'문의 부탁드립니다.':won(it.p))+' '+(it.inquire==='Y'||percentIdx>0?'':UI[lang].won)+'</div>'+
-                        (sub?'<div class="price-card-note">'+sub+'</div>':'')+
+                        (sub?'<div class="price-card-note ribbon">'+sub+'</div>':'')+
                         '</div>';
                 });
                 h+='</div>';
