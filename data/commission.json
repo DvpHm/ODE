@@ -3,8 +3,8 @@
   "hero": {
     "badgeKo": "Live2D Illustrator · ODE",
     "badgeEn": "Live2D Illustrator · ODE",
-    "subKo": "리깅에 적합하고 퀄리티 높은 일러스트를 지향합니다.<br>24시 언제든 편하게 문의주세요.",
-    "subEn": "I aim to create high-quality illustrations well-suited for rigging.<br>Feel free to reach out anytime, 24/7."
+    "subKo": "<b>리깅에 적합하고 퀄리티 높은 일러스트를 지향합니다.</b><br>24시 언제든 편하게 문의주세요.",
+    "subEn": "<b>I aim to create high-quality illustrations well-suited for rigging.</b><br>Feel free to reach out anytime, 24/7."
   },
   "steps": [
     {
@@ -137,7 +137,7 @@
   ],
   "port": [
     {
-      "ko": "* 3캐릭 모두 분양중",
+      "ko": "* 모델 3체 모두 <b>분양중</b>",
       "koSub": "분양을 원하시는 경우 문의 부탁드립니다 ( 표정.팔.소품등 추가 유무등 안내 )",
       "en": "* All 3 characters are currently available for adoption.",
       "enSub": "If you're interested in adopting one, please contact me for details (expressions, arms, props, and other optional additions)."
@@ -178,8 +178,8 @@
           "ko": "오픈 이벤트 전신<br><sub>✔\uFE0F 전신 파츠 분리 일러스트<br>✔\uFE0F 기본 표정<br>✔\uFE0F 원하시는 표정 2개</sub>",
           "en": "Opening event full body<br><sub>✔\uFE0F full-body illustration<br>✔\uFE0F base expression<br>✔\uFE0F 2 expressions of your choice</sub>",
           "p": 1300000,
-          "subKo": "\uD83C\uDF89 20만원 할인",
-          "subEn": "\uD83C\uDF89 ₩200,000 off",
+          "subKo": "<div style='font-weight:400;'>선착순 첫 슬롯 한정</div> <div>\uD83C\uDF89 20만원 할인 \uD83C\uDF89</div>",
+          "subEn": "<div style='font-weight:400;'>Limited to the first slots</div> \uD83C\uDF89 ₩200,000 off \uD83C\uDF89</div>",
           "inquire": "N"
         }
       ],
@@ -426,16 +426,16 @@
     {
       "ko": "원하시는 일정 (마감일)",
       "en": "Preferred schedule (deadline)",
-      "type": "textarea"
-    },
-    {
-      "ko": "자유로운 요청사항",
-      "en": "Any additional requests",
-      "type": "textarea"
+      "type": "text"
     },
     {
       "ko": "공개여부",
       "en": "Public or private",
+      "type": "text"
+    },
+    {
+      "ko": "자유로운 요청사항",
+      "en": "Any additional requests",
       "type": "textarea"
     }
   ],
