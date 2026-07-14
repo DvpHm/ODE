@@ -59,9 +59,9 @@
             window.addEventListener('message', function (e) {
                 var d = e.data;
                 if (!d || d.src !== 'ode-artmug' || !f) return;
-                // if (d.mmHeight) {
-                //     f.style.height = (d.mmHeight + 24) + 'px';
-                // }
+                if (d.mmHeight) {
+                    f.style.height = (d.mmHeight + 24) + 'px';
+                }
                 if (typeof d.total === 'number') {
                     var t = document.getElementById('odeTotal');
                     if (t) t.textContent = d.total.toLocaleString() + '원';
