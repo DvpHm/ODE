@@ -6,7 +6,7 @@ const SHELL = [
   '/ODE/d_e5f91a26c0bc49a9.html',
   '/ODE/planner.html',
   '/ODE/commission-editor.html',
-  '/ODE/portfolio-manager.html',
+  '/ODE/portfolio-manager-new.html',
   '/ODE/stats.html',
   '/ODE/quote.html',
   '/ODE/manifest.json',
