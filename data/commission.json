@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-13T21:41:13.043Z",
+  "updated": "2026-07-15T06:04:05.786Z",
   "hero": {
     "badgeKo": "Live2D Illustrator · ODE",
     "badgeEn": "Live2D Illustrator · ODE",
@@ -135,14 +135,6 @@
       "aEn": "Parts are separated according to the standards required for Live2D production. <br>\nRequests for excessive additional separation for rigging convenience cannot be accommodated."
     }
   ],
-  "port": [
-    {
-      "ko": "* 모델 3체 모두 <b>분양중</b>",
-      "koSub": "분양을 원하시는 경우 문의 부탁드립니다 ( 표정.팔.소품등 추가 유무등 안내 )",
-      "en": "* All 3 characters are currently available for adoption.",
-      "enSub": "If you're interested in adopting one, please contact me for details (expressions, arms, props, and other optional additions)."
-    }
-  ],
   "sections": [
     {
       "id": "base",
@@ -157,8 +149,8 @@
       "items": [
         {
           "id": "b1",
-          "ko": "흉상<br><sub>✔\uFE0F 반신 파츠 분리 일러스트<br>✔\uFE0F 기본 표정<br>✔\uFE0F 원하시는 표정 2개</sub>",
-          "en": "Bust-up<br><sub>✔\uFE0F half-body part-separated illustration<br>✔\uFE0F base expression<br>✔\uFE0F 2 expressions of your choice</sub>",
+          "ko": "흉상<br><sub>✔️ 반신 파츠 분리 일러스트<br>✔️ 기본 표정<br>✔️ 원하시는 표정 2개</sub>",
+          "en": "Bust-up<br><sub>✔️ half-body part-separated illustration<br>✔️ base expression<br>✔️ 2 expressions of your choice</sub>",
           "p": 800000,
           "subKo": "",
           "subEn": "",
@@ -166,8 +158,8 @@
         },
         {
           "id": "b2",
-          "ko": "전신<br><sub>✔\uFE0F 전신 파츠 분리 일러스트<br>✔\uFE0F 기본 표정<br>✔\uFE0F 원하시는 표정 2개</sub>",
-          "en": "Full body<br><sub>✔\uFE0F full-body part-separated illustration<br>✔\uFE0F base expression<br>✔\uFE0F 2 expressions of your choice</sub>",
+          "ko": "전신<br><sub>✔️ 전신 파츠 분리 일러스트<br>✔️ 기본 표정<br>✔️ 원하시는 표정 2개</sub>",
+          "en": "Full body<br><sub>✔️ full-body part-separated illustration<br>✔️ base expression<br>✔️ 2 expressions of your choice</sub>",
           "p": 1500000,
           "subKo": "",
           "subEn": "",
@@ -175,11 +167,11 @@
         },
         {
           "id": "b3",
-          "ko": "오픈 이벤트 전신<br><sub>✔\uFE0F 전신 파츠 분리 일러스트<br>✔\uFE0F 기본 표정<br>✔\uFE0F 원하시는 표정 2개</sub>",
-          "en": "Opening event full body<br><sub>✔\uFE0F full-body illustration<br>✔\uFE0F base expression<br>✔\uFE0F 2 expressions of your choice</sub>",
+          "ko": "오픈 이벤트 전신<br><sub>✔️ 전신 파츠 분리 일러스트<br>✔️ 기본 표정<br>✔️ 원하시는 표정 2개</sub>",
+          "en": "Opening event full body<br><sub>✔️ full-body illustration<br>✔️ base expression<br>✔️ 2 expressions of your choice</sub>",
           "p": 1300000,
-          "subKo": "<div style='font-weight:500;'>선착순 첫 슬롯 한정</div> <div>\uD83C\uDF89 20만원 할인 \uD83C\uDF89</div>",
-          "subEn": "<div style='font-weight:500;'>Limited to the first slots</div> \uD83C\uDF89 ₩200,000 off \uD83C\uDF89</div>",
+          "subKo": "<div style='font-weight:500;'>선착순 첫 슬롯 한정</div> <div>🎉 20만원 할인 🎉</div>",
+          "subEn": "<div style='font-weight:500;'>Limited to the first slots</div> 🎉 ₩200,000 off 🎉</div>",
           "inquire": "N"
         }
       ],
@@ -339,22 +331,22 @@
       "items": [
         {
           "id": "secmrjqr6p7_mrjqras2",
-          "ko": "압생트<br><sub>✔\uFE0F 전신 분리 O<br>✔\uFE0F 리깅 O</sub>",
-          "en": "Absinthe<br><sub>✔\uFE0F full-body parts separated: yes<br>✔\uFE0F rigging: yes</sub>",
+          "ko": "압생트<br><sub>✔️ 전신 분리 O<br>✔️ 리깅 O</sub>",
+          "en": "Absinthe<br><sub>✔️ full-body parts separated: yes<br>✔️ rigging: yes</sub>",
           "p": 0,
           "inquire": "Y"
         },
         {
           "id": "secmrjqr6p7_mrjqrby4",
-          "ko": "릴레 블랑<br><sub>✔\uFE0F 전신 분리 O<br>✔\uFE0F 상반신 리깅 O</sub>",
-          "en": "Relais Blanc<br><sub>✔\uFE0F full-body parts separated: yes<br>✔\uFE0F upper-body rigging: yes</sub>",
+          "ko": "릴레 블랑<br><sub>✔️ 전신 분리 O<br>✔️ 상반신 리깅 O</sub>",
+          "en": "Relais Blanc<br><sub>✔️ full-body parts separated: yes<br>✔️ upper-body rigging: yes</sub>",
           "p": 0,
           "inquire": "Y"
         },
         {
           "id": "secmrjqr6p7_mrjqrck9",
-          "ko": "벨리니<br><sub>✔\uFE0F 전신 분리 O<br>✔\uFE0F 리깅 X</sub>",
-          "en": "Bellini<br><sub>✔\uFE0F full-body parts separated: yes<br>✔\uFE0F rigging: no</sub>",
+          "ko": "벨리니<br><sub>✔️ 전신 분리 O<br>✔️ 리깅 X</sub>",
+          "en": "Bellini<br><sub>✔️ full-body parts separated: yes<br>✔️ rigging: no</sub>",
           "p": 0,
           "inquire": "Y"
         }
@@ -403,8 +395,8 @@
       "ico": "💰",
       "qKo": "환불",
       "qEn": "Refunds",
-      "aKo": "작업 시작전 -90%\n러프 이후 -70%\n채색 이후 -환불 불가능",
-      "aEn": "Before work begins: 90% refund\nAfter rough draft: 70% refund\nAfter coloring: no refund available"
+      "aKo": "* 의뢰시 발생하는 환불은 아트머그 환불규정에 따릅니다.\n1) 전액 환불 - 작업을 전혀 진행하지 않은 경우\n2) 70% 환불 - 작업이 0 ~ 30% 진행된 경우\n3) 50% 환불 - 작업이 31 ~ 50% 진행된 경우\n4) 환불 불가 - 작가에게 귀책사유가 없고, 작업이 50%를 충분히 초과하여 진행된 경우.\n5) 일부 환불 - 일부 작업을 제외하는 경우. (환불 금액은 협의)\n\n* 완제품 모델분양시 환불은 환불 규정 동의서 또는 계약서에 사인 /결제 -> psd파일을 넘겨드리며 파일 전달 후에는 환불 불가합니다. ",
+      "aEn": "* Refunds for commissions follow ODE's official refund policy.\n1) Full refund – if work has not started at all.\n2) 70% refund – if work is 0–30% complete.\n3) 50% refund – if work is 31–50% complete.\n4) No refund – if the artist is not at fault and work is well beyond 50% complete.\n5) Partial refund – if part of the work is excluded from the final delivery (refund amount to be discussed).\n\n* For finished/pre-made model adoptions, the refund process is as follows: sign the refund policy agreement or contract → make payment → receive the PSD file. Once the file has been delivered, no refunds are available."
     }
   ],
   "apply": [
