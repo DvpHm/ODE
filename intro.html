@@ -26,7 +26,7 @@
 
 <div class="detailinfo">
     <div class="showcontent">
-        <div id="odeSide" style="display: block; position: fixed; top: 120px; right: 18px; z-index: 9999; width: 188px; box-sizing: border-box; background: rgb(255, 255, 255); border: 1px solid #0f0f0d; box-shadow: rgba(40, 80, 130, 0.12) 0px 6px 24px; padding: 13px 14px;">
+        <div id="odeSide" style="display: none; position: fixed; top: 120px; right: 18px; z-index: 9999; width: 188px; box-sizing: border-box; background: rgb(255, 255, 255); border: 1px solid #0f0f0d; box-shadow: rgba(40, 80, 130, 0.12) 0px 6px 24px; padding: 13px 14px;">
             &nbsp;
             <div style="font-size:12px;font-weight:700;color:rgba(15,15,13,0.6);">현재 선택 합계</div>&nbsp;
             <div id="odeTotal" style="font-size:18px;font-weight:900;color:#0f0f0d;margin:2px 0 9px;">0원</div>&nbsp;
@@ -58,6 +58,15 @@
             var f = document.getElementById('odeFrame');
             var side = document.getElementById('odeSide');
             var sections = [];
+
+            function updateSideVisibility() {
+                if (!side) return;
+                if (window.innerWidth > 980) {
+                    side.style.display = 'block';
+                } else {
+                    side.style.display = 'none';
+                }
+            }
 
             function renderNav() {
                 var nav = document.getElementById('odeNav');
@@ -91,13 +100,15 @@
                 if (typeof d.total === 'number') {
                     var t = document.getElementById('odeTotal');
                     if (t) t.textContent = d.total.toLocaleString() + '원';
-                    if (side && window.innerWidth > 980) side.style.display = 'block';
+                    updateSideVisibility();
                 }
                 if (Array.isArray(d.sections)) {
                     sections = d.sections;
                     renderNav();
                 }
             });
+
+            window.addEventListener('resize', updateSideVisibility);
         })();</script>
     </div>
 </div>

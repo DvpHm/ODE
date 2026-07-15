@@ -303,7 +303,7 @@
         /*.price-card.featured .price-card-name{color:rgba(250,249,247,0.9);}*/
         /*.price-card.featured .price-card-note{color:rgba(250,249,247,0.8);}*/
         .price-card.featured .price-card-name{color:var(--ink);}
-        .price-card.featured .price-card-note{color:var(--ink);}
+        /*.price-card.featured .price-card-note{color:var(--ink);}*/
 
         .check-badge {
             position: absolute;
@@ -467,6 +467,7 @@
             .youtb-grid{grid-template-columns:repeat(1,1fr);}
             .steps-grid,.steps-row2{grid-template-columns:repeat(2,1fr);}
             .price-cards{grid-template-columns:repeat(2,1fr);}
+            .price-cards-4{grid-template-columns:repeat(2,1fr);}
             .options-list{display:grid;grid-template-columns:1fr 1fr;gap:2px;}
             .hero-ctas{flex-direction:column;}
             .btn-primary,.btn-outline{width:100%;}
@@ -476,7 +477,7 @@
             footer{align-items:flex-start;flex-direction:column;gap:8px;}
         }
         @media(max-width:520px){
-            .port-grid,.rigg-grid,.price-cards,.steps-grid,.steps-row2{grid-template-columns:1fr;}
+            .port-grid,.rigg-grid,.price-cards,.price-cards-4,.steps-grid,.steps-row2{grid-template-columns:1fr;}
             .hero-desc{font-size:15px;}
             .section{padding:28px 0;}
             .options-list{display:grid;grid-template-columns:1fr;gap:2px;}
