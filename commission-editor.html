@@ -503,7 +503,7 @@
         }catch(e){toast('JSON 형식 오류: '+e.message,'err');}
     }
     function buildJson(){
-        return {updated:new Date().toISOString(),hero:D.hero,steps:D.steps,tags:D.tags,slots:D.slots,important:D.important,sections:D.sections,notice:D.notice,apply:D.apply,portfolioOrder:D.portfolioOrder||[]};
+        return {updated:new Date().toISOString(),hero:D.hero,steps:D.steps,tags:D.tags,slots:D.slots,important:D.important,port:D.port,sections:D.sections,notice:D.notice,apply:D.apply,portfolioOrder:D.portfolioOrder||[]};
     }
 
     /* ───── save to GitHub ───── */
