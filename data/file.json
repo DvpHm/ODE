@@ -27,7 +27,10 @@
       "title": "ABSINTHE",
       "title_en": "",
       "tag": "Live2D",
-      "url": ""
+      "url": "",
+      "redirect": "",
+      "sub": "",
+      "show": true
     },
     {
       "type": "file",
@@ -35,7 +38,10 @@
       "title": "LILLET_BLANC",
       "title_en": "",
       "tag": "Live2D",
-      "url": ""
+      "url": "",
+      "redirect": "",
+      "sub": "",
+      "show": true
     },
     {
       "type": "file",
@@ -43,7 +49,10 @@
       "title": "BELLINI",
       "title_en": "",
       "tag": "Live2D",
-      "url": ""
+      "url": "",
+      "redirect": "",
+      "sub": "",
+      "show": true
     }
   ],
   "rigging": [
@@ -53,7 +62,10 @@
       "title": "얼굴",
       "title_en": "",
       "tag": "Rigging",
-      "url": ""
+      "url": "",
+      "redirect": "",
+      "sub": "",
+      "show": false
     },
     {
       "type": "file",
@@ -61,17 +73,45 @@
       "title": "전신",
       "title_en": "",
       "tag": "Rigging",
-      "url": ""
+      "url": "",
+      "redirect": "",
+      "sub": "",
+      "show": false
     }
   ],
   "youtube": [
     {
       "type": "link",
       "file": "link",
-      "title": "쇼케이스",
+      "title": "선셋",
       "title_en": "",
-      "tag": "Rigging",
-      "url": "https://www.youtube.com/embed/WNixT24TQPU?si=ydxS6ygmxo6kKFDC"
+      "tag": "Youtube",
+      "url": "https://www.youtube.com/embed/WNixT24TQPU?si=ydxS6ygmxo6kKFDC",
+      "redirect": "",
+      "sub": "✔\uFE0F 할인 프로모션 각 5만원 할인",
+      "show": true
+    },
+    {
+      "type": "link",
+      "file": "link",
+      "title": "아스래",
+      "title_en": "",
+      "tag": "Youtube",
+      "url": "https://www.youtube.com/embed/XBEPyZFyOIs?si=j8v2FmcNAWBIESlZ",
+      "redirect": "https://artmug.kr/index.php?channel=view&uid=30900&no_vcnt=1",
+      "sub": "✔\uFE0F 할인 프로모션 각 5만원 할인<br>✔\uFE0F 판매모델 리깅 연계할인 - 총 금액의 20%",
+      "show": true
+    },
+    {
+      "type": "link",
+      "file": "link",
+      "title": "아요",
+      "title_en": "",
+      "tag": "Youtube",
+      "url": "https://www.youtube.com/embed/WNixT24TQPU?si=ydxS6ygmxo6kKFDC",
+      "redirect": "https://artmug.kr/index.php?channel=view&uid=59207",
+      "sub": "✔\uFE0F 할인 프로모션 각 5만원 할인<br>✔\uFE0F 판매모델 리깅 연계할인 - 총 금액의 20%",
+      "show": false
     }
   ]
 }

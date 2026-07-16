@@ -50,8 +50,10 @@
         .pcard-imgwrap{position:relative;width:100%;aspect-ratio:3.27/4;background:#15151c}
         .pcard-imgwrap img{width:100%;height:100%;display:block;object-fit:cover}
         .pcard-videowrap{position:relative;width:100%;aspect-ratio:2.8/4;background:#15151c}
+        .pcard-youtbwrap{position:relative;width:100%;aspect-ratio:4/2.25;background:#15151c}
         .pcard-videowrap video{width:100%;height:100%;display:block}
         .pcard-videowrap iframe{width:100%;height:100%;display:block}
+        .pcard-youtbwrap iframe{width:100%;height:100%;display:block}
         .pcard-num{position:absolute;top:5px;left:6px;font-family:var(--mono);font-size:11px;font-weight:700;color:#fff;background:rgba(0,0,0,.55);border-radius:5px;padding:1px 6px}
         .pcard-del{position:absolute;top:5px;right:5px;width:24px;height:24px;border:none;border-radius:6px;font-size:12px;font-weight:800;cursor:pointer;color:#fff;background:rgba(248,113,113,.85);opacity:0;transition:opacity .15s}
         .pcard:hover .pcard-del{opacity:1}
@@ -59,9 +61,11 @@
         .pcard:hover .pcard-mv{opacity:1}
         .pcard-mv button{width:24px;height:22px;border:none;border-radius:5px;font-size:11px;font-weight:800;cursor:pointer;color:#fff;background:rgba(61,142,240,.85)}
         .pcard-meta{padding:8px;display:flex;flex-direction:column;gap:5px}
-        .pcard-meta input{width:100%;background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:5px 8px;color:var(--text);font-family:var(--kr);font-size:11.5px;outline:none}
+        .pcard-meta .show-toggle{margin-left: 5px;}
+        .pcard-meta input{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:5px 8px;color:var(--text);font-family:var(--kr);font-size:11.5px;outline:none}
         .pcard-meta input:focus{border-color:var(--Y)}
         .pcard-meta input.tag{color:var(--Y);font-family:var(--mono);font-size:10.5px}
+        .pcard-meta span{font-size:13px;margin-left: 10px;}
         .missing .pcard-imgwrap{outline:2px solid var(--amber);outline-offset:-2px}
         .empty{text-align:center;padding:30px;color:var(--text3);font-size:13px;grid-column:1/-1}
         .hint{font-size:11.5px;color:var(--text3);margin:14px 2px 0;line-height:1.6}
@@ -96,8 +100,9 @@
     <div class="cat-meta" id="guide" style="display: none">
         <div class="drop-ico">💡</div>
         <div class="drop-t">영상 링크 확인 방법 (공유 -> 퍼가기 -> 우측 src 링크)</div>
+        <div style="margin-left: auto"><button onclick="toggleGuide()" id="guideBtn" class="btn">펼치기</button></div>
         <br>
-        <div style="display: flex;flex-direction: row;justify-content: space-around;gap:20px;">
+        <div style="display: none;flex-direction: row;justify-content: space-around;gap:20px;" id="guideBox">
             <img src="img/guide_1.png" width="200px">
             <img src="img/guide_2.png" width="600px">
         </div>
@@ -135,6 +140,16 @@
         return s || '';
     }
     function base(cat) { var c = ghCfg(); return 'https://raw.githubusercontent.com/' + c.user + '/' + c.repo + '/main/' + cat + '/'; }
+
+    function toggleGuide() {
+        if (document.getElementById('guideBox').style.display==='none') {
+            document.getElementById('guideBtn').innerText='접기';
+            document.getElementById('guideBox').style.display='block';
+        } else {
+            document.getElementById('guideBtn').innerText='펼치기';
+            document.getElementById('guideBox').style.display='none';
+        }
+    }
 
     var DEFAULT_CATS = [
         { id: 'portfolio', name: '포트폴리오', sub: 'Live2D 일러스트', num: '01' },
@@ -224,20 +239,42 @@
             } else if (curCat === 'youtube' && !exists && it.url) {
                 // h += '<div class="pcard-videowrap"><video src="' + it.url + '" controls loading="lazy" alt="">';
                 // h += '<iframe width="560" height="315" src="https://www.youtube.com/embed/d7mGrq3lZ78?si=MJGUo5bQRlTj1HPB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
-                h += '<div class="pcard-videowrap"><iframe src="' + it.url + '"></iframe>';
+                h += '<div class="pcard-youtbwrap"><iframe src="' + it.url + '" id="youtube-'+i+'"></iframe>';
             }
             h += '<div class="pcard-num">' + (i + 1) + '</div>' +
                 '<button class="pcard-del" onclick="delItem(' + i + ')">×</button>' +
                 '<div class="pcard-mv"><button onclick="mv(' + i + ',-1)">↑</button><button onclick="mv(' + i + ',1)">↓</button></div></div>' +
-                '<div class="pcard-meta">' +
-                '<input value="' + esc(it.file) + '" placeholder="파일명" oninput="updItem(' + i + ',\'file\',this.value)">' +
-                '<input value="' + esc(it.title) + '" placeholder="제목" oninput="updItem(' + i + ',\'title\',this.value)">' +
-                '<input class="tag" value="' + escTag(curCat, it.tag) + '" placeholder="태그 (예: Full Model)" oninput="updItem(' + i + ',\'tag\',this.value)">' +
-                '</div></div>';
+                '<div class="pcard-meta">';
+            if (curCat!=='youtube') {
+                h+= '<input value="' + esc(it.file) + '" placeholder="파일명" oninput="updItem(' + i + ',\'file\',this.value)">' +
+                    '<input value="' + esc(it.title) + '" placeholder="제목" oninput="updItem(' + i + ',\'title\',this.value)">' +
+                    '<label class="show-toggle">' +
+                    '<input type="checkbox" ' + (it.show ? 'checked' : '') + ' onchange="updItem(' + i + ',\'show\',this.checked); this.nextElementSibling.textContent = this.checked ? \'보이기\' : \'숨기기\';">' +
+                    '<span>' + (it.show ? '포트폴리오에 보이기' : '포트폴리오에 숨기기') + '</span>' +
+                    '</label>' +
+                    '<input class="tag" value="' + escTag(curCat, it.tag) + '" placeholder="태그 (예: Full Model)" oninput="updItem(' + i + ',\'tag\',this.value)">';
+            } else {
+                h += '<input value="' + esc(it.url) + '" placeholder="YouTube 퍼가기 링크" oninput="updItem(' + i + ',\'link\',this.value)">' +
+                     '<input value="' + esc(it.title) + '" placeholder="제목" oninput="updItem(' + i + ',\'title\',this.value)">' +
+                     '<input value="' + esc(it.redirect) + '" placeholder="바로가기" oninput="updItem(' + i + ',\'redirect\',this.value)">' +
+                     '<input value="' + esc(it.sub) + '" placeholder="텍스트" oninput="updItem(' + i + ',\'sub\',this.value)">' +
+                     '<label class="show-toggle">' +
+                     '<input type="checkbox" ' + (it.show ? 'checked' : '') + ' onchange="updItem(' + i + ',\'show\',this.checked); this.nextElementSibling.textContent = this.checked ? \'보이기\' : \'숨기기\';">' +
+                     '<span>' + (it.show ? '포트폴리오에 보이기' : '포트폴리오에 숨기기') + '</span>' +
+                     '</label>' +
+                     '<input class="tag" value="' + escTag(curCat, it.tag) + '" placeholder="태그 (예: Full Model)" oninput="updItem(' + i + ',\'tag\',this.value)">';
+            }
+            h += '</div></div>';
         });
         g.innerHTML = h; bindDrag(); renderCats();
     }
-    function updItem(i, k, v) { D[curCat][i][k] = v; setDirty(true); }
+    function updItem(i, k, v) {
+        D[curCat][i][k] = v;
+        if(k==='link'){
+            document.getElementById('youtube-'+i).src=v;
+        }
+        setDirty(true);
+    }
     function delItem(i) {
         var it = D[curCat][i];
         if (!confirm('"' + (it.title || it.file) + '" 를 목록에서 뺄까요?')) return;
@@ -310,8 +347,8 @@
         var url = document.getElementById('linkInput').value;
         if (!url.length) return;
         var uuid = self.crypto.randomUUID();
-        addFileList.push({ id: curCat, name: '', type: 'link', url: url, uuid: uuid, sha: '' });
-        D[curCat].push({ type: 'link', file: 'link', title: name.replace(/\.[^.]+$/, ''), title_en: '', tag: 'Rigging', url: url, uuid: uuid, sha: '' });
+        addFileList.push({ id: curCat, name: '', type: 'link', url: url, uuid: uuid, sha: '', redirect: '', sub: '' });
+        D[curCat].push({ type: 'link', file: 'link', title: name.replace(/\.[^.]+$/, ''), title_en: '', tag: 'Youtube', url: url, uuid: uuid, sha: '', redirect: '', sub: '' });
         renderItems();
         document.getElementById('linkInput').value = '';
     }
@@ -320,7 +357,7 @@
         var out = { updated: new Date().toISOString(), categories: D.categories };
         D.categories.forEach(function (c) {
             out[c.id] = (D[c.id] || []).map(function (it) {
-                return { type: it.type, file: it.file, title: it.title, title_en: it.title_en || '', tag: it.tag || '', url: it.url || ''};
+                return { type: it.type, file: it.file, title: it.title, title_en: it.title_en || '', tag: it.tag || '', url: it.url || '', redirect: it.redirect || '', sub: it.sub || ''};
             });
         });
         return out;

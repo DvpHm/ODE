@@ -117,6 +117,12 @@
             border:1px solid var(--line2);cursor:pointer;transition:all .2s;
         }
         .btn-outline2:hover{border-color:var(--ink);color:var(--ink);}
+        .btn-outline3{
+            padding:5px 10px;background:var(--ink);color:var(--bg);
+            font-family:var(--pretendard);font-size:13px;text-transform:uppercase;font-weight: 500;
+            border:none;cursor:pointer;transition:opacity .2s;
+        }
+        .btn-outline3:hover{opacity:.65;}
 
         /* Hero right — big ODE mark */
         .hero-mark{
@@ -198,14 +204,19 @@
         /* ── RIGGING YOUTUBE ── */
         .youtb-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px;}
         .youtb-item{
-            aspect-ratio:4/2.25;
-            background:#ffffff;
+            /*aspect-ratio:4/2.25;*/
+            /*background:#ffffff;*/
             border:1px solid var(--line);
             overflow:hidden;position:relative;cursor:pointer;
             transition:border-color .2s, transform .2s;
         }
-        .youtb-item:hover{border-color:var(--ink);transform:translateY(-2px);}
-        .youtb-item:hover .port-overlay{opacity:1;}
+        .youtb-item-iframe{aspect-ratio:4/2.25;border-bottom: 1px solid var(--line);margin-top: 5px;}
+        .youtb-item-iframe:hover{border-color:var(--ink);transform:translateY(-2px);}
+        .youtb-item-iframe:hover .port-overlay{opacity:1;}
+        .youtb-item .desc{max-height: 150px;padding: 10px;}
+        .youtb-item .title{font-size: 18px;font-weight: 600;margin-bottom: 15px}
+        .youtb-item .sub{font-size: 14px;margin-bottom: 10px;}
+        .youtb-item a{font-size: 14px;text-decoration-line: none;}
 
         .cap{position:absolute;left:12px;right:12px;bottom:10px;color:var(--bg);font-size:10px;letter-spacing:.14em;text-transform:uppercase;text-shadow:0 1px 12px rgba(0,0,0,.6);}
         .port-loading,.port-empty{text-align:center;padding:34px;color:var(--ink3);font-size:13px;font-weight:600}
@@ -1311,7 +1322,7 @@
                 data.portfolio.forEach(f => {
                     var url = 'https://raw.githubusercontent.com/'+GH.user+'/'+GH.repo+'/main/portfolio/'+f.file;
                     // var url = '/portfolio/'+f.file;
-                    if(/\.(png|jpe?g|webp)$/i.test(f.file)){
+                    if(/\.(png|jpe?g|webp)$/i.test(f.file) && f.show){
                         imgs.push({src:url,cap:f.title.replace(/\.[^.]+$/,'')});
                     }
                 });
@@ -1338,12 +1349,23 @@
 
                 // 유튜브
                 data.youtube.forEach(f => {
-                    links.push({type:f.type,src:f.url,cap:f.title.replace(/\.[^.]+$/,'')});
+                    if (f.show) {
+                        links.push({type:f.type,src:f.url,cap:f.title.replace(/\.[^.]+$/,''),title:f.title,sub:f.sub,redirect:f.redirect});
+                    }
                 });
                 if(!links.length){var e=document.getElementById('youtbEmpty');e.style.display='block';e.textContent=UI[lang].portEmpty;return;}
                 var g='';
                 links.forEach(function(im){
-                    g+='<div class="youtb-item" style="align-content: center"><iframe src="'+im.src+'" alt="'+im.cap+'" width="100%" height="100%" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>';
+                    g+='<div class="youtb-item" xmlns="http://www.w3.org/1999/html">' +
+                        '<div class="youtb-item-iframe">' +
+                        '<iframe src="'+im.src+'" alt="'+im.cap+'" width="100%" height="100%" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>' +
+                        '</div>' +
+                        '<div class="desc">' +
+                        (im.redirect?'<div><a class="btn-outline3" target="_blank" href="'+im.redirect+'" style="float: right;">의뢰글 바로가기</a></div>':'') +
+                            '<div class="title">'+im.title+' 님</div>' +
+                            '<div class="sub">'+im.sub+'</div>' +
+                        '</div>' +
+                        '</div>';
                 });
                 document.getElementById('youtbGrid').innerHTML=g;document.getElementById('youtbWrap').style.display='block';
             })
