@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-16T10:53:23.146Z",
+  "updated": "2026-07-16T11:22:20.946Z",
   "hero": {
     "badgeKo": "Live2D Illustrator · ODE",
     "badgeEn": "Live2D Illustrator · ODE",
@@ -157,8 +157,8 @@
       "items": [
         {
           "id": "b1",
-          "ko": "흉상<br><sub>✔️ 반신 파츠 분리 일러스트<br>✔️ 기본 표정<br>✔️ 원하시는 표정 2개</sub>",
-          "en": "Bust-up<br><sub>✔️ half-body part-separated illustration<br>✔️ base expression<br>✔️ 2 expressions of your choice</sub>",
+          "ko": "흉상<br><sub>✔️ 반신 파츠 분리 일러스트<br>✔️ 기본 표정<br>✔️ 원하시는 표정 3개</sub>",
+          "en": "Bust-up<br><sub>✔️ half-body part-separated illustration<br>✔️ base expression<br>✔️ 3 expressions of your choice</sub>",
           "p": 800000,
           "subKo": "",
           "subEn": "",
@@ -166,8 +166,8 @@
         },
         {
           "id": "b2",
-          "ko": "전신<br><sub>✔️ 전신 파츠 분리 일러스트<br>✔️ 기본 표정<br>✔️ 원하시는 표정 2개</sub>",
-          "en": "Full body<br><sub>✔️ full-body part-separated illustration<br>✔️ base expression<br>✔️ 2 expressions of your choice</sub>",
+          "ko": "전신<br><sub>✔️ 전신 파츠 분리 일러스트<br>✔️ 기본 표정<br>✔️ 원하시는 표정 3개</sub>",
+          "en": "Full body<br><sub>✔️ full-body part-separated illustration<br>✔️ base expression<br>✔️ 3 expressions of your choice</sub>",
           "p": 1500000,
           "subKo": "",
           "subEn": "",
@@ -175,8 +175,8 @@
         },
         {
           "id": "b3",
-          "ko": "오픈 이벤트 전신<br><sub>✔️ 전신 파츠 분리 일러스트<br>✔️ 기본 표정<br>✔️ 원하시는 표정 2개</sub>",
-          "en": "Opening event full body<br><sub>✔️ full-body illustration<br>✔️ base expression<br>✔️ 2 expressions of your choice</sub>",
+          "ko": "오픈 이벤트 전신<br><sub>✔️ 전신 파츠 분리 일러스트<br>✔️ 기본 표정<br>✔️ 원하시는 표정 3개</sub>",
+          "en": "Opening event full body<br><sub>✔️ full-body illustration<br>✔️ base expression<br>✔️ 3 expressions of your choice</sub>",
           "p": 1300000,
           "subKo": "<div style='font-weight:500;'>선착순 첫 슬롯 한정</div> <div>🎉 20만원 할인 🎉</div>",
           "subEn": "<div style='font-weight:500;'>Limited to the first slots</div> 🎉 ₩200,000 off 🎉</div>",
