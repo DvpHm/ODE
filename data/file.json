@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-17T19:55:26.460Z",
+  "updated": "2026-07-17T20:01:43.491Z",
   "categories": [
     {
       "id": "portfolio",
@@ -44,6 +44,33 @@
       "title": "BELLINI",
       "title_en": "",
       "tag": "Live2D",
+      "url": "",
+      "redirect": "",
+      "sub": ""
+    },
+    {
+      "file": "릴레_포스터.jpg",
+      "title": "릴레_포스터",
+      "title_en": "",
+      "tag": "",
+      "url": "",
+      "redirect": "",
+      "sub": ""
+    },
+    {
+      "file": "벨리니_포스터.jpg",
+      "title": "벨리니_포스터",
+      "title_en": "",
+      "tag": "",
+      "url": "",
+      "redirect": "",
+      "sub": ""
+    },
+    {
+      "file": "압생트_포스터.jpg",
+      "title": "압생트_포스터",
+      "title_en": "",
+      "tag": "",
       "url": "",
       "redirect": "",
       "sub": ""
