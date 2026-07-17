@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-17T19:43:02.701Z",
+  "updated": "2026-07-17T19:44:39.100Z",
   "categories": [
     {
       "id": "portfolio",
@@ -33,8 +33,8 @@
     },
     {
       "type": "file",
-      "file": "BELLINI.jpeg",
-      "title": "BELLINI",
+      "file": "LILLET_BLANC.jpeg",
+      "title": "LILLET_BLANC",
       "title_en": "",
       "tag": "Live2D",
       "url": "",
@@ -43,8 +43,8 @@
     },
     {
       "type": "file",
-      "file": "LILLET_BLANC.jpeg",
-      "title": "LILLET_BLANC",
+      "file": "BELLINI.jpeg",
+      "title": "BELLINI",
       "title_en": "",
       "tag": "Live2D",
       "url": "",
