@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-17T19:49:44.289Z",
+  "updated": "2026-07-17T19:55:26.460Z",
   "categories": [
     {
       "id": "portfolio",
@@ -22,7 +22,6 @@
   ],
   "portfolio": [
     {
-      "type": "file",
       "file": "ABSINTHE.jpeg",
       "title": "ABSINTHE",
       "title_en": "",
@@ -32,7 +31,6 @@
       "sub": ""
     },
     {
-      "type": "file",
       "file": "LILLET_BLANC.jpeg",
       "title": "LILLET_BLANC",
       "title_en": "",
@@ -42,7 +40,6 @@
       "sub": ""
     },
     {
-      "type": "file",
       "file": "BELLINI.jpeg",
       "title": "BELLINI",
       "title_en": "",
