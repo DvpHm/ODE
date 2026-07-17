@@ -357,7 +357,7 @@
         var out = { updated: new Date().toISOString(), categories: D.categories };
         D.categories.forEach(function (c) {
             out[c.id] = (D[c.id] || []).map(function (it) {
-                return { type: it.type, file: it.file, title: it.title, title_en: it.title_en || '', tag: it.tag || '', url: it.url || '', redirect: it.redirect || '', sub: it.sub || ''};
+                return { type: it.type, file: it.file, title: it.title, title_en: it.title_en || '', tag: it.tag || '', url: it.url || '', redirect: it.redirect || '', sub: it.sub || '', show: it.show || false};
             });
         });
         return out;
