@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-17T20:06:45.286Z",
+  "updated": "2026-07-17T23:59:20.712Z",
   "hero": {
     "badgeKo": "Live2D Illustrator · ODE",
     "badgeEn": "Live2D Illustrator · ODE",
@@ -369,10 +369,16 @@
       "items": [
         {
           "id": "secmrjqslno_mrjqszc6",
-          "ko": "선셋 (5만원 할인)",
+          "ko": "선셋<br><sub>할인 프로모션 각 5만원 할인</sub>",
           "en": "sunset (₩50,000 off)",
           "p": -50000,
           "inquire": "N"
+        },
+        {
+          "id": "secmrjqslno_mrpljl3e",
+          "ko": "아스래<br><sub>할인 프로모션 각 5만원 할인</sub>",
+          "en": "asre (₩50,000 off)",
+          "p": -50000
         }
       ]
     }
