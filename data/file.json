@@ -8,22 +8,38 @@
       "num": "01"
     },
     {
+      "id": "rough",
+      "name": "러프 시트",
+      "sub": "러프 시트",
+      "num": "02"
+    },
+    {
       "id": "rigging",
       "name": "리깅",
       "sub": "리깅 영상",
-      "num": "02"
+      "num": "03"
     },
     {
       "id": "youtube",
       "name": "유튜브",
       "sub": "유튜브 영상",
-      "num": "03"
+      "num": "04"
     }
   ],
   "portfolio": [
     {
       "file": "압생트_포스터.jpg",
       "title": "압생트_포스터",
+      "title_en": "",
+      "tag": "",
+      "url": "",
+      "redirect": "",
+      "sub": "",
+      "show": true
+    },
+    {
+      "file": "압생트_표정.jpeg",
+      "title": "압생트_표정",
       "title_en": "",
       "tag": "",
       "url": "",
@@ -44,6 +60,18 @@
     {
       "file": "벨리니_포스터.jpg",
       "title": "벨리니_포스터",
+      "title_en": "",
+      "tag": "",
+      "url": "",
+      "redirect": "",
+      "sub": "",
+      "show": true
+    }
+  ],
+  "rough": [
+    {
+      "file": "러프시트.jpeg",
+      "title": "러프시트",
       "title_en": "",
       "tag": "",
       "url": "",

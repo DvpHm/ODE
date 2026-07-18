@@ -121,7 +121,7 @@
 
 <script>
     var GH = { user: 'DvpHm', repo: 'ODE', folder: 'portfolio' };
-    var D = { categories: [], portfolio: [], rigging: [], youtube: [] };
+    var D = { categories: [], portfolio: [], rough: [], rigging: [], youtube: [] };
     var folderFiles = {};
     var curCat = null, dirty = false;
     var addFileList = [];
@@ -135,6 +135,7 @@
     function esc(s) { return (s == null ? '' : String(s)).replace(/"/g, '&quot;'); }
     function escTag(cat, s) {
         if (cat === 'portfolio') return (s == null ? 'Live2D' : String(s)).replace(/"/g, '&quot;');
+        if (cat === 'rough')  return (s == null ? 'Rough Sheet' : String(s)).replace(/"/g, '&quot;');
         if (cat === 'rigging')  return (s == null ? 'Rigging' : String(s)).replace(/"/g, '&quot;');
         if (cat === 'youtube')  return (s == null ? 'Youtube' : String(s)).replace(/"/g, '&quot;');
         return s || '';
@@ -153,8 +154,9 @@
 
     var DEFAULT_CATS = [
         { id: 'portfolio', name: '포트폴리오', sub: 'Live2D 일러스트', num: '01' },
-        { id: 'rigging',   name: '리깅',      sub: '리깅 영상',      num: '02' },
-        { id: 'youtube',   name: '유튜브',    sub: '유튜브 영상',     num: '03' },
+        { id: 'rough',   name: '러프 시트',      sub: '러프 시트',      num: '02' },
+        { id: 'rigging',   name: '리깅',      sub: '리깅 영상',      num: '03' },
+        { id: 'youtube',   name: '유튜브',    sub: '유튜브 영상',     num: '04' },
     ];
 
     function loadAll() {
@@ -228,7 +230,7 @@
             console.log(it);
             var exists = (folderFiles[curCat] || []).indexOf(it.file) >= 0;
             h += '<div class="pcard' + (exists ? '' : ' missing') + '" draggable="true" data-i="' + i + '">';
-            if (curCat === 'portfolio' && exists) {
+            if ((curCat === 'portfolio' || curCat === 'rough') && exists) {
                 h += '<div class="pcard-imgwrap"><img src="' + base(curCat) + encodeURIComponent(it.file) + '" loading="lazy" alt="">';
             } else if (curCat === 'portfolio' && !exists && it.content) {
                 h += '<div class="pcard-imgwrap"><img src="' + URL.createObjectURL(it.content) + '" loading="lazy" alt="">';
@@ -325,7 +327,15 @@
                 var uuid = self.crypto.randomUUID();
                 addFileList.push({ id: curCat, name: name, content: content, uuid: uuid, sha: '' });
                 if (!(D[curCat] || []).some(function (it) { return it.file === name; })) {
-                    D[curCat].push({ file: name, title: name.replace(/\.[^.]+$/, ''), title_en: '', tag: curCat === 'portfolio' ? 'Live2D' : 'Rigging', content: file, uuid: uuid, sha: '' });
+                    var tagStr = 'Live2D';
+                    if (curCat==='rough'){
+                        tagStr = 'Rough Sheet';
+                    } else if (curCat==='rigging') {
+                        tagStr = 'Rigging';
+                    } else {
+                        tagStr = 'Youtube';
+                    }
+                    D[curCat].push({ file: name, title: name.replace(/\.[^.]+$/, ''), title_en: '', tag: tagStr, content: file, uuid: uuid, sha: '', show: true });
                 }
                 setDirty(true);
                 done++;
@@ -348,7 +358,7 @@
         if (!url.length) return;
         var uuid = self.crypto.randomUUID();
         addFileList.push({ id: curCat, name: '', type: 'link', url: url, uuid: uuid, sha: '', redirect: '', sub: '' });
-        D[curCat].push({ type: 'link', file: 'link', title: name.replace(/\.[^.]+$/, ''), title_en: '', tag: 'Youtube', url: url, uuid: uuid, sha: '', redirect: '', sub: '' });
+        D[curCat].push({ type: 'link', file: 'link', title: name.replace(/\.[^.]+$/, ''), title_en: '', tag: 'Youtube', url: url, uuid: uuid, sha: '', redirect: '', sub: '', show: true });
         renderItems();
         document.getElementById('linkInput').value = '';
     }

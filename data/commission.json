@@ -96,8 +96,8 @@
       "ko": "8월",
       "en": "August",
       "filled": [
-        false,
-        true
+        true,
+        false
       ]
     },
     {
@@ -115,6 +115,12 @@
       "qEn": "Notice",
       "aKo": "본 작업은 Live2D 리깅이 포함되지 않은 파츠 분리 일러스트입니다. <br>\n디자인이 준비되지 않은 경우 디자인 비용이 추가됩니다. <br>\n예약은 전액 입금 완료 후 확정됩니다.",
       "aEn": "This service provides part-separated illustrations only and does not include Live2D rigging. <br>\nIf a design has not been prepared in advance, a design fee will be added. <br>\nBookings are confirmed only after full payment has been received."
+    },
+    {
+      "qKo": "디자인",
+      "qEn": "Design",
+      "aKo": "정해진 디자인이 없어 처음부터 디자인 하는 경우에 디자인 추가금을 추가해주세요.",
+      "aEn": "If there is no predetermined design and the piece is designed from scratch, an additional design fee will apply."
     },
     {
       "qKo": "작업 사양",
@@ -157,33 +163,63 @@
       "items": [
         {
           "id": "b1",
-          "ko": "흉상<br><sub>✔️ 반신 파츠 분리 일러스트<br>✔️ 기본 표정<br>✔️ 원하시는 표정 3개</sub>",
+          "ko": "프리미엄 흉상<br><sub>✔️ 반신 파츠 분리 일러스트<br>✔️ 기본 표정<br>✔️ 원하시는 표정 3개</sub>",
           "en": "Bust-up<br><sub>✔️ half-body part-separated illustration<br>✔️ base expression<br>✔️ 3 expressions of your choice</sub>",
-          "p": 800000,
+          "p": 700000,
           "subKo": "",
           "subEn": "",
           "inquire": "N"
         },
         {
           "id": "b2",
-          "ko": "전신<br><sub>✔️ 전신 파츠 분리 일러스트<br>✔️ 기본 표정<br>✔️ 원하시는 표정 3개</sub>",
+          "ko": "프리미엄 전신<br><sub>✔️ 전신 파츠 분리 일러스트<br>✔️ 기본 표정<br>✔️ 원하시는 표정 3개</sub>",
           "en": "Full body<br><sub>✔️ full-body part-separated illustration<br>✔️ base expression<br>✔️ 3 expressions of your choice</sub>",
-          "p": 1500000,
+          "p": 1300000,
           "subKo": "",
           "subEn": "",
           "inquire": "N"
         },
         {
           "id": "b3",
-          "ko": "오픈 이벤트 전신<br><sub>✔️ 전신 파츠 분리 일러스트<br>✔️ 기본 표정<br>✔️ 원하시는 표정 3개</sub>",
+          "ko": "오픈 이벤트 프리미엄 전신<br><sub>✔️ 전신 파츠 분리 일러스트<br>✔️ 기본 표정<br>✔️ 원하시는 표정 3개</sub>",
           "en": "Opening event full body<br><sub>✔️ full-body illustration<br>✔️ base expression<br>✔️ 3 expressions of your choice</sub>",
-          "p": 1300000,
+          "p": 1100000,
           "subKo": "<div style='font-weight:500;'>선착순 첫 슬롯 한정</div> <div>🎉 20만원 할인 🎉</div>",
           "subEn": "<div style='font-weight:500;'>Limited to the first slots</div> 🎉 ₩200,000 off 🎉</div>",
           "inquire": "N"
         }
       ],
       "noteKo": ""
+    },
+    {
+      "id": "design",
+      "ko": "디자인",
+      "en": "Design",
+      "koLabel": "디자인",
+      "type": "radio",
+      "items": [
+        {
+          "id": "d1",
+          "ko": "정해진 디자인 있음",
+          "en": "Design already provided",
+          "p": 0,
+          "inquire": "N"
+        },
+        {
+          "id": "d2",
+          "ko": "디자인 리폼",
+          "en": "Design reform/redesign",
+          "p": 100000,
+          "inquire": "N"
+        },
+        {
+          "id": "d3",
+          "ko": "처음부터 디자인(시안 2개)",
+          "en": "No design yet(from scratch: 2 drafts)",
+          "p": 150000,
+          "inquire": "N"
+        }
+      ]
     },
     {
       "id": "add",
@@ -227,43 +263,6 @@
           "ko": "팔 포즈 + 소품",
           "en": "Arm pose + prop",
           "p": 150000,
-          "inquire": "N"
-        }
-      ]
-    },
-    {
-      "id": "design",
-      "ko": "디자인",
-      "en": "Design",
-      "koLabel": "디자인",
-      "type": "radio",
-      "items": [
-        {
-          "id": "d1",
-          "ko": "정해진 디자인 있음",
-          "en": "Design already provided",
-          "p": 0,
-          "inquire": "N"
-        },
-        {
-          "id": "d2",
-          "ko": "디자인 리폼",
-          "en": "Design reform/redesign",
-          "p": 100000,
-          "inquire": "N"
-        },
-        {
-          "id": "d3",
-          "ko": "처음부터 디자인(시안 2개)",
-          "en": "No design yet(from scratch: 2 drafts)",
-          "p": 200000,
-          "inquire": "N"
-        },
-        {
-          "id": "d4",
-          "ko": "처음부터 디자인(시안 3개)",
-          "en": "No design yet(from scratch: 3 drafts)",
-          "p": 300000,
           "inquire": "N"
         }
       ]
@@ -378,7 +377,8 @@
           "id": "secmrjqslno_mrpljl3e",
           "ko": "아스래<br><sub>✔️ 할인 프로모션 각 5만원 할인</sub>",
           "en": "asre (₩50,000 off)",
-          "p": -50000
+          "p": -50000,
+          "inquire": "N"
         }
       ]
     }
