@@ -556,6 +556,7 @@
             .port-wrap{
                 grid-template-columns: 1fr; /* 1단으로 전환 */
                 border:none;
+                padding: 0;
             }
             .port-viewer{
                 display: none !important; /* 어차피 JS가 안 열어주니 자리도 차지 안 하게 */
@@ -565,11 +566,14 @@
                 aspect-ratio: auto;
                 border:none;
                 background: var(--bg);
+                padding: 0;
+                border-radius: 0px;
             }
             .port-item img{
                 width: 100%;
                 height: auto; /* 원본 비율 그대로 크게 */
             }
+            .port-item:hover{border:1px solid var(--line);transform: unset;}
         }
     </style>
 </head>
@@ -776,7 +780,7 @@
             ctaPrice:'가격 계산하기', ctaPort:'포트폴리오 보기',
             tSlots:'작업 슬롯 현황', bSlots:'실시간', tImportant:'',
             tPort:'포트폴리오', bPort:'갤러리', tRough:'러프 시트',
-            tYoutube:'협업 리거 선셋',
+            tYoutube:'협업 리거',
             tWork:'작업 순서',
             tPrice:'가격 계산 & 신청서', bPrice:'간편',
             tNotice:'추가 안내',
@@ -797,7 +801,7 @@
             ctaPrice:'Price Calculator', ctaPort:'View Portfolio',
             tSlots:'Slot Availability', bSlots:'Live',tImportant:'',
             tPort:'Portfolio', bPort:'Gallery', tRough:'Routh Sheet',
-            tYoutube:'Collaboration Rigger sunset',
+            tYoutube:'Collaboration Rigger',
             tWork:'Work Process',
             tPrice:'Price & Order Form', bPrice:'Easy',
             tNotice:'Additional Information',
