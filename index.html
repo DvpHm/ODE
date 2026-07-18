@@ -1487,7 +1487,7 @@
         document.getElementById('pvImg').alt=im.cap;
         document.getElementById('pvCap').textContent=(lbIdx+1)+' / '+imgs.length;
         var v=document.getElementById('portViewer'); v.classList.add('open');
-        try{ v.scrollIntoView({behavior:'smooth',block:'center'}); }catch(e){ v.scrollIntoView(); }
+        // try{ v.scrollIntoView({behavior:'smooth',block:'center'}); }catch(e){ v.scrollIntoView(); }
     }
     function closeLb(){document.getElementById('portViewer').classList.remove('open');}
     function lbNav(d){openLb(lbIdx+d);}
