@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-19T23:05:14.888Z",
+  "updated": "2026-07-20T07:25:19.893Z",
   "hero": {
     "badgeKo": "Live2D Illustrator · ODE",
     "badgeEn": "Live2D Illustrator · ODE",
@@ -423,32 +423,7 @@
   ],
   "apply": [
     {
-      "ko": "방송 및 유튜브 주소/ 닉네임 (없으시다면 기입x)",
-      "en": "Streaming/YouTube channel address & nickname (leave blank if none)",
-      "type": "textarea"
-    },
-    {
-      "ko": "캐릭터의 구체적인 프로파일 (나이.키.성격등 자세한 설정)",
-      "en": "Detailed character profile (age, height, personality, and other specific settings)",
-      "type": "textarea"
-    },
-    {
-      "ko": "디자인 유무 (디자인 추가금 항목에서 골라주세요)",
-      "en": "Do you have a design already? (Please select from the Design pricing options above)",
-      "type": "textarea"
-    },
-    {
-      "ko": "원하시는 일정 (마감일)",
-      "en": "Preferred schedule (deadline)",
-      "type": "text"
-    },
-    {
-      "ko": "공개여부",
-      "en": "Public or private",
-      "type": "text"
-    },
-    {
-      "ko": "자유로운 요청사항",
+      "ko": "자유로운 문의 사항 (▼양식 복사 없이 '작가에게 문의'로 바로 해주셔도 됩니다)",
       "en": "Any additional requests",
       "type": "textarea"
     }
