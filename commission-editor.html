@@ -173,7 +173,11 @@
         </div>
         <div class="ed-body">
             <div id="portBox"></div>
-            <button class="mini mini-add" onclick="addPort()">＋ 항목 추가</button>
+            <button class="mini mini-add" onclick="addPort()">＋ 포트폴리오 안내 추가</button>
+        </div>
+        <div class="ed-body">
+            <div id="roughBox"></div>
+            <button class="mini mini-add" onclick="addRough()">＋ 러프시트 안내 추가</button>
         </div>
     </div>
 
@@ -271,7 +275,7 @@
 <div class="toast" id="toast"></div>
 
 <script>
-    var D={hero:{},steps:[],tags:[],slots:[],important:[],port:[],sections:[],notice:[],apply:[],portfolioOrder:[]};
+    var D={hero:{},steps:[],tags:[],slots:[],important:[],port:[],rough:[],sections:[],notice:[],apply:[],portfolioOrder:[]};
     var _sha=null;
     var portFiles=[];
 
@@ -294,14 +298,14 @@
         fetch('data/commission.json?t='+Date.now())
             .then(function(r){if(!r.ok)throw new Error(r.status);return r.json();})
             .then(function(j){
-                D={hero:j.hero||{},steps:j.steps||[],tags:j.tags||[],slots:j.slots||[],important:j.important||[],port:j.port||[],sections:j.sections||[],notice:j.notice||[],apply:j.apply||[],portfolioOrder:j.portfolioOrder||[]};
+                D={hero:j.hero||{},steps:j.steps||[],tags:j.tags||[],slots:j.slots||[],important:j.important||[],port:j.port||[],rough:j.rough||[],sections:j.sections||[],notice:j.notice||[],apply:j.apply||[],portfolioOrder:j.portfolioOrder||[]};
                 renderAll();status('불러옴 ✓','ok');
             })
             .catch(function(e){status('불러오기 실패 — 기본값 사용','err');renderAll();});
     }
 
     /* ───── render ───── */
-    function renderAll(){renderHero();renderSlots();renderChips();renderImportant();renderPort();renderSteps();renderPrice();renderNotice();renderApply();syncRaw();updateMeta();}
+    function renderAll(){renderHero();renderSlots();renderChips();renderImportant();renderPort();renderRough();renderSteps();renderPrice();renderNotice();renderApply();syncRaw();updateMeta();}
     function renderHero(){
         if(!D.hero)D.hero={};
         document.getElementById('heroSubKo').value=D.hero.subKo||'';
@@ -330,7 +334,7 @@
         document.getElementById('meta-price').textContent=D.sections.length+'섹션 · '+items+'항목';
         document.getElementById('meta-notice').textContent=D.notice.length+'개';
         document.getElementById('meta-important').textContent=D.important.length+'개';
-        document.getElementById('meta-port').textContent=D.port.length+'개';
+        document.getElementById('meta-port').textContent=(D.port.length + D.rough.length)+'개';
         document.getElementById('meta-apply').textContent=D.apply.length+'개';
         var ms=document.getElementById('meta-steps');if(ms)ms.textContent=D.steps.length+'단계';
     }
@@ -473,13 +477,27 @@
             h+='<div class="sec-block"><div class="row" style="margin-bottom:7px">';
             h+='<input class="f" value="'+esc(n.ko)+'" oninput="D.port['+i+'].ko=this.value" placeholder="추가 공지 (한국어)">';
             h+='<input class="f" value="'+esc(n.en||'')+'" oninput="D.port['+i+'].qEn=this.value" placeholder="Add Notice (EN)">';
-            h+='<button class="mini mini-del" onclick="D.port.splice('+i+',1);renderImportant()">×</button></div>';
+            h+='<button class="mini mini-del" onclick="D.port.splice('+i+',1);renderPort()">×</button></div>';
             h+='<textarea class="f" oninput="D.port['+i+'].koSub=this.value" placeholder="내용 (한국어)" style="margin-bottom:5px" rows="4">'+esc(n.koSub)+'</textarea>';
             h+='<textarea class="f" oninput="D.port['+i+'].enSub=this.value" placeholder="Content (EN)" rows="4">'+esc(n.enSub||'')+'</textarea></div>';
         });
         document.getElementById('portBox').innerHTML=h;updateMeta();
     }
     function addPort(){D.port.push({ko:'새 항목',en:'',koSub:'',enSub:''});renderPort();}
+
+    function renderRough(){
+        var h='';
+        D.rough.forEach(function(n,i){
+            h+='<div class="sec-block"><div class="row" style="margin-bottom:7px">';
+            h+='<input class="f" value="'+esc(n.ko)+'" oninput="D.rough['+i+'].ko=this.value" placeholder="추가 공지 (한국어)">';
+            h+='<input class="f" value="'+esc(n.en||'')+'" oninput="D.rough['+i+'].qEn=this.value" placeholder="Add Notice (EN)">';
+            h+='<button class="mini mini-del" onclick="D.rough.splice('+i+',1);renderRough()">×</button></div>';
+            h+='<textarea class="f" oninput="D.rough['+i+'].koSub=this.value" placeholder="내용 (한국어)" style="margin-bottom:5px" rows="4">'+esc(n.koSub)+'</textarea>';
+            h+='<textarea class="f" oninput="D.rough['+i+'].enSub=this.value" placeholder="Content (EN)" rows="4">'+esc(n.enSub||'')+'</textarea></div>';
+        });
+        document.getElementById('roughBox').innerHTML=h;updateMeta();
+    }
+    function addRough(){D.rough.push({ko:'새 항목',en:'',koSub:'',enSub:''});renderRough();}
 
     function renderApply(){
         var h='';
@@ -498,12 +516,12 @@
     function syncRaw(){document.getElementById('rawJson').value=JSON.stringify(buildJson(),null,2);}
     function applyRaw(){
         try{var j=JSON.parse(document.getElementById('rawJson').value);
-            D={hero:j.hero||{},steps:j.steps||[],tags:j.tags||[],slots:j.slots||[],sections:j.sections||[],notice:j.notice||[],apply:j.apply||[],portfolioOrder:j.portfolioOrder||[]};
+            D={hero:j.hero||{},steps:j.steps||[],tags:j.tags||[],slots:j.slots||[],important:j.important||[],port:j.port||[],rough:j.rough||[],sections:j.sections||[],notice:j.notice||[],apply:j.apply||[],portfolioOrder:j.portfolioOrder||[]};
             renderAll();toast('RAW를 폼에 반영했어요 ✓','ok');
         }catch(e){toast('JSON 형식 오류: '+e.message,'err');}
     }
     function buildJson(){
-        return {updated:new Date().toISOString(),hero:D.hero,steps:D.steps,tags:D.tags,slots:D.slots,important:D.important,port:D.port,sections:D.sections,notice:D.notice,apply:D.apply,portfolioOrder:D.portfolioOrder||[]};
+        return {updated:new Date().toISOString(),hero:D.hero,steps:D.steps,tags:D.tags,slots:D.slots,important:D.important,port:D.port,rough:D.rough,sections:D.sections,notice:D.notice,apply:D.apply,portfolioOrder:D.portfolioOrder||[]};
     }
 
     /* ───── save to GitHub ───── */

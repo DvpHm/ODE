@@ -231,6 +231,7 @@
 
         /* ── RIGGING YOUTUBE ── */
         .youtb-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px;}
+        .youtb-grid.odd{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;}
         .youtb-item{
             /*aspect-ratio:4/2.25;*/
             /*background:#ffffff;*/
@@ -518,6 +519,7 @@
             .port-grid{grid-template-columns:repeat(2,1fr);}
             .rigg-grid{grid-template-columns:repeat(2,1fr);}
             .youtb-grid{grid-template-columns:repeat(1,1fr);}
+            .youtb-grid.odd{grid-template-columns:repeat(2,1fr);}
             .steps-grid,.steps-row2{grid-template-columns:repeat(4,1fr);}
             .price-cards{grid-template-columns:repeat(2,1fr);}
             .price-cards-4{grid-template-columns:repeat(2,1fr);}
@@ -538,6 +540,7 @@
             body > footer{width:min(100% - 25px, 1180px);}
             .nav-sub{font-size: 11.5px;}
             .port-grid,.rigg-grid,.price-cards,.price-cards-4,.steps-row2{grid-template-columns:1fr;}
+            .youtb-grid.odd{grid-template-columns:repeat(1,1fr);}
             .steps-grid{grid-template-columns: 1fr 1fr;}
             .hero-box{gap:20px;}
             .hero-tags{gap:5px;}
@@ -644,6 +647,7 @@
 <section class="section" id="roughSheet" style="border-bottom: none">
     <div class="section-head">
         <div class="section-title sec-title" id="rough"></div>
+        <div id="roughNoti"></div>
     </div>
 
     <div class="port-loading" id="roughLoading"></div>
@@ -886,6 +890,14 @@
                 koSub: '분양을 원하시는 경우 문의 부탁드립니다 ( 표정.팔.소품등 추가 유무등 안내 )',
                 en: '* All 3 characters are currently available for adoption.',
                 enSub: "If you're interested in adopting one, please contact me for details (expressions, arms, props, and other optional additions)."
+            }
+        ],
+        rough: [
+            {
+                ko: '마음에 드는 러프 디자인을 선택해 요청사항을 반영하고, 전신 Live2D 일러스트·파츠 분리까지 완성할 수 있습니다.<br>(디자인 선택·리폼 비용 10만 원 + 전신 타입 비용)',
+                koSub: '',
+                en: 'You can choose a rough design you like, apply your requested changes, and have it completed as a full-body Live2D illustration with parts separated.<br>(Design selection/reform fee: ₩100,000 + full-body type fee)',
+                enSub: ''
             }
         ],
         sections:[
@@ -1224,7 +1236,7 @@
         document.getElementById('langEn').classList.toggle('active',l==='en');
         renderAll();
     }
-    function renderAll(){renderUI();renderTags();renderSlots();renderImportants();renderPortDesc();renderWork();renderForm();renderApplyFill();renderNotice();rebuild();if(typeof buildSideNav==='function')buildSideNav();}
+    function renderAll(){renderUI();renderTags();renderSlots();renderImportants();renderPortDesc();renderRoughDesc();renderWork();renderForm();renderApplyFill();renderNotice();rebuild();if(typeof buildSideNav==='function')buildSideNav();}
 
     function renderUI(){
         var u=UI[lang];
@@ -1284,6 +1296,15 @@
             h+='<div style="margin-top: 10px;"><div class="step-desc">'+name+'</div>'+(sub?'<div class="step-desc">'+sub+'</div>':'')+'</div>';
         });
         document.getElementById('portNoti').innerHTML=h;
+    }
+
+    function renderRoughDesc(){
+        var h='';
+        DATA.rough.forEach(function(s){
+            var name=lang==='ko'?s.ko:s.en, sub=lang==='ko'?s.koSub:s.enSub;
+            h+='<div style="margin-top: 10px;"><div class="step-desc">'+name+'</div>'+(sub?'<div class="step-desc">'+sub+'</div>':'')+'</div>';
+        });
+        document.getElementById('roughNoti').innerHTML=h;
     }
 
     function renderWork(){
@@ -1468,6 +1489,9 @@
                         '</div>' +
                         '</div>';
                 });
+                if(links.length && (links.length%2>0)){
+                    document.getElementById('youtbGrid').classList.add('odd');
+                }
                 document.getElementById('youtbGrid').innerHTML=g;document.getElementById('youtbWrap').style.display='block';
             })
             .catch(function(){
