@@ -232,7 +232,7 @@
             h += '<div class="pcard' + (exists ? '' : ' missing') + '" draggable="true" data-i="' + i + '">';
             if ((curCat === 'portfolio' || curCat === 'rough') && exists) {
                 h += '<div class="pcard-imgwrap"><img src="' + base(curCat) + encodeURIComponent(it.file) + '" loading="lazy" alt="">';
-            } else if (curCat === 'portfolio' && !exists && it.content) {
+            } else if ((curCat === 'portfolio' || curCat === 'rough') && !exists && it.content) {
                 h += '<div class="pcard-imgwrap"><img src="' + URL.createObjectURL(it.content) + '" loading="lazy" alt="">';
             } else if (curCat === 'rigging' && exists) {
                 h += '<div class="pcard-videowrap"><video src="' + base(curCat) + encodeURIComponent(it.file) + '" controls loading="lazy" alt="">';
@@ -332,10 +332,8 @@
                         tagStr = 'Rough Sheet';
                     } else if (curCat==='rigging') {
                         tagStr = 'Rigging';
-                    } else {
-                        tagStr = 'Youtube';
                     }
-                    D[curCat].push({ file: name, title: name.replace(/\.[^.]+$/, ''), title_en: '', tag: tagStr, content: file, uuid: uuid, sha: '', show: true });
+                    D[curCat].push({ type: "file", file: name, title: name.replace(/\.[^.]+$/, ''), title_en: '', tag: tagStr, content: file, uuid: uuid, sha: '', show: true });
                 }
                 setDirty(true);
                 done++;
