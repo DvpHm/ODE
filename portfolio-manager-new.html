@@ -248,7 +248,7 @@
                 '<div class="pcard-mv"><button onclick="mv(' + i + ',-1)">↑</button><button onclick="mv(' + i + ',1)">↓</button></div></div>' +
                 '<div class="pcard-meta">';
             if (curCat!=='youtube') {
-                h+= '<input value="' + esc(it.file) + '" placeholder="파일명" oninput="updItem(' + i + ',\'file\',this.value)">' +
+                h+= '<input value="' + esc(it.file) + '" placeholder="파일명" oninput="updItem(' + i + ',\'file\',this.value)" readonly>' +
                     '<input value="' + esc(it.title) + '" placeholder="제목" oninput="updItem(' + i + ',\'title\',this.value)">' +
                     '<label class="show-toggle">' +
                     '<input type="checkbox" ' + (it.show ? 'checked' : '') + ' onchange="updItem(' + i + ',\'show\',this.checked); this.nextElementSibling.textContent = this.checked ? \'보이기\' : \'숨기기\';">' +
@@ -323,18 +323,31 @@
             var rd = new FileReader();
             rd.onload = function () {
                 var content = rd.result.split(',')[1];
-                var name = file.name.replace(/[^\w.\-가-힣]/g, '_');
+                var normalized = file.name.normalize('NFC'); // 분해형 → 완성형으로 통일
+                var name = normalized.replace(/[^\w.\-가-힣]/g, '_');
+
+                // 동일 파일명 있으면 이름 바꿔서 추가
+                var baseName = name;
+                var extMatch = baseName.match(/\.[^.]+$/);
+                var ext = extMatch ? extMatch[0] : '';
+                var stem = extMatch ? baseName.slice(0, -ext.length) : baseName;
+                var counter = 1;
+                while ((D[curCat] || []).some(function (it) { return it.file === name; })) {
+                    name = stem + '_' + counter + ext;
+                    counter++;
+                }
+
                 var uuid = self.crypto.randomUUID();
                 addFileList.push({ id: curCat, name: name, content: content, uuid: uuid, sha: '' });
-                if (!(D[curCat] || []).some(function (it) { return it.file === name; })) {
-                    var tagStr = 'Live2D';
-                    if (curCat==='rough'){
-                        tagStr = 'Rough Sheet';
-                    } else if (curCat==='rigging') {
-                        tagStr = 'Rigging';
-                    }
-                    D[curCat].push({ type: "file", file: name, title: name.replace(/\.[^.]+$/, ''), title_en: '', tag: tagStr, content: file, uuid: uuid, sha: '', show: true });
+
+                var tagStr = 'Live2D';
+                if (curCat==='rough'){
+                    tagStr = 'Rough Sheet';
+                } else if (curCat==='rigging') {
+                    tagStr = 'Rigging';
                 }
+                D[curCat].push({ type: "file", file: name, title: name.replace(/\.[^.]+$/, ''), title_en: '', tag: tagStr, content: file, uuid: uuid, sha: '', show: true });
+
                 setDirty(true);
                 done++;
                 fill.style.width = Math.round(done / imgs.length * 100) + '%';
