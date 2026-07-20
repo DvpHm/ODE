@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-20T05:25:02.142Z",
+  "updated": "2026-07-20T06:00:58.491Z",
   "categories": [
     {
       "id": "portfolio",
@@ -28,6 +28,7 @@
   ],
   "portfolio": [
     {
+      "type": "file",
       "file": "압생트_포스터.jpg",
       "title": "압생트_포스터",
       "title_en": "",
@@ -38,6 +39,7 @@
       "show": true
     },
     {
+      "type": "file",
       "file": "압생트_표정.jpeg",
       "title": "압생트_표정",
       "title_en": "",
@@ -48,6 +50,7 @@
       "show": true
     },
     {
+      "type": "file",
       "file": "릴레_포스터.jpg",
       "title": "릴레_포스터",
       "title_en": "",
@@ -58,6 +61,7 @@
       "show": true
     },
     {
+      "type": "file",
       "file": "벨리니_포스터.jpg",
       "title": "벨리니_포스터",
       "title_en": "",
@@ -70,10 +74,22 @@
   ],
   "rough": [
     {
+      "type": "file",
       "file": "러프시트.jpeg",
       "title": "러프시트",
       "title_en": "",
       "tag": "",
+      "url": "",
+      "redirect": "",
+      "sub": "",
+      "show": true
+    },
+    {
+      "type": "file",
+      "file": "러프시트2.jpeg",
+      "title": "러프시트2",
+      "title_en": "",
+      "tag": "Rough Sheet",
       "url": "",
       "redirect": "",
       "sub": "",
