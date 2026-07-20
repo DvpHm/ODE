@@ -204,8 +204,22 @@
         .port-item:hover .port-overlay{opacity:1;}
 
         /* ── ROUGH ── */
-        .rough-grid{display:flex;flex-direction:column;gap:15px;}
+        .rough-grid-wrap{
+            /*height: 220px; !* 원하는 고정 높이로 — 이 값만 조절하면 전체 크기 조절됨 *!*/
+            overflow-x: auto;
+            overflow-y: hidden;
+            align-content: start;
+            border: 1px solid var(--line);
+            padding: 10px;
+            background: var(--bg2);
+            border-radius: 20px;
+            aspect-ratio: 4/1;
+        }
+        .rough-grid{display:flex;flex-direction:row;gap:15px;height:100%;}
         .rough-item{
+            height: 100%;
+            aspect-ratio: 4/2.5; /* 가로세로 비율 — 원하는 값으로 조절 */
+            flex: 0 0 auto;
             background:#ffffff;
             border:1px solid var(--line);
             overflow:hidden;position:relative;cursor:pointer;
@@ -214,7 +228,7 @@
         .rough-item:hover{border-color:var(--ink);transform:translateY(-2px);}
         .rough-item video{width:100%;height:100%;display:block;filter:saturate(.82) contrast(1.02);}
         .rough-item:hover .port-overlay{opacity:1;}
-        .rough-item img{width:100%;height:100%;display:block;filter:saturate(.82) contrast(1.02);}
+        .rough-item img{width:100%;height:100%;display:block;object-fit: contain;filter:saturate(.82) contrast(1.02);}
 
         /* ── RIGGING ── */
         .rigg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;}
@@ -278,6 +292,36 @@
         .lb-nav button,.lb-x{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:var(--r-sm);padding:9px 20px;font-family:var(--pretendard);font-weight:800;font-size:14px;cursor:pointer;transition:background .15s}
         .lb-nav button:hover,.lb-x:hover{background:rgba(255,255,255,.3)}
         .lb-x{position:absolute;top:20px;right:20px;width:44px;height:44px;border-radius:var(--r-sm);padding:0;font-size:18px}
+
+        .rough-wrap{
+            display: flex;
+            gap: 15px;
+            /*grid-template-columns: 1fr 4.5fr;*/
+            /*grid-template-rows: 1.8fr 0.6fr;*/
+            flex-direction: column;
+            border: 1px solid var(--line);
+            border-radius: 20px;
+            padding: 10px;
+            /*align-items: start; !* 추가 — 형제 요소 높이에 안 맞춰짐 *!*/
+        }
+        .rough-viewer{display:none;position:relative;border-radius:var(--r);text-align:center;}
+        .rough-viewer.open{display:flex;animation:fade .2s}
+        .rough-viewer img{width:88%;border-radius:var(--r-sm);display:block;margin:0 10px;object-fit: contain}
+        .rough-viewer .rv-x{position:absolute;top:10px;right:10px;width:38px;height:38px;border:1px solid var(--line);background:var(--bg);border-radius:var(--r-sm);font-size:16px;font-weight:800;color:var(--ink2);cursor:pointer;z-index:2}
+        .rough-viewer .rv-x:hover{border-color:var(--ink);color:var(--ink)}
+        .rough-viewer .rv-bar{display:none;align-items:center;justify-content:center;gap:16px;margin-top:12px}
+        .rough-viewer .rv-nav{align-self:center;width:44px;height:44px;border:1px solid var(--line);background:var(--ink);border-radius:var(--r-sm);font-size:22px;font-weight:800;color:var(--bg);cursor:pointer;line-height:1}
+        .rough-viewer .rv-nav:hover{background:var(--bg);border-color:var(--ink);color:var(--ink)}
+        .rough-viewer .rv-cap{font-size:13px;font-weight:700;color:var(--ink2);min-width:90px}
+        .rb{display:none;position:fixed;inset:0;z-index:6000;background:rgba(15,40,65,.88);backdrop-filter:blur(8px);align-items:center;justify-content:center;padding:24px;flex-direction:column;gap:14px}
+        .rb.open{display:flex;animation:fade .2s}
+        @keyframes fade{from{opacity:0}to{opacity:1}}
+        .rb img{max-width:92vw;max-height:78vh;border-radius:10px;box-shadow:0 24px 80px rgba(0,0,0,.5)}
+        .rb-cap{color:#fff;font-weight:700;font-size:14px}
+        .rb-nav{display:flex;gap:12px}
+        .rb-nav button,.rb-x{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:var(--r-sm);padding:9px 20px;font-family:var(--pretendard);font-weight:800;font-size:14px;cursor:pointer;transition:background .15s}
+        .rb-nav button:hover,.rb-x:hover{background:rgba(255,255,255,.3)}
+        .rb-x{position:absolute;top:20px;right:20px;width:44px;height:44px;border-radius:var(--r-sm);padding:0;font-size:18px}
 
 
 
@@ -556,14 +600,8 @@
             .preview-card{position: static;}
             .preview-head{align-items: normal;justify-content: space-between;flex-direction: column;gap: 10px;}
             .preview-total-div{display: flex;flex-direction: column;}
-            .port-wrap{
-                grid-template-columns: 1fr; /* 1단으로 전환 */
-                border:none;
-                padding: 0;
-            }
-            .port-viewer{
-                display: none !important; /* 어차피 JS가 안 열어주니 자리도 차지 안 하게 */
-            }
+            .port-wrap{grid-template-columns: 1fr; /* 1단으로 전환 */border:none;padding: 0;}
+            .port-viewer{display: none !important; /* 어차피 JS가 안 열어주니 자리도 차지 안 하게 */}
             .port-grid-wrap{
                 height: auto; /* 고정/aspect-ratio 값 있다면 해제 */
                 aspect-ratio: auto;
@@ -572,11 +610,22 @@
                 padding: 0;
                 border-radius: 0px;
             }
-            .port-item img{
-                width: 100%;
-                height: auto; /* 원본 비율 그대로 크게 */
-            }
+            .port-item img{width: 100%;height: auto; /* 원본 비율 그대로 크게 */}
             .port-item:hover{border:1px solid var(--line);transform: unset;}
+            .rough-grid-wrap{aspect-ratio: auto;}
+            .rough-grid{flex-direction: column;}
+            .rough-wrap{border:none;padding: 0;}
+            .rough-viewer{display: none !important; /* 어차피 JS가 안 열어주니 자리도 차지 안 하게 */}
+            .rough-grid-wrap{
+                height: auto; /* 고정/aspect-ratio 값 있다면 해제 */
+                /*aspect-ratio: auto;*/
+                border:none;
+                background: var(--bg);
+                padding: 0;
+                border-radius: 0px;
+            }
+            .rough-item img{width: 100%;height: auto; /* 원본 비율 그대로 크게 */}
+            .rough-item:hover{border:1px solid var(--line);transform: unset;}
         }
     </style>
 </head>
@@ -653,7 +702,15 @@
     <div class="port-loading" id="roughLoading"></div>
     <div class="port-empty" id="roughEmpty" style="display:none"></div>
     <div class="rough-wrap" id="roughWrap">
-        <div class="rough-grid" id="roughGrid"></div>
+        <div class="rough-viewer" id="roughViewer">
+            <button class="rv-nav" onclick="rbNav(-1)">‹</button>
+            <img id="rvImg" alt="">
+            <button class="rv-nav" onclick="rbNav(1)">›</button>
+            <div class="rv-bar"><span class="rv-cap" id="rvCap"></span></div>
+        </div>
+        <div class="rough-grid-wrap">
+            <div class="rough-grid" id="roughGrid"></div>
+        </div>
     </div>
 </section>
 
@@ -766,6 +823,14 @@
     <img id="lbImg" src="" alt="">
     <div class="lb-cap" id="lbCap"></div>
     <div class="lb-nav"><button id="lbPrev" onclick="lbNav(-1)"></button><button id="lbNext" onclick="lbNav(1)"></button></div>
+</div>
+
+<!-- lightbox -->
+<div class="rb" id="rb">
+    <button class="rb-x" onclick="closeRb()">✕</button>
+    <img id="rbImg" src="" alt="">
+    <div class="rb-cap" id="rbCap"></div>
+    <div class="rb-nav"><button id="rbPrev" onclick="rbNav(-1)"></button><button id="rbNext" onclick="rbNav(1)"></button></div>
 </div>
 
 <!-- FOOTER -->
@@ -1409,7 +1474,7 @@
     }
 
     /* ════════ file = portfolio + rigging + youtube ════════ */
-    var imgs = [], lbIdx = 0;
+    var imgs = [], lbIdx = 0, rbIdx = 0;
     var sheets = [], videos = [], links = [];
 
     function loadFile() {
@@ -1451,8 +1516,9 @@
                 });
                 if(!sheets.length){var e=document.getElementById('roughEmpty');e.style.display='block';e.textContent=UI[lang].portEmpty;return;}
                 var g='';
-                sheets.forEach(function(im,i){g+='<div class="rough-item"><div class="port-placeholder"><img loading="lazy" src="'+im.src+'" alt="'+im.cap+'"></div></div>';});
-                document.getElementById('roughGrid').innerHTML=g;document.getElementById('roughWrap').style.display='block';
+                sheets.forEach(function(im,i){g+='<div class="rough-item" onclick="openRb('+i+')"><div class="port-placeholder"><img loading="lazy" src="'+im.src+'" alt="'+im.cap+'"></div></div>';});
+                document.getElementById('roughGrid').innerHTML=g;document.getElementById('roughWrap').style.display='flex';
+                openRb(0);
 
                 // 리깅
                 // data.rigging.forEach(f => {
@@ -1515,6 +1581,19 @@
     }
     function closeLb(){document.getElementById('portViewer').classList.remove('open');}
     function lbNav(d){openLb(lbIdx+d);}
+
+    /* ════════ rough ════════ */
+    /* iframe 임베드에서도 동작하는 인라인 뷰어 (position:fixed 미사용) */
+    function openRb(i){
+        if(window.innerWidth < 520)return;
+        if(!sheets.length)return; rbIdx=(i+sheets.length)%sheets.length; var im=sheets[rbIdx];
+        document.getElementById('rvImg').src=im.src;
+        document.getElementById('rvImg').alt=im.cap;
+        document.getElementById('rvCap').textContent=(rbIdx+1)+' / '+sheets.length;
+        var v=document.getElementById('roughViewer'); v.classList.add('open');
+    }
+    function closeRb(){document.getElementById('roughViewer').classList.remove('open');}
+    function rbNav(d){openRb(rbIdx+d);}
 
     /* ════════ selection ════════ */
     function findItem(secId,itId){var s=DATA.sections.find(function(x){return x.id===secId;});return s.items.find(function(i){return i.id===itId;});}
@@ -1714,7 +1793,8 @@
             .then(function(){ setLang('ko'); loadFile();});
     }
     init();
-    document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb();});
+
+    // document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb();});
 
     /* ── iframe 자동 높이: 부모(artmug.kr)에 내 높이 전달 ── */
     (function(){
@@ -1748,6 +1828,7 @@
     })();
 
     window.addEventListener('resize', openLb(0));
+    window.addEventListener('resize', openRb(0));
 
     /* ── 떠있는 사이드바 (합계 + 섹션 이동) ── */
     (function(){
