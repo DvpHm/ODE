@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-17T20:38:56.095Z",
+  "updated": "2026-07-20T05:25:02.142Z",
   "categories": [
     {
       "id": "portfolio",
@@ -136,7 +136,7 @@
       "url": "https://www.youtube.com/embed/WNixT24TQPU?si=ydxS6ygmxo6kKFDC",
       "redirect": "https://artmug.kr/index.php?channel=view&uid=59207",
       "sub": "✔️ 할인 프로모션 각 5만원 할인<br>✔️ 판매모델 리깅 연계할인 - 총 금액의 20%",
-      "show": false
+      "show": true
     }
   ]
 }
