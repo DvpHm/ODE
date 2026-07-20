@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-20T07:19:24.436Z",
+  "updated": "2026-07-20T07:21:30.093Z",
   "hero": {
     "badgeKo": "Live2D Illustrator · ODE",
     "badgeEn": "Live2D Illustrator · ODE",
@@ -423,7 +423,7 @@
   ],
   "apply": [
     {
-      "ko": "자유로운 문의 사항",
+      "ko": "자유로운 문의 사항 (양식 복사 없이 그냥 문의 주셔도 됩니다)",
       "en": "Any additional requests",
       "type": "textarea"
     }
