@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-21T16:48:53.617Z",
+  "updated": "2026-07-21T16:51:43.206Z",
   "hero": {
     "badgeKo": "Live2D Illustrator · ODE",
     "badgeEn": "Live2D Illustrator · ODE",
@@ -149,14 +149,7 @@
       "enSub": "If you're interested in adopting one, please contact me for details (expressions, arms, props, and other optional additions)."
     }
   ],
-  "rough": [
-    {
-      "ko": "마음에 드는 러프 디자인을 선택해 리폼후 진행도 가능합니다 (선택사항) (추가금x)",
-      "en": "",
-      "koSub": "",
-      "enSub": ""
-    }
-  ],
+  "rough": [],
   "sections": [
     {
       "id": "base",
