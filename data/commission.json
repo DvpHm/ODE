@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-20T07:25:19.893Z",
+  "updated": "2026-07-21T16:37:14.993Z",
   "hero": {
     "badgeKo": "Live2D Illustrator · ODE",
     "badgeEn": "Live2D Illustrator · ODE",
@@ -119,7 +119,7 @@
     {
       "qKo": "디자인",
       "qEn": "Design",
-      "aKo": "정해진 디자인이 없어 처음부터 디자인 하는 경우에 디자인 추가금을 추가해주세요.",
+      "aKo": "디자인 비용은 따로 없습니다",
       "aEn": "If there is no predetermined design and the piece is designed from scratch, an additional design fee will apply."
     },
     {
@@ -198,36 +198,6 @@
         }
       ],
       "noteKo": ""
-    },
-    {
-      "id": "design",
-      "ko": "디자인",
-      "en": "Design",
-      "koLabel": "디자인",
-      "type": "radio",
-      "items": [
-        {
-          "id": "d1",
-          "ko": "정해진 디자인 있음",
-          "en": "Design already provided",
-          "p": 0,
-          "inquire": "N"
-        },
-        {
-          "id": "d2",
-          "ko": "디자인 리폼",
-          "en": "Design reform/redesign",
-          "p": 100000,
-          "inquire": "N"
-        },
-        {
-          "id": "d3",
-          "ko": "처음부터 디자인(시안 2개)",
-          "en": "No design yet(from scratch: 2 drafts)",
-          "p": 150000,
-          "inquire": "N"
-        }
-      ]
     },
     {
       "id": "add",
