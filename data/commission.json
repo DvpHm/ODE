@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-21T16:47:29.355Z",
+  "updated": "2026-07-21T16:48:53.617Z",
   "hero": {
     "badgeKo": "Live2D Illustrator · ODE",
     "badgeEn": "Live2D Illustrator · ODE",
@@ -152,10 +152,9 @@
   "rough": [
     {
       "ko": "마음에 드는 러프 디자인을 선택해 리폼후 진행도 가능합니다 (선택사항) (추가금x)",
+      "en": "",
       "koSub": "",
-      "en": "You can choose a rough design you like, apply your requested changes, and have it completed as a full-body Live2D illustration with parts separated.<br>(Design selection/reform fee: ₩100,000 + full-body type fee)",
-      "enSub": "",
-      "qEn": ""
+      "enSub": ""
     }
   ],
   "sections": [
