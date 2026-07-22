@@ -1550,7 +1550,7 @@
                         '</div>' +
                         '<div class="desc">' +
                         (im.redirect?'<div><a class="btn-outline3" target="_blank" href="'+im.redirect+'" style="float: right;">작가 페이지 이동</a></div>':'') +
-                            '<div class="title">'+im.title+' 님</div>' +
+                            (im.title?'<div class="title">'+im.title+' 님</div>':'') +
                             '<div class="sub">'+im.sub+'</div>' +
                         '</div>' +
                         '</div>';
