@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-22T02:59:52.873Z",
+  "updated": "2026-07-22T03:06:27.533Z",
   "categories": [
     {
       "id": "portfolio",
@@ -22,7 +22,7 @@
     {
       "id": "youtube",
       "name": "유튜브",
-      "sub": "https://youtu.be/lnfsyZoQMw4",
+      "sub": "https://www.youtube.com/embed/lnfsyZoQMw4?si=-5OyXZ8-hrgw8bJe",
       "num": "04"
     }
   ],
@@ -161,6 +161,17 @@
       "title_en": "",
       "tag": "Youtube",
       "url": "https://youtu.be/lnfsyZoQMw4",
+      "redirect": "",
+      "sub": "",
+      "show": true
+    },
+    {
+      "type": "link",
+      "file": "link",
+      "title": "",
+      "title_en": "",
+      "tag": "Youtube",
+      "url": "https://www.youtube.com/embed/lnfsyZoQMw4?si=-5OyXZ8-hrgw8bJe",
       "redirect": "",
       "sub": "",
       "show": true
