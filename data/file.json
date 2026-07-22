@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-22T03:06:27.533Z",
+  "updated": "2026-07-22T03:07:41.758Z",
   "categories": [
     {
       "id": "portfolio",
@@ -163,7 +163,7 @@
       "url": "https://youtu.be/lnfsyZoQMw4",
       "redirect": "",
       "sub": "",
-      "show": true
+      "show": false
     },
     {
       "type": "link",
