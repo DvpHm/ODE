@@ -77,6 +77,7 @@
         .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
         .toast.ok{border-color:var(--green)}.toast.err{border-color:var(--red)}
         .syncbtn{font-family:var(--cond);font-size:12px;font-weight:700;border:1px solid var(--amber);background:rgba(251,191,36,.1);color:var(--amber);border-radius:8px;padding:6px 11px;cursor:pointer;margin-left:8px}
+        .sold-stamp{position:absolute;top:10%;right:5%;transform:translate(-50%,-50%);border:3px solid var(--red);color:var(--red);font-family:var(--cond);font-size:16px;font-weight:700;letter-spacing:.1em;padding:5px 14px;border-radius:6px;z-index:2;pointer-events:none}
     </style>
 </head>
 <body>
@@ -230,15 +231,27 @@
             console.log(it);
             var exists = (folderFiles[curCat] || []).indexOf(it.file) >= 0;
             h += '<div class="pcard' + (exists ? '' : ' missing') + '" draggable="true" data-i="' + i + '">';
-            if ((curCat === 'portfolio' || curCat === 'rough') && exists) {
+
+            // portfolio
+            if (curCat === 'portfolio' && exists) {
+                h += '<div class="pcard-imgwrap"><img src="' + base(curCat) + encodeURIComponent(it.file) + '" loading="lazy" alt="">'+'<div class="sold-stamp" id="stamp-' + i + '" style="display:' + (it.sold ? 'block' : 'none') + '">판매완료</div>';
+            } else if (curCat === 'portfolio' && !exists && it.content) {
+                h += '<div class="pcard-imgwrap"><img src="' + URL.createObjectURL(it.content) + '" loading="lazy" alt="">'+'<div class="sold-stamp" id="stamp-' + i + '" style="display:' + (it.sold ? 'block' : 'none') + '">판매완료</div>';
+            }
+            // rough
+            else if (curCat === 'rough' && exists) {
                 h += '<div class="pcard-imgwrap"><img src="' + base(curCat) + encodeURIComponent(it.file) + '" loading="lazy" alt="">';
-            } else if ((curCat === 'portfolio' || curCat === 'rough') && !exists && it.content) {
+            } else if (curCat === 'rough' && !exists && it.content) {
                 h += '<div class="pcard-imgwrap"><img src="' + URL.createObjectURL(it.content) + '" loading="lazy" alt="">';
-            } else if (curCat === 'rigging' && exists) {
+            }
+            // rigging
+            else if (curCat === 'rigging' && exists) {
                 h += '<div class="pcard-videowrap"><video src="' + base(curCat) + encodeURIComponent(it.file) + '" controls loading="lazy" alt="">';
             } else if (curCat === 'rigging' && !exists && it.content) {
                 h += '<div class="pcard-videowrap"><video src="' + URL.createObjectURL(it.content) + '" controls loading="lazy" alt="">';
-            } else if (curCat === 'youtube' && !exists && it.url) {
+            }
+            // youtube
+            else if (curCat === 'youtube' && !exists && it.url) {
                 // h += '<div class="pcard-videowrap"><video src="' + it.url + '" controls loading="lazy" alt="">';
                 // h += '<iframe width="560" height="315" src="https://www.youtube.com/embed/d7mGrq3lZ78?si=MJGUo5bQRlTj1HPB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
                 h += '<div class="pcard-youtbwrap"><iframe src="' + it.url + '" id="youtube-'+i+'"></iframe>';
@@ -253,8 +266,14 @@
                     '<label class="show-toggle">' +
                     '<input type="checkbox" ' + (it.show ? 'checked' : '') + ' onchange="updItem(' + i + ',\'show\',this.checked); this.nextElementSibling.textContent = this.checked ? \'보이기\' : \'숨기기\';">' +
                     '<span>' + (it.show ? '포트폴리오에 보이기' : '포트폴리오에 숨기기') + '</span>' +
-                    '</label>' +
-                    '<input class="tag" value="' + escTag(curCat, it.tag) + '" placeholder="태그 (예: Full Model)" oninput="updItem(' + i + ',\'tag\',this.value)">';
+                    '</label>';
+                if (curCat==='portfolio'){
+                    h+='<label class="show-toggle">' +
+                        '<input type="checkbox" ' + (it.sold ? 'checked' : '') + ' onchange="updItem(' + i + ',\'sold\',this.checked); document.getElementById(\'stamp-' + i + '\').style.display = this.checked ? \'block\' : \'none\'; this.nextElementSibling.textContent = this.checked ? \'판매완료\' : \'판매중\';">' +
+                        '<span>' + (it.sold ? '판매완료' : '판매중') + '</span>' +
+                        '</label>';
+                }
+                h+='<input class="tag" value="' + escTag(curCat, it.tag) + '" placeholder="태그 (예: Full Model)" oninput="updItem(' + i + ',\'tag\',this.value)">';
             } else {
                 h += '<input value="' + esc(it.url) + '" placeholder="YouTube 퍼가기 링크" oninput="updItem(' + i + ',\'link\',this.value)">' +
                      '<input value="' + esc(it.title) + '" placeholder="제목" oninput="updItem(' + i + ',\'title\',this.value)">' +
@@ -346,7 +365,7 @@
                 } else if (curCat==='rigging') {
                     tagStr = 'Rigging';
                 }
-                D[curCat].push({ type: "file", file: name, title: name.replace(/\.[^.]+$/, ''), title_en: '', tag: tagStr, content: file, uuid: uuid, sha: '', show: true });
+                D[curCat].push({ type: "file", file: name, title: name.replace(/\.[^.]+$/, ''), title_en: '', tag: tagStr, content: file, uuid: uuid, sha: '', show: true,sold:false });
 
                 setDirty(true);
                 done++;
@@ -369,7 +388,7 @@
         if (!url.length) return;
         var uuid = self.crypto.randomUUID();
         addFileList.push({ id: curCat, name: '', type: 'link', url: url, uuid: uuid, sha: '', redirect: '', sub: '' });
-        D[curCat].push({ type: 'link', file: 'link', title: name.replace(/\.[^.]+$/, ''), title_en: '', tag: 'Youtube', url: url, uuid: uuid, sha: '', redirect: '', sub: '', show: true });
+        D[curCat].push({ type: 'link', file: 'link', title: name.replace(/\.[^.]+$/, ''), title_en: '', tag: 'Youtube', url: url, uuid: uuid, sha: '', redirect: '', sub: '', show: true, sold:false });
         renderItems();
         document.getElementById('linkInput').value = '';
     }
@@ -378,7 +397,7 @@
         var out = { updated: new Date().toISOString(), categories: D.categories };
         D.categories.forEach(function (c) {
             out[c.id] = (D[c.id] || []).map(function (it) {
-                return { type: it.type, file: it.file, title: it.title, title_en: it.title_en || '', tag: it.tag || '', url: it.url || '', redirect: it.redirect || '', sub: it.sub || '', show: it.show || false};
+                return { type: it.type, file: it.file, title: it.title, title_en: it.title_en || '', tag: it.tag || '', url: it.url || '', redirect: it.redirect || '', sub: it.sub || '', show: it.show || false,sold: it.sold || false};
             });
         });
         return out;

@@ -202,6 +202,34 @@
             display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
         }
         .port-item:hover .port-overlay{opacity:1;}
+        .port-item .sold-stamp {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            border: 2px solid #d1373f;
+            color: #d1373f;
+            font-family: var(--pretendard);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            padding: 3px 8px;
+            border-radius: 4px;
+            background: rgba(255,255,255,0.9);
+            z-index: 3;
+            pointer-events: none;
+            text-transform: uppercase;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+            white-space: nowrap; /* 줄바꿈 방지 — 핵심 */
+        }
+        /* 도장 질감 느낌 살짝 추가 (선택사항) */
+        .port-item .sold-stamp::before {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border: 1px solid #d1373f;
+            border-radius: 8px;
+            opacity: 0.5;
+        }
 
         /* ── ROUGH ── */
         .rough-grid-wrap{
@@ -292,6 +320,34 @@
         .lb-nav button,.lb-x{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:var(--r-sm);padding:9px 20px;font-family:var(--pretendard);font-weight:800;font-size:14px;cursor:pointer;transition:background .15s}
         .lb-nav button:hover,.lb-x:hover{background:rgba(255,255,255,.3)}
         .lb-x{position:absolute;top:20px;right:20px;width:44px;height:44px;border-radius:var(--r-sm);padding:0;font-size:18px}
+        .port-viewer .sold-stamp {
+            position: absolute;
+            top: 5%;
+            right: 5%;
+            transform: translate(-50%, -50%);
+            border: 3px solid #d1373f;
+            color: #d1373f;
+            font-family: var(--pretendard);
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            padding: 5px 10px;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.85);
+            z-index: 3;
+            pointer-events: none; /* 클릭 방해 안 하게 */
+            text-transform: uppercase;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+        /* 도장 질감 느낌 살짝 추가 (선택사항) */
+        .port-viewer .sold-stamp::before {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border: 1px solid #d1373f;
+            border-radius: 8px;
+            opacity: 0.5;
+        }
 
         .rough-wrap{
             display: flex;
@@ -685,6 +741,7 @@
 <!--            <button class="pv-x" onclick="closeLb()" aria-label="닫기">✕</button>-->
             <button class="pv-nav" onclick="lbNav(-1)">‹</button>
             <img id="pvImg" alt="">
+            <div class="sold-stamp" id="pvSold" style="display:none">판매완료</div>
             <button class="pv-nav" onclick="lbNav(1)">›</button>
 <!--            <div class="pv-bar"><button class="pv-nav" onclick="lbNav(-1)">‹</button><span class="pv-cap" id="pvCap"></span><button class="pv-nav" onclick="lbNav(1)">›</button></div>-->
             <div class="pv-bar"><span class="pv-cap" id="pvCap"></span></div>
@@ -1496,13 +1553,18 @@
                     var url = 'https://raw.githubusercontent.com/'+GH.user+'/'+GH.repo+'/main/portfolio/'+f.file;
                     // var url = '/portfolio/'+f.file;
                     if(/\.(png|jpe?g|webp)$/i.test(f.file) && f.show){
-                        imgs.push({src:url,cap:f.title.replace(/\.[^.]+$/,'')});
+                        imgs.push({src:url,cap:f.title.replace(/\.[^.]+$/,''),sold:f.sold||false});
                     }
                 });
                 if(!imgs.length){var e=document.getElementById('portEmpty');e.style.display='block';e.textContent=UI[lang].portEmpty;return;}
                 var g='';
                 // imgs.forEach(function(im,i){g+='<div class="port-item" onclick="openLb('+i+')"><div class="port-placeholder"><img loading="lazy" src="'+im.src+'" alt="'+im.cap+'"></div><div class="cap">'+im.cap+'</div></div>';});
-                imgs.forEach(function(im,i){g+='<div class="port-item" onclick="openLb('+i+')"><div class="port-placeholder"><img loading="lazy" src="'+im.src+'" alt="'+im.cap+'"></div></div>';});
+                imgs.forEach(function(im,i){
+                    g+='<div class="port-item" onclick="openLb('+i+')">' +
+                        '<div class="port-placeholder"><img loading="lazy" src="'+im.src+'" alt="'+im.cap+'"></div>' +
+                        (im.sold ? '<div class="sold-stamp">판매완료</div>' : '') +
+                        '</div>';
+                });
                 document.getElementById('portGrid').innerHTML=g;document.getElementById('portWrap').style.display='grid';
                 openLb(0);
 
@@ -1576,6 +1638,7 @@
         document.getElementById('pvImg').src=im.src;
         document.getElementById('pvImg').alt=im.cap;
         document.getElementById('pvCap').textContent=(lbIdx+1)+' / '+imgs.length;
+        document.getElementById('pvSold').style.display = im.sold ? 'block' : 'none';
         var v=document.getElementById('portViewer'); v.classList.add('open');
         // try{ v.scrollIntoView({behavior:'smooth',block:'center'}); }catch(e){ v.scrollIntoView(); }
     }
