@@ -36,7 +36,8 @@
       "url": "",
       "redirect": "",
       "sub": "",
-      "show": true
+      "show": true,
+      "sold": true
     },
     {
       "type": "file",

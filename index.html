@@ -304,7 +304,15 @@
         /*.port-viewer{display:none;position:relative;border-radius:var(--r);padding:16px;margin-bottom:16px;text-align:center}*/
         .port-viewer{display:none;position:relative;border-radius:var(--r);text-align:center;}
         .port-viewer.open{display:flex;animation:fade .2s}
-        .port-viewer img{width:85%;border-radius:var(--r-sm);display:block;margin:0 10px;object-fit: contain}
+        .port-viewer img{
+            width:85%;
+            border-radius:var(--r-sm);
+            display:block;
+            margin:0 10px;
+            object-fit: contain;
+            position: relative; /* stacking context 명시 */
+            z-index: 1; /* sold-stamp(z-index:3)보다 낮게 */
+        }
         .port-viewer .pv-x{position:absolute;top:10px;right:10px;width:38px;height:38px;border:1px solid var(--line);background:var(--bg);border-radius:var(--r-sm);font-size:16px;font-weight:800;color:var(--ink2);cursor:pointer;z-index:2}
         .port-viewer .pv-x:hover{border-color:var(--ink);color:var(--ink)}
         .port-viewer .pv-bar{display:none;align-items:center;justify-content:center;gap:16px;margin-top:12px}
@@ -325,7 +333,7 @@
             top: 5%;
             right: 5%;
             transform: translate(-50%, -50%);
-            border: 3px solid #d1373f;
+            border: 2px solid #d1373f;
             color: #d1373f;
             font-family: var(--pretendard);
             font-size: 18px;
@@ -417,6 +425,16 @@
         /*.price-card{background:var(--bg2);border:1px solid var(--line);padding:24px 20px;cursor: pointer}*/
         .price-card{background:var(--bg);border:1px solid var(--line);padding:24px 20px;cursor: pointer}
         .price-card:hover{background:var(--bg2)}
+        .price-card.sold-out{
+            cursor: default;
+            opacity: 0.5;
+            pointer-events: none; /* 클릭 이중 차단 */
+        }
+        .price-card.sold-out .price-card-amount{
+            color: #d1373f;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+        }
         /*.price-card-name{font-size:12px;letter-spacing:0.12em;color:var(--ink60);text-transform:uppercase;margin-bottom:12px;}*/
         /*.price-card-name b{font-size:15px;letter-spacing:0.12em;color:var(--ink);text-transform:uppercase;margin-bottom:12px;font-weight: 300}*/
         .price-card-name{font-size:15px;letter-spacing:0.12em;color:var(--ink);margin-bottom:12px;font-weight: 600;}
@@ -1451,11 +1469,15 @@
                     var sub=lang==='ko'?it.subKo:it.subEn;
                     sub=sec.dc==='Y'?sub:'';
                     var percentIdx=typeof it.p==='string'?it.p.indexOf('%'):0;
+                    var soldOut=!!it.sold;
 
-                    h+='<div class="price-card'+(sel[sec.id]===it.id?' featured':'')+'" id="pc-'+it.id+'" onclick="pickRadio(\''+sec.id+'\',\''+it.id+'\')">'+
+                    h+='<div class="price-card'+(sel[sec.id]===it.id?' featured':'')+(soldOut?' sold-out':'')+'" id="pc-'+it.id+'"'+(soldOut?'':' onclick="pickRadio(\''+sec.id+'\',\''+it.id+'\')"')+'>'+
                         '<span class="check-badge" style="display: none" id="pc-'+it.id+'-check">✔</span>'+
-                        '<div class="price-card-name">'+it[lang]+'</div><div class="price-card-amount">'+(it.inquire==='Y'?'문의 부탁드립니다.':won(it.p))+' '+(it.inquire==='Y'||percentIdx>0?'':UI[lang].won)+'</div>'+
-                        (sub?'<div class="price-card-note ribbon">'+sub+'</div>':'')+
+                        '<div class="price-card-name">'+it[lang]+'</div>'+
+                        '<div class="price-card-amount">'+
+                        (soldOut ? (lang==='ko'?'판매완료':'Sold Out') : (it.inquire==='Y'?'문의 부탁드립니다.':won(it.p))+' '+(it.inquire==='Y'||percentIdx>0?'':UI[lang].won))+
+                        '</div>'+
+                        (sub&&!soldOut?'<div class="price-card-note ribbon">'+sub+'</div>':'')+
                         '</div>';
                 });
                 h+='</div>';
