@@ -333,9 +333,9 @@
     },
     {
       "id": "secmrjqslno",
-      "ko": "현업 리거 목록",
+      "ko": "협업 리거 목록",
       "en": "Collaborating Riggers",
-      "koLabel": "현업 리거 목록",
+      "koLabel": "협업 리거 목록",
       "type": "radio",
       "items": [
         {
@@ -349,6 +349,13 @@
           "id": "secmrjqslno_mrpljl3e",
           "ko": "아스래<br><sub>✔️ 할인 프로모션 각 5만원 할인</sub>",
           "en": "asre (₩50,000 off)",
+          "p": -50000,
+          "inquire": "N"
+        },
+        {
+          "id": "secmrjqslno_mryax6zf",
+          "ko": "아요<br><sub>✔️ 할인 프로모션 각 5만원 할인</sub>",
+          "en": "ayo (₩50,000 off)",
           "p": -50000,
           "inquire": "N"
         }
