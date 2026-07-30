@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-24T01:02:16.907Z",
+  "updated": "2026-07-30T14:31:31.229Z",
   "hero": {
     "badgeKo": "Live2D Illustrator · ODE",
     "badgeEn": "Live2D Illustrator · ODE",
@@ -89,15 +89,15 @@
       "ko": "7월",
       "en": "July",
       "filled": [
-        false
+        true
       ]
     },
     {
       "ko": "8월",
       "en": "August",
       "filled": [
-        false,
-        true
+        true,
+        false
       ]
     },
     {
@@ -105,7 +105,7 @@
       "en": "September",
       "filled": [
         false,
-        false
+        true
       ]
     }
   ],
@@ -309,7 +309,7 @@
       "items": [
         {
           "id": "secmrjqr6p7_mrjqras2",
-          "ko": "압생트<br><sub>✔\uFE0F 전신 분리 O<br>✔\uFE0F 상반신 리깅 O</sub>",
+          "ko": "압생트<br><sub>✔️ 전신 분리 O<br>✔️ 상반신 리깅 O</sub>",
           "en": "Absinthe<br><sub>✔️ full-body parts separated: yes<br>✔️ rigging: yes</sub>",
           "p": 0,
           "inquire": "N",
