@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-15T08:20:39.219Z",
+  "updated": "2026-08-15T08:23:37.248Z",
   "categories": [
     {
       "id": "portfolio",
@@ -40,8 +40,9 @@
       "sold": true
     },
     {
-      "file": "서라별_포스터.jpg",
-      "title": "서라별_포스터",
+      "type": "file",
+      "file": "압생트_표정.jpeg",
+      "title": "압생트_표정",
       "title_en": "",
       "tag": "",
       "url": "",
@@ -51,9 +52,8 @@
       "sold": false
     },
     {
-      "type": "file",
-      "file": "압생트_표정.jpeg",
-      "title": "압생트_표정",
+      "file": "서라별_포스터.jpg",
+      "title": "서라별_포스터",
       "title_en": "",
       "tag": "",
       "url": "",
