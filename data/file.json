@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-17T02:07:23.536Z",
+  "updated": "2026-08-17T02:22:37.632Z",
   "categories": [
     {
       "id": "portfolio",
@@ -59,7 +59,7 @@
       "url": "",
       "redirect": "",
       "sub": "",
-      "show": false,
+      "show": true,
       "sold": false
     },
     {
@@ -70,7 +70,7 @@
       "url": "",
       "redirect": "",
       "sub": "",
-      "show": true,
+      "show": false,
       "sold": false
     },
     {
