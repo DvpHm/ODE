@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-17T02:05:16.204Z",
+  "updated": "2026-08-17T02:07:23.536Z",
   "categories": [
     {
       "id": "portfolio",
@@ -52,15 +52,14 @@
       "sold": false
     },
     {
-      "type": "file",
       "file": "서라별_포스터2.jpg",
       "title": "서라별_포스터2",
       "title_en": "",
-      "tag": "Live2D",
+      "tag": "",
       "url": "",
       "redirect": "",
       "sub": "",
-      "show": true,
+      "show": false,
       "sold": false
     },
     {
@@ -71,7 +70,7 @@
       "url": "",
       "redirect": "",
       "sub": "",
-      "show": false,
+      "show": true,
       "sold": false
     },
     {
