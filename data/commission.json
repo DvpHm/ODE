@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-18T04:16:30.064Z",
+  "updated": "2026-08-18T23:30:59.461Z",
   "hero": {
     "badgeKo": "Live2D Illustrator · ODE",
     "badgeEn": "Live2D Illustrator · ODE",
@@ -121,8 +121,8 @@
     {
       "qKo": "안내 사항",
       "qEn": "Notice",
-      "aKo": "본 작업은 Live2D 리깅이 포함되지 않은 파츠 분리 일러스트입니다. <br>\n디자인이 준비되지 않은 경우 디자인 비용이 추가됩니다. <br>\n예약은 전액 입금 완료 후 확정됩니다.",
-      "aEn": "This service provides part-separated illustrations only and does not include Live2D rigging. <br>\nIf a design has not been prepared in advance, a design fee will be added. <br>\nBookings are confirmed only after full payment has been received."
+      "aKo": "본 작업은 Live2D 리깅이 포함되지 않은 파츠 분리 일러스트입니다. <br>\n",
+      "aEn": "This service provides part-separated illustrations only and does not include Live2D rigging. <br>\n"
     },
     {
       "qKo": "디자인",
