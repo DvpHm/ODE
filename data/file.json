@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-18T03:55:12.680Z",
+  "updated": "2026-08-18T23:44:34.780Z",
   "categories": [
     {
       "id": "portfolio",
@@ -52,6 +52,30 @@
       "sold": false
     },
     {
+      "type": "file",
+      "file": "릴레_포스터.jpg",
+      "title": "릴레_포스터",
+      "title_en": "",
+      "tag": "",
+      "url": "",
+      "redirect": "",
+      "sub": "",
+      "show": true,
+      "sold": false
+    },
+    {
+      "type": "file",
+      "file": "벨리니_포스터.jpg",
+      "title": "벨리니_포스터",
+      "title_en": "",
+      "tag": "",
+      "url": "",
+      "redirect": "",
+      "sub": "",
+      "show": true,
+      "sold": false
+    },
+    {
       "file": "서라별_포스터2.jpg",
       "title": "서라별_포스터2",
       "title_en": "",
@@ -80,30 +104,6 @@
       "title": "b3",
       "title_en": "",
       "tag": "Live2D",
-      "url": "",
-      "redirect": "",
-      "sub": "",
-      "show": true,
-      "sold": false
-    },
-    {
-      "type": "file",
-      "file": "릴레_포스터.jpg",
-      "title": "릴레_포스터",
-      "title_en": "",
-      "tag": "",
-      "url": "",
-      "redirect": "",
-      "sub": "",
-      "show": true,
-      "sold": false
-    },
-    {
-      "type": "file",
-      "file": "벨리니_포스터.jpg",
-      "title": "벨리니_포스터",
-      "title_en": "",
-      "tag": "",
       "url": "",
       "redirect": "",
       "sub": "",
