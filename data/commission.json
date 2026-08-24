@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-19T04:07:01.717Z",
+  "updated": "2026-08-24T14:02:45.911Z",
   "hero": {
     "badgeKo": "Live2D Illustrator · ODE",
     "badgeEn": "Live2D Illustrator · ODE",
@@ -98,7 +98,7 @@
       "en": "August",
       "filled": [
         true,
-        false
+        true
       ]
     },
     {
