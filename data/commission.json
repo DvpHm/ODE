@@ -1,9 +1,9 @@
 {
-  "updated": "2026-08-24T14:02:45.911Z",
+  "updated": "2026-08-25T20:51:37.164Z",
   "hero": {
     "badgeKo": "Live2D Illustrator · ODE",
     "badgeEn": "Live2D Illustrator · ODE",
-    "subKo": "<b제가 쓸 모델이라고 생각하고 성심성의로 제작합니다.</b><br>24시 언제든 편하게 문의주세요.",
+    "subKo": "<br>제가 쓸 모델이라고 생각하고 성심성의로 제작합니다.</b><br>24시 언제든 편하게 문의주세요.",
     "subEn": "<b>I aim to create high-quality illustrations well-suited for rigging.</b><br>Feel free to reach out anytime, 24/7."
   },
   "steps": [
@@ -190,13 +190,16 @@
           "inquire": "N"
         },
         {
-          "id": "b2",
-          "ko": "프리미엄 전신<br><sub>✔️ 전신 파츠 분리 일러스트<br>✔️디자인 시안 2개<br>✔️ 기본 표정<br>✔️ 원하시는 표정 3개</sub>",
+          "id": "base_mt95399x",
+          "ko": "케쥬얼 전신<br><sub>✔️ 전신 파츠 분리 일러스트<br>✔️디자인 시안 2개<br>✔️ 기본 표정<br>✔️ 원하시는 표정 3개</sub>",
+          "en": "",
+          "p": 1100000
+        },
+        {
+          "id": "base_mt9541hd",
+          "ko": "새 항목프리미엄 전신<br><sub>✔️ 전신 파츠 분리 일러스트<br>✔️디자인 시안 2개<br>✔️ 기본 표정<br>✔️ 원하시는 표정 3개</sub>",
           "en": "Full body<br><sub>✔️ full-body part-separated illustration<br>✔️ base expression<br>✔️ 3 expressions of your choice</sub>",
-          "p": 1300000,
-          "subKo": "",
-          "subEn": "",
-          "inquire": "N"
+          "p": 1300000
         }
       ],
       "noteKo": ""
