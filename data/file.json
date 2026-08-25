@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-18T23:44:34.780Z",
+  "updated": "2026-08-25T20:49:25.544Z",
   "categories": [
     {
       "id": "portfolio",
@@ -29,10 +29,10 @@
   "portfolio": [
     {
       "type": "file",
-      "file": "압생트_포스터.jpg",
-      "title": "압생트_포스터",
+      "file": "압생트.jpg",
+      "title": "압생트",
       "title_en": "",
-      "tag": "",
+      "tag": "Live2D",
       "url": "",
       "redirect": "",
       "sub": "",
@@ -41,55 +41,8 @@
     },
     {
       "type": "file",
-      "file": "압생트_표정.jpeg",
-      "title": "압생트_표정",
-      "title_en": "",
-      "tag": "",
-      "url": "",
-      "redirect": "",
-      "sub": "",
-      "show": true,
-      "sold": false
-    },
-    {
-      "type": "file",
-      "file": "릴레_포스터.jpg",
-      "title": "릴레_포스터",
-      "title_en": "",
-      "tag": "",
-      "url": "",
-      "redirect": "",
-      "sub": "",
-      "show": true,
-      "sold": false
-    },
-    {
-      "type": "file",
-      "file": "벨리니_포스터.jpg",
-      "title": "벨리니_포스터",
-      "title_en": "",
-      "tag": "",
-      "url": "",
-      "redirect": "",
-      "sub": "",
-      "show": true,
-      "sold": false
-    },
-    {
-      "file": "서라별_포스터2.jpg",
-      "title": "서라별_포스터2",
-      "title_en": "",
-      "tag": "",
-      "url": "",
-      "redirect": "",
-      "sub": "",
-      "show": true,
-      "sold": false
-    },
-    {
-      "type": "file",
-      "file": "서라별_포스터4.jpg",
-      "title": "서라별_포스터4",
+      "file": "오니.jpg",
+      "title": "오니",
       "title_en": "",
       "tag": "Live2D",
       "url": "",
@@ -100,8 +53,32 @@
     },
     {
       "type": "file",
-      "file": "b3.jpg",
-      "title": "b3",
+      "file": "릴레.jpg",
+      "title": "릴레",
+      "title_en": "",
+      "tag": "Live2D",
+      "url": "",
+      "redirect": "",
+      "sub": "",
+      "show": true,
+      "sold": false
+    },
+    {
+      "type": "file",
+      "file": "벨리니.jpg",
+      "title": "벨리니",
+      "title_en": "",
+      "tag": "Live2D",
+      "url": "",
+      "redirect": "",
+      "sub": "",
+      "show": true,
+      "sold": false
+    },
+    {
+      "type": "file",
+      "file": "서라별.jpg",
+      "title": "서라별",
       "title_en": "",
       "tag": "Live2D",
       "url": "",
