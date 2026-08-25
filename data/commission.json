@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-25T21:08:13.280Z",
+  "updated": "2026-08-25T21:08:54.276Z",
   "hero": {
     "badgeKo": "Live2D Illustrator · ODE",
     "badgeEn": "Live2D Illustrator · ODE",
@@ -167,7 +167,14 @@
       "qEn": ""
     }
   ],
-  "rough": [],
+  "rough": [
+    {
+      "ko": "*러프시트 디자인을 고르시면 완성까지 진행 가능합니다",
+      "en": "",
+      "koSub": "추가비용은 없습니다",
+      "enSub": ""
+    }
+  ],
   "sections": [
     {
       "id": "base",
