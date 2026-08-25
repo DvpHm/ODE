@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-25T20:49:25.544Z",
+  "updated": "2026-08-25T21:13:50.829Z",
   "categories": [
     {
       "id": "portfolio",
@@ -79,6 +79,18 @@
       "type": "file",
       "file": "서라별.jpg",
       "title": "서라별",
+      "title_en": "",
+      "tag": "Live2D",
+      "url": "",
+      "redirect": "",
+      "sub": "",
+      "show": true,
+      "sold": false
+    },
+    {
+      "type": "file",
+      "file": "b3.jpg",
+      "title": "b3",
       "title_en": "",
       "tag": "Live2D",
       "url": "",
