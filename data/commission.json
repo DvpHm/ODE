@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-25T21:08:54.276Z",
+  "updated": "2026-08-30T14:22:53.449Z",
   "hero": {
     "badgeKo": "Live2D Illustrator · ODE",
     "badgeEn": "Live2D Illustrator · ODE",
@@ -200,13 +200,13 @@
           "id": "base_mt95399x",
           "ko": "케쥬얼 전신<br><sub>✔️ 전신 파츠 분리 일러스트<br>✔️디자인 시안 2개<br>✔️ 기본 표정<br>✔️ 원하시는 표정 3개</sub>",
           "en": "",
-          "p": 1100000
+          "p": 1000000
         },
         {
           "id": "base_mt9541hd",
           "ko": "프리미엄 전신<br><sub>✔️ 전신 파츠 분리 일러스트<br>✔️디자인 시안 2개<br>✔️ 기본 표정<br>✔️ 원하시는 표정 3개</sub>",
           "en": "Full body<br><sub>✔️ full-body part-separated illustration<br>✔️ base expression<br>✔️ 3 expressions of your choice</sub>",
-          "p": 1300000
+          "p": 1200000
         }
       ],
       "noteKo": ""
@@ -231,14 +231,14 @@
           "id": "a3",
           "ko": "헤어 추가",
           "en": "Extra hairstyle",
-          "p": 300000,
+          "p": 200000,
           "inquire": "N"
         },
         {
           "id": "a4",
           "ko": "의상 추가",
           "en": "Extra outfit",
-          "p": 400000,
+          "p": 300000,
           "inquire": "N"
         },
         {
