@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-26T06:58:28.320Z",
+  "updated": "2026-08-31T23:15:50.046Z",
   "categories": [
     {
       "id": "portfolio",
@@ -22,7 +22,7 @@
     {
       "id": "youtube",
       "name": "유튜브",
-      "sub": "https://www.youtube.com/embed/lnfsyZoQMw4?si=-5OyXZ8-hrgw8bJe",
+      "sub": "https://www.youtube.com/embed/XkMW6Yg1WWE?si=Va2mNHCF0JXxEsQ9",
       "num": "04"
     }
   ],
@@ -211,6 +211,18 @@
       "redirect": "",
       "sub": "",
       "show": false,
+      "sold": false
+    },
+    {
+      "type": "link",
+      "file": "link",
+      "title": "NENI",
+      "title_en": "",
+      "tag": "Youtube",
+      "url": "https://www.youtube.com/embed/XkMW6Yg1WWE?si=Va2mNHCF0JXxEsQ9",
+      "redirect": "https://artmug.kr/index.php?channel=view&uid=59888",
+      "sub": "✔️ 할인 프로모션 총 15만원 할인<br>",
+      "show": true,
       "sold": false
     }
   ]
