@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-30T14:22:53.449Z",
+  "updated": "2026-08-31T23:18:45.880Z",
   "hero": {
     "badgeKo": "Live2D Illustrator · ODE",
     "badgeEn": "Live2D Illustrator · ODE",
@@ -343,14 +343,14 @@
         },
         {
           "id": "secmrjqr6p7_mrjqrck9",
-          "ko": "벨리니<br><sub>✔️ 전신 분리 O<br>✔️ 리깅 X</sub>",
+          "ko": "벨리니<br><sub>✔️ 전신 분리 O<br>✔️ 리깅 작업중</sub>",
           "en": "Bellini<br><sub>✔️ full-body parts separated: yes<br>✔️ rigging: no</sub>",
           "p": 0,
           "inquire": "Y"
         },
         {
           "id": "secmrjqr6p7_mt9596an",
-          "ko": "오니 (이름 미정)<br><sub>✔️ 전신 분리 O<br>✔️ 리깅 X</sub>",
+          "ko": "오니 (이름 미정)<br><sub>✔️ 전신 분리 O<br>✔️ 리깅 예정 X</sub>",
           "en": "",
           "p": 0,
           "inquire": "Y"
