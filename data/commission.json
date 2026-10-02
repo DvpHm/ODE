@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-02T16:09:11.666Z",
+  "updated": "2026-10-02T16:09:46.157Z",
   "hero": {
     "badgeKo": "Live2D Illustrator · ODE",
     "badgeEn": "Live2D Illustrator · ODE",
@@ -237,7 +237,7 @@
           "id": "a5",
           "ko": "풀바디<br>(가려진 부분까지 풀바디)",
           "en": "Full body<br>(including normally hidden areas)",
-          "p": 200000,
+          "p": 150000,
           "inquire": "N"
         },
         {
