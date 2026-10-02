@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-02T16:06:15.409Z",
+  "updated": "2026-10-02T16:09:11.666Z",
   "hero": {
     "badgeKo": "Live2D Illustrator · ODE",
     "badgeEn": "Live2D Illustrator · ODE",
@@ -299,14 +299,14 @@
           "id": "c1",
           "ko": "개인세 상업용 (굿즈 등)",
           "en": "Personal/commercial use (merch, etc.)",
-          "p": 400000,
+          "p": 300000,
           "inquire": "N"
         },
         {
           "id": "c2",
           "ko": "기업세",
           "en": "Corporate use",
-          "p": 800000,
+          "p": 600000,
           "inquire": "N"
         }
       ]
