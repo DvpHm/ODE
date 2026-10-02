@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-02T15:34:16.444Z",
+  "updated": "2026-10-02T16:03:23.559Z",
   "hero": {
     "badgeKo": "Live2D Illustrator · ODE",
     "badgeEn": "Live2D Illustrator · ODE",
@@ -328,9 +328,9 @@
         },
         {
           "id": "secmrjqr6p7_mrjqrby4",
-          "ko": "릴레 블랑<br><sub>✔️ 전신 분리 O<br>✔️ 상반신 리깅 O</sub>",
+          "ko": "릴레 블랑<br><sub>✔️ 전신 분리 O<br>✔️ 전신 리깅 O</sub>✔️ 저작권 포함</sub>",
           "en": "Relais Blanc<br><sub>✔️ full-body parts separated: yes<br>✔️ upper-body rigging: yes</sub>",
-          "p": 0,
+          "p": 1800000,
           "inquire": "Y"
         },
         {
