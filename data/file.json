@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-02T14:22:18.053Z",
+  "updated": "2026-10-02T16:14:06.536Z",
   "categories": [
     {
       "id": "portfolio",
@@ -91,6 +91,18 @@
       "type": "file",
       "file": "b3.jpg",
       "title": "b3",
+      "title_en": "",
+      "tag": "Live2D",
+      "url": "",
+      "redirect": "",
+      "sub": "",
+      "show": true,
+      "sold": false
+    },
+    {
+      "type": "file",
+      "file": "카시스_포스터.jpg",
+      "title": "카시스_포스터",
       "title_en": "",
       "tag": "Live2D",
       "url": "",
