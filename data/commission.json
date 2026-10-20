@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-18T10:13:15.903Z",
+  "updated": "2026-10-20T03:30:54.386Z",
   "hero": {
     "badgeKo": "Live2D Illustrator · ODE",
     "badgeEn": "Live2D Illustrator · ODE",
@@ -86,14 +86,6 @@
   ],
   "slots": [
     {
-      "ko": "8월",
-      "en": "August",
-      "filled": [
-        true,
-        true
-      ]
-    },
-    {
       "ko": "9월",
       "en": "September",
       "filled": [
@@ -106,15 +98,23 @@
       "en": "October",
       "filled": [
         true,
-        false
+        true
       ]
     },
     {
       "ko": "11월",
       "en": " November",
       "filled": [
-        false,
+        true,
         true
+      ]
+    },
+    {
+      "ko": "12월",
+      "en": "",
+      "filled": [
+        false,
+        false
       ]
     }
   ],
@@ -337,7 +337,7 @@
           "id": "secmrjqr6p7_mrjqrck9",
           "ko": "벨리니<br><sub>✔️전신 분리 O<br>✔️ 전신 리깅 O</sub> ✔️ 저작권 포함</sub>",
           "en": "Bellini<br><sub>✔️ full-body parts separated: yes<br>✔️ rigging: no</sub>",
-          "p": 1800000,
+          "p": 1700000,
           "inquire": "N"
         },
         {
