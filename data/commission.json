@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-16T02:34:47.468Z",
+  "updated": "2026-11-26T04:36:31.927Z",
   "hero": {
     "badgeKo": "Live2D Illustrator · ODE",
     "badgeEn": "Live2D Illustrator · ODE",
@@ -322,12 +322,13 @@
           "id": "secmrjqr6p7_mrjqrby4",
           "ko": "릴레 블랑<br><sub>✔️ 전신 분리 O<br>✔️ 전신 리깅 O</sub> ✔️ 저작권 포함</sub>",
           "en": "Relais Blanc<br><sub>✔️ full-body parts separated: yes<br>✔️ upper-body rigging: yes</sub>",
-          "p": 1800000,
-          "inquire": "N"
+          "p": 0,
+          "inquire": "N",
+          "sold": true
         },
         {
           "id": "secmrjqr6p7_mrjqrck9",
-          "ko": "벨리니<br><sub>✔️전신 분리 O<br>✔️ 전신 리깅 O</sub> ✔️ 저작권 포함</sub>",
+          "ko": "벨리니<br><sub>✔️일러+리깅포함 가격 O<br>✔️ 전신 리깅 O</sub> ✔️ 저작권 포함</sub>",
           "en": "Bellini<br><sub>✔️ full-body parts separated: yes<br>✔️ rigging: no</sub>",
           "p": 1700000,
           "inquire": "N"
