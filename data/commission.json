@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-26T04:36:31.927Z",
+  "updated": "2026-11-26T04:48:30.980Z",
   "hero": {
     "badgeKo": "Live2D Illustrator · ODE",
     "badgeEn": "Live2D Illustrator · ODE",
@@ -140,6 +140,13 @@
       "qEn": "Part Separation",
       "aKo": "Live2D 제작에 필요한 기준으로 분리됩니다. <br>\n리깅 편의를 위한 과도한 추가 분리 요청은 어렵습니다.",
       "aEn": "Parts are separated according to the standards required for Live2D production. <br>\nRequests for excessive additional separation for rigging convenience cannot be accommodated."
+    },
+    {
+      "ico": "✦",
+      "qKo": "예약",
+      "qEn": "",
+      "aKo": "예약은 신청하실 금액의 전체를 입금해주셔야 예약 슬롯으로 확정됩니다\n*노쇼 방지",
+      "aEn": ""
     }
   ],
   "port": [
